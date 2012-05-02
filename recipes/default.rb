@@ -3,6 +3,7 @@
 # Recipe:: default
 #
 # Copyright 2011, Opscode, Inc.
+# Copyright 2012, Philipp Wollermann <wollermann_philipp@cyberagent.co.jp>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,3 +17,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+template "/etc/yum.conf" do
+  owner "root"
+  group "root"
+  mode "0644"
+  source "yum-rhel#{node['platform_version'].to_i}.conf.erb"
+end

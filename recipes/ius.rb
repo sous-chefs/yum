@@ -3,7 +3,8 @@
 # Cookbook Name:: yum
 # Recipe:: ius
 #
-# Copyright:: Copyright (c) 2011 Opscode, Inc.
+# Copyright 2011, Opscode, Inc.
+# Copyright 2012, Philipp Wollermann <wollermann_philipp@cyberagent.co.jp>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,8 +23,14 @@ include_recipe "yum::epel"
 major = node['platform_version'].to_i
 ius   = node['yum']['ius_release']
 
+# If rpm installation from a URL supported 302's, we'd just use that.
+# Instead, we get to remote_file then rpm_package.
+
 remote_file "#{Chef::Config[:file_cache_path]}/ius-release-#{ius}.ius.el#{major}.noarch.rpm" do
-  source "http://dl.iuscommunity.org/pub/ius/stable/Redhat/#{major}/i386/ius-release-#{ius}.ius.el#{major}.noarch.rpm"
+  owner "root"
+  group "root"
+  mode "0644"
+  source "http://dl.iuscommunity.org/pub/ius/stable/Redhat/#{major}/x86_64/ius-release-#{ius}.ius.el#{major}.noarch.rpm"
   not_if "rpm -qa | grep -q '^ius-release-#{ius}'"
   notifies :install, "rpm_package[ius-release]", :immediately
 end

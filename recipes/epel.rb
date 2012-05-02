@@ -3,7 +3,8 @@
 # Cookbook Name:: yum
 # Recipe:: epel
 #
-# Copyright:: Copyright (c) 2011 Opscode, Inc.
+# Copyright 2011, Opscode, Inc.
+# Copyright 2012, Philipp Wollermann <wollermann_philipp@cyberagent.co.jp>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,8 +25,11 @@ epel  = node['yum']['epel_release']
 # Instead, we get to remote_file then rpm_package.
 
 remote_file "#{Chef::Config[:file_cache_path]}/epel-release-#{epel}.noarch.rpm" do
-  source "http://download.fedoraproject.org/pub/epel/#{major}/i386/epel-release-#{epel}.noarch.rpm"
-  not_if "rpm -qa | egrep -qx 'epel-release-#{epel}(|.noarch)'"
+  owner "root"
+  group "root"
+  mode "0644"
+  source "http://download.fedoraproject.org/pub/epel/#{major}/x86_64/epel-release-#{epel}.noarch.rpm"
+  not_if "rpm -qa | grep -q '^epel-release-#{epel}'"
   notifies :install, "rpm_package[epel-release]", :immediately
 end
 
