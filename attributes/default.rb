@@ -1,9 +1,10 @@
 #
 # Cookbook Name:: yum
-# Attributes:: default 
+# Attributes:: default
 #
-# Copyright 2011, Eric G. Wolfe 
+# Copyright 2011, Eric G. Wolfe
 # Copyright 2011, Opscode, Inc.
+# Copyright 2012, Philipp Wollermann <wollermann_philipp@cyberagent.co.jp>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,15 +20,14 @@
 #
 
 # Example: override.yum.exclude = "kernel* compat-glibc*"
-default[:yum][:exclude]
-default[:yum][:installonlypkgs]
-
-default['yum']['epel_release'] = case node['platform_version'].to_i
-                                  when 6
-                                    "6-5"
-                                  when 5
-                                    "5-4"
-                                  when 4
-                                    "4-10"
-                                  end
-default['yum']['ius_release'] = '1.0-8'
+default['yum']['exclude']         = nil
+default['yum']['installonlypkgs'] = nil
+default['yum']['epel_release']    = case node['platform_version'].to_i
+                                     when 6
+                                       "6-5"
+                                     when 5
+                                       "5-4"
+                                     when 4
+                                       "4-10"
+                                     end
+default['yum']['ius_release']     = '1.0-10'
