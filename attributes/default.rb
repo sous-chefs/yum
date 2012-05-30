@@ -19,8 +19,8 @@
 #
 
 # Example: override.yum.exclude = "kernel* compat-glibc*"
-default[:yum][:exclude]
-default[:yum][:installonlypkgs]
+default['yum']['exclude'] = Array.new
+default['yum']['installonlypkgs'] = Array.new
 
 default['yum']['epel_release'] = case node['platform_version'].to_i
                                   when 6
