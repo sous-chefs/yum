@@ -7,7 +7,7 @@ Based on the work done by Eric Wolfe and Charles Duffy on the yumrepo cookbook. 
 
 Requirements
 ============
-RHEL, CentOS or Scientific Linux 5.x or newer. It has not been tested on other platforms or earlier versions. RHEL 6 support is untested (testing and patches are welcome).
+RHEL, CentOS or Scientific Linux 5.x or newer, or Amazon Linux. It has not been tested on other platforms or earlier versions. RHEL 6 support is untested (testing and patches are welcome).
 
 Attributes
 ==========
@@ -29,7 +29,9 @@ Manages the configuration of the `/etc/yum.conf` via attributes.
 epel
 ----
 
-Installs the EPEL repository via RPM. Uses the `node['yum']['epel_release']` attribute to select the right version of the repository package to install. Also uses the node's platform version (as an integer) for the major release of EL.
+On RHEL, CentOS, or Scientific Linux, installs the EPEL repository via RPM. Uses the `node['yum']['epel_release']` attribute to select the right version of the repository package to install. Also uses the node's platform version (as an integer) for the major release of EL.
+
+On Amazon Linux, the built-in EPEL repository is activated using `yum-config-manager --quiet --enable epel`. This ignores the `node['yum']['epel_release']` attribute in favor of the version configured in the Amazon Linux AMI.
 
 ius
 ----
