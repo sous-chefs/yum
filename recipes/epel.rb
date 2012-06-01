@@ -34,6 +34,7 @@ else
     source "http://download.fedoraproject.org/pub/epel/#{major}/i386/epel-release-#{epel}.noarch.rpm"
     not_if "rpm -qa | egrep -qx 'epel-release-#{epel}(|.noarch)'"
     notifies :install, "rpm_package[epel-release]", :immediately
+    retries 5 # We may be redirected to a FTP URL, CHEF-1031.
   end
 
   rpm_package "epel-release" do
