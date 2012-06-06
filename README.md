@@ -92,6 +92,7 @@ This LWRP provides an easy way to manage additional YUM repositories. GPG keys c
 - type: Optional, alternate type of repository
 - failovermethod: Optional, failovermethod
 - bootstrapurl: Optional, bootstrapurl
+- cost: Optional, cost
 
 # Example
 
