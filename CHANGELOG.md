@@ -1,3 +1,13 @@
+## v0.6.0:
+
+* Default action for the yum_repository LWRP is now add.
+* [COOK-1227] - clear Chefs internal cache after adding new yum repo
+* [COOK-1262] - yum::epel should enable existing repo on Amazon Linux
+* [COOK-1272], [COOK-1302] - update RPM file for CentOS / RHEL 6
+* [COOK-1330] - update cookbook documentation on excludes for yum
+* [COOK-1346] - retry remote_file for EPEL in case we get an FTP mirror
+
+
 ## v0.5.2:
 
 * [COOK-825] - epel and ius `remote_file` should notify the `rpm_package` to install
