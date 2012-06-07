@@ -30,6 +30,7 @@ attribute :type, :kind_of => String, :default => nil
 attribute :failovermethod, :kind_of => String, :default => nil
 attribute :bootstrapurl, :kind_of => String, :default => nil
 attribute :make_cache, :kind_of => [TrueClass, FalseClass], :default => true
+attribute :includepkgs, :kind_of => String, :default => nil
 
 def initialize(*args)
   super
