@@ -1,24 +1,16 @@
-# Yum
-
-## Description
+# Description
 
 Configures various YUM components on Red Hat-like systems.  Includes
 LWRP for managing repositories and their GPG keys.
 
-<<<<<<< HEAD
-Requirements
-============
-RHEL, CentOS or Scientific Linux 5.x or newer, or Amazon Linux. It has not been tested on other platforms or earlier versions. RHEL 6 support is untested (testing and patches are welcome).
-=======
 Based on the work done by Eric Wolfe and Charles Duffy on the
 [yumrepo](https://github.com/atomic-penguin/cookbook-yumrepo) cookbook.
->>>>>>> yum.exclude usage and documentation is not clear.
 
-## Requirements
+# Requirements
 
 RedHat Enterprise Linux 5, and 6 distributions within this platform family.
 
-## Attributes
+# Attributes
 
 * `yum['exclude']`
     - An array containing a list of packages to exclude from updates or
@@ -35,36 +27,35 @@ RedHat Enterprise Linux 5, and 6 distributions within this platform family.
     - Defaults to the most current release of EPEL, based on the major
       version of your platform release.
 
-<<<<<<< HEAD
-On RHEL, CentOS, or Scientific Linux, installs the EPEL repository via RPM. Uses the `node['yum']['epel_release']` attribute to select the right version of the repository package to install. Also uses the node's platform version (as an integer) for the major release of EL.
-
-On Amazon Linux, the built-in EPEL repository is activated using `yum-config-manager --quiet --enable epel`. This ignores the `node['yum']['epel_release']` attribute in favor of the version configured in the Amazon Linux AMI.
-=======
 * `yum['ius_release']`
     - Set the IUS release to install.
     - Defaults to the current release of the IUS repo.
->>>>>>> yum.exclude usage and documentation is not clear.
 
-## Recipes
+# Recipes
 
-### default
+## default
 
 The default recipe does nothing.
 
-### yum
+## yum
 
 Manages the configuration of the `/etc/yum.conf` via attributes.  See
 the aforementioned Array attributes `yum['exclude']` and
 `yum['installonlypkgs']`.
 
-### epel
+## epel
 
 Installs the EPEL repository via RPM. Uses the `yum['epel_release']`
 attribute to select the right version of the repository package to
 install. Also uses the node's platform version (as an integer) for the
 major release of EL.
 
-### ius
+On Amazon Linux, the built-in EPEL repository is activated using
+`yum-config-manager --quiet --enable epel`. This ignores the
+`node['yum']['epel_release']` attribute in favor of the version
+configured in the Amazon Linux AMI.
+
+## ius
 
 Installs the [IUS Community repositories](http://iuscommunity.org/Repos)
 via RPM. Uses the `node['yum']['ius_release']` attribute to select the
@@ -73,15 +64,15 @@ right versino of the package to install.
 The IUS repository requires EPEL, and includes `yum::epel` as a
 dependency.
 
-## Resources/Providers
+# Resources/Providers
 
-### key
+## key
 
 This LWRP handles importing GPG keys for YUM repositories. Keys can be
 imported by the `url` parameter or placed in `/etc/pki/rpm-gpg/` by a
 recipe and then installed with the LWRP without passing the URL.
 
-#### Actions
+### Actions
 
 - :add: installs the GPG key into `/etc/pki/rpm-gpg/`
 - :remove: removes the GPG key from `/etc/pki/rpm-gpg/`
@@ -131,7 +122,7 @@ repo is added.
 - failovermethod: Optional, failovermethod
 - bootstrapurl: Optional, bootstrapurl
 
-#### Example
+### Example
 
 ``` ruby
 # add the Zenoss repository
@@ -148,16 +139,19 @@ yum_repository "zenoss" do
 end
 ```
 
-## Usage
+# Usage
 
 Put `recipe[yum::yum]` in the run list to ensure yum is configured
 correctly for your environment within your Chef run.
+
+Use the `yum::epel` recipe to enable EPEL, or the `yum::ius` recipe to
+enable IUS, per __Recipes__ section above.
 
 You can manage GPG keys either with cookbook_file in a recipe if you
 want to package it with a cookbook or use the `url` parameter of the
 `key` LWRP.
 
-## License and Author
+# License and Author
 
 Author:: Eric G. Wolfe
 Author:: Matt Ray (<matt@opscode.com>)
