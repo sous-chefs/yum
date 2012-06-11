@@ -1,4 +1,4 @@
-## v0.6.1:
+## v0.6.2:
 
 * Updated README to remove git diff artifacts.
 
