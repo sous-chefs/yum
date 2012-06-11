@@ -1,3 +1,7 @@
+## v0.6.1:
+
+* Updated README to remove git diff artifacts.
+
 ## v0.6.0:
 
 * Default action for the yum_repository LWRP is now add.

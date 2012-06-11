@@ -2,7 +2,7 @@ maintainer        "Opscode, Inc."
 maintainer_email  "cookbooks@opscode.com"
 license           "Apache 2.0"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "0.6.0"
+version           "0.6.1"
 recipe            "yum", "Empty recipe."
 recipe            "yum::yum", "Manages yum configuration"
 
