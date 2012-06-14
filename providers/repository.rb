@@ -54,6 +54,7 @@ action :add do
                   :enabled => new_resource.enabled,
                   :type => new_resource.type,
                   :failovermethod => new_resource.failovermethod,
+                  :cost => new_resource.cost,
                   :bootstrapurl => new_resource.bootstrapurl
                 })
       notifies :run, resources(:execute => "yum -q makecache"), :immediately

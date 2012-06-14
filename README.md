@@ -121,6 +121,7 @@ repo is added.
 - type: Optional, alternate type of repository
 - failovermethod: Optional, failovermethod
 - bootstrapurl: Optional, bootstrapurl
+- cost: Optional, cost
 
 ### Example
 
