@@ -26,12 +26,17 @@ if platform?("amazon")
 else
   major = node['platform_version'].to_i
   epel  = node['yum']['epel_release']
+  if node[:kernel][:machine] == "i686"
+     rpm_arch = "i386"
+  else
+     rpm_arch = node[:kernel][:machine]
+  end
 
   # If rpm installation from a URL supported 302's, we'd just use that.
   # Instead, we get to remote_file then rpm_package.
 
   remote_file "#{Chef::Config[:file_cache_path]}/epel-release-#{epel}.noarch.rpm" do
-    source "http://download.fedoraproject.org/pub/epel/#{major}/i386/epel-release-#{epel}.noarch.rpm"
+    source "http://download.fedoraproject.org/pub/epel/#{major}/#{rpm_arch}/epel-release-#{epel}.noarch.rpm"
     not_if "rpm -qa | egrep -qx 'epel-release-#{epel}(|.noarch)'"
     notifies :install, "rpm_package[epel-release]", :immediately
     retries 5 # We may be redirected to a FTP URL, CHEF-1031.
