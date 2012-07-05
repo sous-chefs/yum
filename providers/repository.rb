@@ -56,8 +56,10 @@ action :add do
                   :failovermethod => new_resource.failovermethod,
                   :bootstrapurl => new_resource.bootstrapurl
                 })
-      notifies :run, resources(:execute => "yum -q makecache"), :immediately
-      notifies :create, resources(:ruby_block => "reload-internal-yum-cache"), :immediately
+      if new_resource.make_cache
+        notifies :run, resources(:execute => "yum -q makecache"), :immediately
+        notifies :create, resources(:ruby_block => "reload-internal-yum-cache"), :immediately
+      end
     end
   end
 end
