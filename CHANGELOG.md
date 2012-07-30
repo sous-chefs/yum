@@ -1,3 +1,11 @@
+## v0.8.0:
+
+* [COOK-1204] - Make 'add' default action for yum_repository
+* [COOK-1351] - option to not make the yum cache (via attribute)
+* [COOK-1353] - x86_64 centos path fixes
+* [COOK-1414] - recipe for repoforge
+
+
 ## v0.6.2:
 
 * Updated README to remove git diff artifacts.
