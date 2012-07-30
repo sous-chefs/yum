@@ -3,7 +3,7 @@
 # Cookbook Name:: yum
 # Recipe:: repoforge
 #
-# Copyright:: Copyright (c) 2011
+# Copyright:: Copyright (c) 201 Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,10 +21,10 @@ include_recipe "yum::epel"
 
 major = node['platform_version'].to_i
 
-if node[:kernel][:machine] == "i686"
+if node['kernel']['machine'] == "i686"
     arch = "i386"
 else
-    arch = node[:kernel][:machine]
+    arch = node['kernel']['machine']
 end
 
 
