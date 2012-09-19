@@ -1,3 +1,7 @@
+## v0.8.2:
+
+* [COOK-1521] - add :update action to `yum_repository`
+
 ## v0.8.0:
 
 * [COOK-1204] - Make 'add' default action for yum_repository
