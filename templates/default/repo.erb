@@ -5,9 +5,10 @@ name=<%= @description %>
 <% if @type %>
 type=<%= @type %>
 <% end %>
-baseurl=<%= @url %>
 <% if @mirrorlist %>
 mirrorlist=<%= @mirrorlist %>
+<% else %>
+baseurl=<%= @url %>
 <% end %>
 <% if @key %>
 gpgcheck=1
