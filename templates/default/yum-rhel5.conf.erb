@@ -17,6 +17,9 @@ exclude=<%= node['yum']['exclude'].join(" ") %>
 <%- unless node['yum']['installonlypkgs'].empty? %>
 installonlypkgs=<%= node['yum']['installonlypkgs'].join(" ") %>
 <%- end %>
+<%- unless node['yum']['proxy'].empty? %>
+proxy=<%= node['yum']['proxy'] %>
+<%- end %>
 
 # Note: yum-RHN-plugin doesn't honor this.
 metadata_expire=1h
