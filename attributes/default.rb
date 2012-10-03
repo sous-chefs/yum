@@ -32,3 +32,4 @@ default['yum']['epel_release'] = case node['platform_version'].to_i
                                   end
 default['yum']['ius_release'] = '1.0-10'
 default['yum']['repoforge_release'] = '0.5.2-2'
+default['yum']['proxy'] = ''
