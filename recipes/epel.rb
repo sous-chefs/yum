@@ -26,10 +26,10 @@ if platform?("amazon")
 else
   major = node['platform_version'].to_i
   epel  = node['yum']['epel_release']
-  if node[:kernel][:machine] == "i686"
+  if node['kernel']['machine'] == "i686"
      rpm_arch = "i386"
   else
-     rpm_arch = node[:kernel][:machine]
+     rpm_arch = node['kernel']['machine']
   end
 
   # If rpm installation from a URL supported 302's, we'd just use that.
