@@ -1,0 +1,114 @@
+test_recipe_name=nil#
+# Author:: Seth Chisamore (<schisamo@opscode.com>)
+# Copyright:: Copyright (c) 2012 Opscode, Inc.
+# License:: Apache License, Version 2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+require 'test-kitchen'
+
+def recipe_exists?(cookbook_path, recipe_name)
+  File.exists?(File.join(cookbook_path, "#{recipe_name}.rb".split('::').insert(1, 'recipes')))
+end
+
+def build_run_list(cookbook_paths, test_recipe_name)
+  run_list = []
+  if test_recipe_name
+    [test_recipe_name, test_recipe_name.sub('_test', '')].uniq.each do |recipe_name|
+      if cookbook_paths.any? {|path| recipe_exists?(path, recipe_name)}
+        run_list << recipe_name
+      end
+    end
+  end
+  run_list
+end
+
+tk_env = TestKitchen::Environment.new
+tk_env.load!
+tk_config = tk_env.config
+project = tk_env.project
+
+::Vagrant::Config.run do |vagrant_config|
+
+  tk_env.platforms.values.each do |platform|
+
+    platform.versions.values.each do |version|
+
+      name = "#{platform.name}-#{version.name}"
+
+      vagrant_config.vm.define name do |vm_config|
+
+        host_name = name.gsub(/\./, '-')
+
+        vm_config.vm.customize [
+          "modifyvm", :id,
+           "--name", host_name,
+          "--memory", (project.memory || "256"),
+          "--cpus", "1",
+          "--nictype1", "82545EM",
+          "--nictype2", "82545EM",
+	        "--audio", "none",
+          "--natdnsproxy1", "on",
+          "--usb", "off",
+          "--usbehci", "off"
+        ]
+
+        # Enable the host IO cache on the sata controller. Note that
+        # if this fails then its not a big deal, so we don't raise any
+        # errors. The Host IO cache vastly improves disk IO performance
+        # for VMs.
+        vm_config.vm.customize [
+          "storagectl", :id,
+          "--name", "SATA Controller",
+          "--hostiocache", "on"
+        ]
+
+        vm_config.vm.host_name = host_name
+        vm_config.vm.box = version.box
+        vm_config.vm.box_url = version.box_url
+
+        # Enable SSH agent forwarding for git clones
+        vm_config.ssh.forward_agent = true
+
+        # mount the local code checkout up in the VM for testing
+        vm_config.vm.share_folder "project", project.guest_source_root, project.root_path
+
+        # default chef attribute json
+        chef_json = {
+            'test-kitchen' => {
+              'project' => project.to_hash.merge(
+                'source_root' => project.guest_source_root,
+                'test_root' => project.guest_test_root
+              )
+            },
+          }
+
+        vm_config.vm.provision :chef_solo do |chef|
+          chef.cookbooks_path = tk_env.cookbook_paths
+
+          if project.data_bags_path && File.exists?(project.data_bags_path)
+            chef.data_bags_path = project.data_bags_path
+          end
+
+          chef.run_list = project.run_list + build_run_list(tk_env.cookbook_paths, test_recipe_name)
+          chef.json = chef_json
+          chef.log_level = :debug
+        end
+
+      end
+
+    end
+  end
+
+end
