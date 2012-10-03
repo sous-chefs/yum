@@ -36,7 +36,7 @@ else
   # Instead, we get to remote_file then rpm_package.
 
   remote_file "#{Chef::Config[:file_cache_path]}/epel-release-#{epel}.noarch.rpm" do
-    source "http://download.fedoraproject.org/pub/epel/#{major}/#{rpm_arch}/epel-release-#{epel}.noarch.rpm"
+    source "http://dl.fedoraproject.org/pub/epel/#{major}/#{rpm_arch}/epel-release-#{epel}.noarch.rpm"
     not_if "rpm -qa | egrep -qx 'epel-release-#{epel}(|.noarch)'"
     notifies :install, "rpm_package[epel-release]", :immediately
     retries 5 # We may be redirected to a FTP URL, CHEF-1031.
