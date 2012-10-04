@@ -122,20 +122,28 @@ repo is added.
 
 - :add: creates a repository file and builds the repository listing (default)
 - :remove: removes the repository file
+- :update: updates the repository
 
 #### Attribute Parameters
 
 - repo_name: name attribute. The name of the channel to discover
 - description. The description of the repository
-- url: The URL providing the packages
-- mirrorlist: Default is `false`,  if `true` the `url` is considered a list of mirrors
-- key: Optional, the name of the GPG key file installed by the `key` LWRP.
-
+- url: The URL providing the packages, used for baseurl in the config
+- mirrorlist: Set this as a string containing the URI to the
+  mirrorlist, start with "http://", "ftp://", "file://"; use "file://"
+  if the mirrorlist is a text file on the system.
+- key: Optional, the name of the GPG key file installed by the `key`
+  LWRP.
 - enabled: Default is `1`, set to `0` if the repository is disabled.
 - type: Optional, alternate type of repository
 - failovermethod: Optional, failovermethod
 - bootstrapurl: Optional, bootstrapurl
-- make_cache: Optional, Default is `true`, if `false` then `yum -q makecache` will not be ran
+- make_cache: Optional, Default is `true`, if `false` then `yum -q
+  makecache` will not be ran
+
+*Note*: When using both url (to set baseurl) and mirrorlist, it is probably a
+good idea to also install the fastestmirror plugin, and use
+failovermethod "priority".
 
 ### Example
 

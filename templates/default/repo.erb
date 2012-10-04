@@ -5,7 +5,9 @@ name=<%= @description %>
 <% if @type %>
 type=<%= @type %>
 <% end %>
+<% unless @url.empty? -%>
 baseurl=<%= @url %>
+<% end -%>
 <% if @mirrorlist %>
 mirrorlist=<%= @mirrorlist %>
 <% end %>
