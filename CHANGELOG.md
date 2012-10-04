@@ -1,3 +1,13 @@
+## v1.0.0:
+
+`mirrorlist` in the `yum_repository` LWRP must be set to the mirror
+list URI to use rather than setting it to true. See README.md.
+
+* [COOK-1088] - use dl.fedoraproject.org for EPEL to prevent redirects
+* [COOK-1653] - fix mirrorlist
+* [COOK-1710] - support http proxy
+* [COOK-1722] - update IUS version
+
 ## v0.8.2:
 
 * [COOK-1521] - add :update action to `yum_repository`
