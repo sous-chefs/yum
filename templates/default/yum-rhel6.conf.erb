@@ -16,6 +16,11 @@ exclude=<%= node['yum']['exclude'].join(" ") %>
 <%- unless node['yum']['installonlypkgs'].empty? %>
 installonlypkgs=<%= node['yum']['installonlypkgs'].join(" ") %>
 <%- end %>
+<%- unless node['yum']['proxy'].empty? %>
+proxy=<%= node['yum']['proxy'] %>
+proxy_username=<%= node['yum']['proxy_username'] %>
+proxy_password=<%= node['yum']['proxy_password'] %>
+<%- end %>
 
 #  This is the default, if you make this bigger yum won't see if the metadata
 # is newer on the remote and so you'll "gain" the bandwidth of not having to

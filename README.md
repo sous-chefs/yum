@@ -31,6 +31,20 @@ RedHat Enterprise Linux 5, and 6 distributions within this platform family.
     - Set the IUS release to install.
     - Defaults to the current release of the IUS repo.
 
+Proxy settings used in yum.conf on RHEL family 5 and 6:
+
+* `yum['proxy']`
+    - Set the URL for an HTTP proxy
+    - None of the proxy settings are used if this is an empty string (default)
+
+* `yum['proxy_username']`
+    - Set the username for the proxy
+    - not used if `yum['proxy']` above is an empty string
+
+* `yum['proxy_password']`
+    - Set the password for the proxy
+    - not used if `yum['proxy']` above is an empty string
+
 # Recipes
 
 ## default
