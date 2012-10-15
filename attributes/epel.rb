@@ -1,11 +1,9 @@
 #
-# Author:: Joshua Timberman (<joshua@opscode.com>)
-# Cookbook Name:: yum
-# Recipe:: epel
+# Cookbook Name:: yumrepo
+# Attributes:: epel 
 #
-# Copyright:: Copyright (c) 2011 Opscode, Inc.
-# Copyright 2010, Eric G. Wolfe
-# Copyright 2010, Tippr Inc.
+# Copyright 2011, Eric G. Wolfe 
+# Copyright 2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,16 +16,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-yum_key node['repo']['epel']['key'] do
-  url  node['repo']['epel']['key_url']
-  action :add
-end
+default['yum']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-#{node['platform_version'].to_i}&arch=$basearch"
 
-yum_repository "epel" do
-  description "Extra Packages for Enterprise Linux"
-  key node['repo']['epel']['key']
-  url node['repo']['epel']['url']
-  mirrorlist true
-  action :add
+if node['platform_version'].to_i >= 6
+  set['yum']['epel']['key'] = "RPM-GPG-KEY-EPEL-6"
+else
+  set['yum']['epel']['key'] = "RPM-GPG-KEY-EPEL"
 end
+default['yum']['epel']['key_url'] = "http://download.fedoraproject.org/pub/epel/#{node['yum']['epel']['key']}"
