@@ -18,6 +18,10 @@
 # limitations under the License.
 #
 
+def whyrun_supported?
+  true
+end
+
 action :add do
   unless ::File.exists?("/etc/pki/rpm-gpg/#{new_resource.key}")
     Chef::Log.info "Adding #{new_resource.key} GPG key to /etc/pki/rpm-gpg/"
