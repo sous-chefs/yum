@@ -21,6 +21,10 @@
 # note that deletion does not remove GPG keys, either from the repo or
 # /etc/pki/rpm-gpg; this is a design decision.
 
+def whyrun_supported?
+  true
+end
+
 action :add do
   unless ::File.exists?("/etc/yum.repos.d/#{new_resource.repo_name}.repo")
     Chef::Log.info "Adding #{new_resource.repo_name} repository to /etc/yum.repos.d/#{new_resource.repo_name}.repo"
