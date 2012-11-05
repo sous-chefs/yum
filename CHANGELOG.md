@@ -1,3 +1,7 @@
+## COOK-1772
+
+* [COOK-1772] - Simplify management of EPEL with LWRP
+
 ## v1.0.0:
 
 `mirrorlist` in the `yum_repository` LWRP must be set to the mirror
