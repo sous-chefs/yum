@@ -8,7 +8,8 @@ Based on the work done by Eric Wolfe and Charles Duffy on the
 
 # Requirements
 
-RedHat Enterprise Linux 5, and 6 distributions within this platform family.
+Red Hat Enterprise Linux 5, and 6 distributions within this platform
+family.
 
 # Attributes
 
@@ -22,20 +23,35 @@ RedHat Enterprise Linux 5, and 6 distributions within this platform family.
       installed, never updated.
     - Defaults to an empty install-only list.
 
-* `yum['epel_release']`
-    - Set the epel release version based on `node['platform_version']`.
-    - Defaults to the most current release of EPEL, based on the major
-      version of your platform release.
-
 * `yum['ius_release']`
     - Set the IUS release to install.
     - Defaults to the current release of the IUS repo.
+
+* `yum['repoforge_release']`
+    - Set the repoforge release to install.
+    - Defaults to the current release of the repoforge repo.
+
+EPEL attributes used in the `yum::epel` recipe, see
+`attributes/epel.rb` for default values:
+
+* `yum['epel']['key']`
+    - Name of the GPG key used for the repo.
+
+* `yum['epel']['url']`
+    - URL to the EPEL mirrorlist.
+
+* `yum['epel']['key_url']`
+    - URL to the GPG key for the repo.
+
+The `node['yum']['epel_release']` attribute is removed, see the __epel__
+recipe information below.
 
 Proxy settings used in yum.conf on RHEL family 5 and 6:
 
 * `yum['proxy']`
     - Set the URL for an HTTP proxy
-    - None of the proxy settings are used if this is an empty string (default)
+    - None of the proxy settings are used if this is an empty string
+      (default)
 
 * `yum['proxy_username']`
     - Set the username for the proxy
@@ -59,15 +75,24 @@ the aforementioned Array attributes `yum['exclude']` and
 
 ## epel
 
-Installs the EPEL repository via RPM. Uses the `yum['epel_release']`
-attribute to select the right version of the repository package to
-install. Also uses the node's platform version (as an integer) for the
-major release of EL.
+Uses the `yum_key` and `yum_repository` resources from this cookbook
+are used to manage the main EPEL repository. If you need other EPEL
+repositories (source, debug-info), use the `yum_repository` LWRP in
+your own cookbook where those packages are required. The recipe will
+use the `yum['epel']` attributes (see above) to configure the key, url
+and download the GPG key for the repo. The defaults are detected by
+platform and version and should just work without modification in most
+use cases.
 
-On Amazon Linux, the built-in EPEL repository is activated using
-`yum-config-manager --quiet --enable epel`. This ignores the
-`node['yum']['epel_release']` attribute in favor of the version
-configured in the Amazon Linux AMI.
+On all platforms except Amazon, the action is to add the repository.
+On Amazon, the action is add and update.
+
+Amazon Linux has the EPEL repositories already added in the AMI. In
+previous versions of this cookbook, they were enabled with
+`yum-config-manager`, however in the current version, we manage the
+repository using the LWRP. The main difference is that the source and
+debuginfo repositories are not available, but if they're needed, add
+them using the `yum_repository` LWRP in your own cookbook(s).
 
 ## ius
 
@@ -176,13 +201,13 @@ want to package it with a cookbook or use the `url` parameter of the
 
 # License and Author
 
-Author:: Eric G. Wolfe
-Author:: Matt Ray (<matt@opscode.com>)
-Author:: Joshua Timberman (<joshua@opscode.com>)
+- Author:: Eric G. Wolfe
+- Author:: Matt Ray (<matt@opscode.com>)
+- Author:: Joshua Timberman (<joshua@opscode.com>)
 
-Copyright:: 2010 Tippr Inc.
-Copyright:: 2011 Eric G. Wolfe
-Copyright:: 2011 Opscode, Inc.
+- Copyright:: 2010 Tippr Inc.
+- Copyright:: 2011 Eric G. Wolfe
+- Copyright:: 2011-2012 Opscode, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
