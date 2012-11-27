@@ -1,3 +1,7 @@
+## v2.0.2:
+
+* [COOK-1758] - Add default action for repository resource
+
 ## v2.0.0:
 
 This version changes the behavior of the EPEL recipe (most commonly
