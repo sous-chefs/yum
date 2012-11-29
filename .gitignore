@@ -1,1 +1,5 @@
 *.sw[op]
+.bundle
+.cache
+.kitchen
+bin
