@@ -22,9 +22,9 @@ include_recipe "yum::epel"
 major = node['platform_version'].to_i
 
 if node['kernel']['machine'] == "i686" && major == 5
-    arch = "i386"
+  arch = "i386"
 else
-    arch = node['kernel']['machine']
+  arch = node['kernel']['machine']
 end
 
 
