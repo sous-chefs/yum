@@ -136,14 +136,14 @@ yum_key "RPM-GPG-KEY-zenoss" do
 end
 ```
 
-### repository
+## repository
 
 This LWRP provides an easy way to manage additional YUM repositories.
 GPG keys can be managed with the `key` LWRP.  The LWRP automatically
 updates the package management cache upon the first run, when a new
 repo is added.
 
-#### Actions
+### Actions
 
 - :add: creates a repository file and builds the repository listing (default)
 - :remove: removes the repository file
@@ -170,7 +170,7 @@ repo is added.
 good idea to also install the fastestmirror plugin, and use
 failovermethod "priority".
 
-### Example
+#### Example
 
 ``` ruby
 # add the Zenoss repository
