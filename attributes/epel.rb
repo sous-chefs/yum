@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: yumrepo
+# Cookbook Name:: yum
 # Attributes:: epel
 #
 # Copyright 2011, Eric G. Wolfe

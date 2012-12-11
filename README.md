@@ -28,7 +28,7 @@ family.
     - Defaults to the current release of the IUS repo.
 
 * `yum['repoforge_release']`
-    - Set the repoforge release to install.
+    - Set the RepoForge release to install.
     - Defaults to the current release of the repoforge repo.
 
 EPEL attributes used in the `yum::epel` recipe, see
@@ -98,7 +98,7 @@ them using the `yum_repository` LWRP in your own cookbook(s).
 
 Installs the [IUS Community repositories](http://iuscommunity.org/Repos)
 via RPM. Uses the `node['yum']['ius_release']` attribute to select the
-right versino of the package to install.
+right version of the package to install.
 
 The IUS repository requires EPEL, and includes `yum::epel` as a
 dependency.
