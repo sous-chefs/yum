@@ -46,6 +46,18 @@ EPEL attributes used in the `yum::epel` recipe, see
 The `node['yum']['epel_release']` attribute is removed, see the __epel__
 recipe information below.
 
+remi attributes used in the `yum::remi` recipe, see
+`attributes/remi.rb` for default values:
+
+* `yum['remi']['key']`
+    - Name of the GPG key used for the repo.
+
+* `yum['remi']['url']`
+    - URL to the remi mirrorlist.
+
+* `yum['remi']['key_url']`
+    - URL to the GPG key for the repo.
+
 Proxy settings used in yum.conf on RHEL family 5 and 6:
 
 * `yum['proxy']`
@@ -111,6 +123,15 @@ right version of the package to install.
 
 The RepoForge repository requires EPEL, and includes `yum::epel` as a
 dependency.
+
+## remi
+
+Install the [Les RPM de Remi - Repository](http://rpms.famillecollet.com/)
+with the `yum_key` and `yum_repository` resources from this cookbook
+are used to manage the remi repository.  Use the `yum['remi']`
+attributes (see above) to configure the key, url and download the GPG
+key for the repo. The defaults are detected by platform and should
+just work without modification in most use cases.
 
 # Resources/Providers
 
@@ -204,8 +225,13 @@ Put `recipe[yum::yum]` in the run list to ensure yum is configured
 correctly for your environment within your Chef run.
 
 Use the `yum::epel` recipe to enable EPEL, or the `yum::ius` recipe to
+<<<<<<< HEAD
 enable IUS, or the `yum::repoforge` recipe to enable RepoForge, per
 __Recipes__ section above.
+=======
+enable IUS, or the `yum::remi` recipe to enable remi, per __Recipes__
+section above.
+>>>>>>> [COOK-2045] Add remi repo
 
 You can manage GPG keys either with cookbook_file in a recipe if you
 want to package it with a cookbook or use the `url` parameter of the
