@@ -1,3 +1,7 @@
+## v2.0.4:
+
+* [COOK-1908] - unable to install repoforge on CentOS 6 32 bit
+
 ## v2.0.2:
 
 * [COOK-1758] - Add default action for repository resource
