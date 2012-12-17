@@ -1,3 +1,8 @@
+## v2.0.6:
+
+* [COOK-2037] - minor style fixes
+* [COOK-2038] - updated README
+
 ## v2.0.4:
 
 * [COOK-1908] - unable to install repoforge on CentOS 6 32 bit
