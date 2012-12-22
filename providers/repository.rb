@@ -26,12 +26,28 @@ def whyrun_supported?
 end
 
 action :add do
-  unless ::File.exists?("/etc/yum.repos.d/#{new_resource.repo_name}.repo")
-    Chef::Log.info "Adding #{new_resource.repo_name} repository to /etc/yum.repos.d/#{new_resource.repo_name}.repo"
-    repo_config
+  if new_resource.rpm_url == nil then
+    unless ::File.exists?("/etc/yum.repos.d/#{new_resource.repo_name}.repo")
+      Chef::Log.info "Adding #{new_resource.repo_name} repository to /etc/yum.repos.d/#{new_resource.repo_name}.repo"
+      repo_config
+    end
+  else
+    repo_rpm_install
   end
 end
 
+# Removing RPM-based repositories is not trivial:
+# - We don't know the package name
+# - Other packages may depend on this (generally a problem)
+# - Even if there is an RPM for this repo, the actual repository
+#   may have been created from a template.
+#   Example: epel may initially have been created by a template,
+#   and then the remi repository may have installed epel-release
+#   from RPM as a dependency. In that case, removing the RPM would
+#   not remove the .repo file
+#
+# For these reasons, we always remove the repo file and leave the RPM
+# installed.
 action :remove do
   if ::File.exists?("/etc/yum.repos.d/#{new_resource.repo_name}.repo")
     Chef::Log.info "Removing #{new_resource.repo_name} repository from /etc/yum.repos.d/"
@@ -113,3 +129,25 @@ def repo_config
     end
   end
 end
+
+def repo_rpm_install
+  # install the repo from the given RPM
+
+  remote_file "#{Chef::Config[:file_cache_path]}/#{new_resource.repo_package_name}.rpm" do
+    source new_resource.rpm_url
+    not_if "rpm -qa | grep -q '^#{new_resource.repo_package_name}'"
+    notifies :install, "rpm_package[#{new_resource.repo_package_name}]", :immediately
+  end
+
+  rpm_package "#{new_resource.repo_package_name}" do
+    source "#{Chef::Config[:file_cache_path]}/#{new_resource.repo_package_name}.rpm"
+    only_if { ::File.exists?("#{Chef::Config[:file_cache_path]}/#{new_resource.repo_package_name}.rpm") }
+    action :install
+  end
+
+  file "#{new_resource.repo_package_name}-cleanup" do
+    path "#{Chef::Config[:file_cache_path]}/#{new_resource.repo_package_name}.rpm"
+    action :delete
+  end
+end
+

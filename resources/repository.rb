@@ -22,6 +22,8 @@ actions :add, :remove, :update
 #name of the repo, used for .repo filename
 attribute :repo_name, :kind_of => String, :name_attribute => true
 attribute :description, :kind_of => String #long description
+attribute :rpm_url, :kind_of => String # the URL where the RPM can be found
+attribute :repo_package_name, :kind_of => String # the package name for the rpm. Must be provided for rpmurl
 attribute :url, :kind_of => String, :default => ""
 attribute :mirrorlist, :default => false
 attribute :key, :kind_of => String, :default => nil
