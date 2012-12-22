@@ -31,6 +31,11 @@ family.
     - Set the repoforge release to install.
     - Defaults to the current release of the repoforge repo.
 
+* `yum['prefer_rpm_repos']`
+    - Determines whether repos should be installed from template
+      or from RPM, if we have the data for both.
+    - Currently only affects EPEL
+
 EPEL attributes used in the `yum::epel` recipe, see
 `attributes/epel.rb` for default values:
 
@@ -42,6 +47,12 @@ EPEL attributes used in the `yum::epel` recipe, see
 
 * `yum['epel']['key_url']`
     - URL to the GPG key for the repo.
+
+* `yum['epel']['rpm']`
+    - URL to the RPM for this repo
+
+* `yum['epel']['rpm_package_name']`
+    - the name of the RPM package for this repo (i.e., 'epel-release')
 
 The `node['yum']['epel_release']` attribute is removed, see the __epel__
 recipe information below.
@@ -93,6 +104,12 @@ previous versions of this cookbook, they were enabled with
 repository using the LWRP. The main difference is that the source and
 debuginfo repositories are not available, but if they're needed, add
 them using the `yum_repository` LWRP in your own cookbook(s).
+
+Alternatively, if you prefer to install the EPEL repo from the official
+RPMs, you can set the attribute yum['prefer_rpm_repos'] to true.
+
+This will include the epel-debuginfo and epel-sources repos, and also
+automatically update the repository configuration with any updates.
 
 ## ius
 
@@ -165,6 +182,12 @@ repo is added.
 - bootstrapurl: Optional, bootstrapurl
 - make_cache: Optional, Default is `true`, if `false` then `yum -q
   makecache` will not be ran
+- rpm_url: the URL where the repository RPM can be downloaded. In that case,
+  you must also specify rpm_package_name. If you specify rpm_url, the url,
+  mirrorlist and key attributes are ignored
+- rpm_package_name: the name of the RPM. Usually, it is the repository
+  name with the -release appended. For instance, epel-release for the epel
+  repository.
 
 *Note*: When using both url (to set baseurl) and mirrorlist, it is probably a
 good idea to also install the fastestmirror plugin, and use
@@ -195,6 +218,9 @@ correctly for your environment within your Chef run.
 
 Use the `yum::epel` recipe to enable EPEL, or the `yum::ius` recipe to
 enable IUS, per __Recipes__ section above.
+
+Set the yum['prefer_rpm_repos'] attribute to true if you prefer to
+install repos from their official RPMs instead of from chef templates.
 
 You can manage GPG keys either with cookbook_file in a recipe if you
 want to package it with a cookbook or use the `url` parameter of the
