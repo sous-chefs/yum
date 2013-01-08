@@ -28,7 +28,7 @@ family.
     - Defaults to the current release of the IUS repo.
 
 * `yum['repoforge_release']`
-    - Set the repoforge release to install.
+    - Set the RepoForge release to install.
     - Defaults to the current release of the repoforge repo.
 
 EPEL attributes used in the `yum::epel` recipe, see
@@ -98,9 +98,18 @@ them using the `yum_repository` LWRP in your own cookbook(s).
 
 Installs the [IUS Community repositories](http://iuscommunity.org/Repos)
 via RPM. Uses the `node['yum']['ius_release']` attribute to select the
-right versino of the package to install.
+right version of the package to install.
 
 The IUS repository requires EPEL, and includes `yum::epel` as a
+dependency.
+
+## repoforge
+
+Installs the [RepoForge repositories](http://repoforge.org/)
+via RPM. Uses the `node['yum']['repoforge_release']` attribute to select the
+right version of the package to install.
+
+The RepoForge repository requires EPEL, and includes `yum::epel` as a
 dependency.
 
 # Resources/Providers
@@ -194,7 +203,8 @@ Put `recipe[yum::yum]` in the run list to ensure yum is configured
 correctly for your environment within your Chef run.
 
 Use the `yum::epel` recipe to enable EPEL, or the `yum::ius` recipe to
-enable IUS, per __Recipes__ section above.
+enable IUS, or the `yum::repoforge` recipe to enable RepoForge, per
+__Recipes__ section above.
 
 You can manage GPG keys either with cookbook_file in a recipe if you
 want to package it with a cookbook or use the `url` parameter of the
