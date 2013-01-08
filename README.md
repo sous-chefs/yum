@@ -225,13 +225,8 @@ Put `recipe[yum::yum]` in the run list to ensure yum is configured
 correctly for your environment within your Chef run.
 
 Use the `yum::epel` recipe to enable EPEL, or the `yum::ius` recipe to
-<<<<<<< HEAD
-enable IUS, or the `yum::repoforge` recipe to enable RepoForge, per
-__Recipes__ section above.
-=======
-enable IUS, or the `yum::remi` recipe to enable remi, per __Recipes__
-section above.
->>>>>>> [COOK-2045] Add remi repo
+enable IUS, or the `yum::repoforge` recipe to enable RepoForge, or the
+`yum::remi` recipe to enable remi per __Recipes__ section above.
 
 You can manage GPG keys either with cookbook_file in a recipe if you
 want to package it with a cookbook or use the `url` parameter of the
