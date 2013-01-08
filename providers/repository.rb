@@ -32,6 +32,11 @@ action :add do
   end
 end
 
+action :create do
+  Chef::Log.info "Adding and updating #{new_resource.repo_name} repository in /etc/yum.repos.d/#{new_resource.repo_name}.repo"
+  repo_config
+end
+
 action :remove do
   if ::File.exists?("/etc/yum.repos.d/#{new_resource.repo_name}.repo")
     Chef::Log.info "Removing #{new_resource.repo_name} repository from /etc/yum.repos.d/"

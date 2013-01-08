@@ -154,7 +154,8 @@ repo is added.
 
 #### Actions
 
-- :add: creates a repository file and builds the repository listing (default)
+- :create: creates a repository file and builds the repository listing
+- :add: runs create action if repository file is missing (default)
 - :remove: removes the repository file
 - :update: updates the repository
 
