@@ -1,12 +1,13 @@
 #
-# Author: Joshua Timberman <joshua@opscode.com>
-# Copyright (c) 2012, Opscode, Inc. <legal@opscode.com>
+# Cookbook Name:: yum_test
+#
+# Copyright 2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#    http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,11 +16,16 @@
 # limitations under the License.
 #
 
-cookbook "yum" do
-  configuration "epel"
-  configuration "ius"
-  configuration "repoforge"
-  configuration "yum"
-  configuration "remi"
-  configuration "cook-2121"
+require File.expand_path('../support/helpers', __FILE__)
+
+describe "yum_test::default" do
+  include Helpers::YumTest
+
+  it 'doesnt update the zenos-add.repo file if it exists' do
+    assert File.zero?('/etc/yum.repos.d/zenoss-add.repo')
+  end
+
+  it 'updates the zenoss-create file' do
+    file('/etc/yum.repos.d/zenoss-create.repo').must_match %r[baseurl=http://dev.zenoss.com/yum/stable/]
+  end
 end
