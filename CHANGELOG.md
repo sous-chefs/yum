@@ -1,3 +1,8 @@
+## v2.1.0:
+
+* [COOK-2045] - add remi repository recipe
+* [COOK-2121] - add `:create` action to `yum_repository`
+
 ## v2.0.6:
 
 * [COOK-2037] - minor style fixes
