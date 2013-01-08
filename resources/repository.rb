@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-actions :add, :remove, :update
+actions :add, :remove, :update, :create
 
 #name of the repo, used for .repo filename
 attribute :repo_name, :kind_of => String, :name_attribute => true
