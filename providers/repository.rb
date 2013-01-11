@@ -110,7 +110,8 @@ def repo_config
                 :type => new_resource.type,
                 :failovermethod => new_resource.failovermethod,
                 :bootstrapurl => new_resource.bootstrapurl,
-                :includepkgs => new_resource.includepkgs
+                :includepkgs => new_resource.includepkgs,
+                :exclude => new_resource.exclude
               })
     if new_resource.make_cache
       notifies :run, resources(:execute => "yum -q makecache"), :immediately
