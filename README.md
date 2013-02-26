@@ -31,6 +31,10 @@ family.
     - Set the RepoForge release to install.
     - Defaults to the current release of the repoforge repo.
 
+* `yum['webtatic_release']`
+    - Set the Webtatic release to install.
+    - Defaults to the current release of the webtatic repo.
+
 EPEL attributes used in the `yum::epel` recipe, see
 `attributes/epel.rb` for default values:
 
