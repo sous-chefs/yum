@@ -19,6 +19,7 @@ cookbook "yum" do
   configuration "epel"
   configuration "ius"
   configuration "repoforge"
+  configuration "webtatic"
   configuration "yum"
   configuration "remi"
   configuration "cook-2121"

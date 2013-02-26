@@ -23,6 +23,7 @@ default['yum']['exclude'] = Array.new
 default['yum']['installonlypkgs'] = Array.new
 default['yum']['ius_release'] = '1.0-10'
 default['yum']['repoforge_release'] = '0.5.2-2'
+default['yum']['webtatic_release'] = '2'
 default['yum']['proxy'] = ''
 default['yum']['proxy_username'] = ''
 default['yum']['proxy_password'] = ''
