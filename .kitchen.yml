@@ -16,23 +16,23 @@ platforms:
 suites:
 - name: epel
   run_list:
-  - recipe[yum::epel]
+  - recipe[yum_test::epel]
   attributes: {}
 - name: ius
   run_list:
-  - recipe[yum::ius]
+  - recipe[yum_test::ius]
   attributes: {}
 - name: repoforge
   run_list:
-  - recipe[yum::repoforge]
+  - recipe[yum_test::repoforge]
   attributes: {}
 - name: yum
   run_list:
-  - recipe[yum::yum]
+  - recipe[yum_test::yum]
   attributes: {}
 - name: remi
   run_list:
-  - recipe[yum::remi]
+  - recipe[yum_test::remi]
   attributes: {}
 - name: cook-2121
   run_list:
