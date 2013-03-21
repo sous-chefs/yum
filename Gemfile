@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'foodcritic'
-gem 'berkshelf'
+gem 'berkshelf', '= 1.2.1'
 gem 'thor-foodcritic'
 gem 'vagrant', '~> 1.0.6'
 
