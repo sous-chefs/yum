@@ -57,11 +57,12 @@ action :add do
     end
 
     #download the file if necessary
-    remote_file "/etc/pki/rpm-gpg/#{new_resource.key}" do
-      source new_resource.url
-      mode "0644"
-      notifies :run, "execute[import-rpm-gpg-key-#{new_resource.key}]", :immediately
-      not_if { new_resource.url.nil? }
+    unless new_resource.url.nil?
+      remote_file "/etc/pki/rpm-gpg/#{new_resource.key}" do
+        source new_resource.url
+        mode "0644"
+        notifies :run, "execute[import-rpm-gpg-key-#{new_resource.key}]", :immediately
+      end
     end
 
   end
