@@ -37,6 +37,9 @@ EPEL attributes used in the `yum::epel` recipe, see
 * `yum['epel']['key']`
     - Name of the GPG key used for the repo.
 
+* `yum['epel']['baseurl']`
+    - Base URL to an EPEL mirror.
+
 * `yum['epel']['url']`
     - URL to the EPEL mirrorlist.
 
