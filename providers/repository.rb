@@ -115,6 +115,7 @@ def repo_config
                 :exclude => new_resource.exclude,
                 :priority => new_resource.priority,
                 :metadata_expire => new_resource.metadata_expire
+                :type => new_resource.metadata_type
               })
     if new_resource.make_cache
       notifies :run, "execute[yum-makecache]", :immediately
