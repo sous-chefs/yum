@@ -19,5 +19,5 @@
 #
 
 default['yum']['internal']['key'] = "RPM-GPG-KEY-EPEL-6"
-default['yum']['internal']['key_url'] = "http://33.33.33.10/centos/6.3/os/x86_64/RPM-GPG-KEY-CentOS-6"
-default['yum']['internal']['url'] = "http://33.33.33.10/centos/6.3/os/x86_64/"
+default['yum']['internal']['key_url'] = "http://your_yum_repo_here/centos/6.3/os/x86_64/RPM-GPG-KEY-CentOS-6"
+default['yum']['internal']['url'] = "http://your_yum_repo_here/centos/6.3/os/x86_64/"
