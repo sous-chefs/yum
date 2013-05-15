@@ -1,5 +1,6 @@
 #
-# Cookbook Name:: yum_test
+# Cookbook Name:: yum
+# Recipe:: default
 #
 # Copyright 2013, Opscode, Inc.
 #
@@ -18,14 +19,10 @@
 
 require File.expand_path('../support/helpers', __FILE__)
 
-describe "yum_test::default" do
+describe "yum::default" do
   include Helpers::YumTest
 
-  it 'doesnt update the zenos-add.repo file if it exists' do
-    assert File.zero?('/etc/yum.repos.d/zenoss-add.repo')
-  end
-
-  it 'updates the zenoss-create file' do
-    file('/etc/yum.repos.d/zenoss-create.repo').must_match %r[baseurl=http://dev.zenoss.com/yum/stable/]
+  it "Default recipe does nothing, so default_test does nothing" do
+  	pending
   end
 end
