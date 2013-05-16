@@ -1,14 +1,15 @@
 #
-# Cookbook Name:: yum_test
-# Recipe:: cook-2121
+# Cookbook:: yum
+# Recipe:: test
 #
-# Copyright 2013, Opscode, Inc.
+# Author:: Joshua Timberman <joshua@opscode.com>
+# Copyright:: Copyright (c) 2013, Opscode, Inc <legal@opscode.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#    http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,6 +17,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+include_recipe "yum::epel"
+include_recipe "yum::elrepo"
+include_recipe "yum::ius"
+include_recipe "yum::repoforge"
+include_recipe "yum::yum"
+include_recipe "yum::remi"
 
 %w{add create}.each do |act|
   file "/etc/yum.repos.d/zenoss-#{act}.repo" do

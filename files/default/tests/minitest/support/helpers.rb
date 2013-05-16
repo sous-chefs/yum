@@ -19,9 +19,19 @@
 
 module Helpers
   module YumTest
+    require 'chef/mixin/shell_out'
+    include Chef::Mixin::ShellOut
     include MiniTest::Chef::Assertions
     include MiniTest::Chef::Context
     include MiniTest::Chef::Resources
 
+    # This isn't the most efficient thing in the world, but it works
+    # reliably as yum will only return the repos that are actually
+    # enabled. It would probably be more efficient, since we're at the
+    # end of the successful run, to cache the output to a file and
+    # inspect its contents.
+    def repo_enabled(repo)
+      shell_out("yum repolist enabled --verbose | grep Repo-id").stdout.include?(repo)
+    end
   end
 end
