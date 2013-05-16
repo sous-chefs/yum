@@ -1,3 +1,16 @@
+## v2.2.2:
+
+### Improvement
+
+- [COOK-2741]: yum::elrepo
+- [COOK-2946]: update tests, test kitchen support in yum cookbook
+
+### Bug
+
+- [COOK-2639]: Yum cookbook - epel - always assumes url is a mirror list
+- [COOK-2663]: Yum should allow metadata_expire setting in repo file
+- [COOK-2751]: Update yum.ius_release version to 1.0-11
+
 ## v2.2.0:
 
 * [COOK-2189] - yum::ius failed on install (caused from rpm dependency)
