@@ -51,10 +51,9 @@ describe "yum::test" do
     it "enables the repoforge repository" do
       assert(repo_enabled("rpmforge"))
     end
-	end
+  end
 
   describe "cook-2121" do
-
     it 'doesnt update the zenos-add.repo file if it exists' do
       assert File.zero?('/etc/yum.repos.d/zenoss-add.repo')
     end
