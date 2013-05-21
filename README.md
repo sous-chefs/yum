@@ -116,12 +116,13 @@ repo is added.
 - url: The URL providing the packages
 - mirrorlist: Default is `false`,  if `true` the `url` is considered a list of mirrors
 - key: Optional, the name of the GPG key file installed by the `key` LWRP.
-
 - enabled: Default is `1`, set to `0` if the repository is disabled.
 - type: Optional, alternate type of repository
 - failovermethod: Optional, failovermethod
 - bootstrapurl: Optional, bootstrapurl
 - make_cache: Optional, Default is `true`, if `false` then `yum -q makecache` will not be ran
+- includepkgs: Optional, opposite of exclude directive, see `yum.conf(5)`
+- proxy: Optional, HTTP proxy to use for this repository (most commonly set to `\_none\_` to make use of an internal repository without hitting a proxy first)
 
 ### Example
 
