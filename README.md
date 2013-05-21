@@ -150,7 +150,7 @@ just work without modification in most use cases.
 
 # Resources/Providers
 
-## key
+## yum_key
 
 This LWRP handles importing GPG keys for YUM repositories. Keys can be
 imported by the `url` parameter or placed in `/etc/pki/rpm-gpg/` by a
@@ -181,10 +181,10 @@ yum_key "RPM-GPG-KEY-zenoss" do
 end
 ```
 
-### repository
+### yum_repository
 
 This LWRP provides an easy way to manage additional YUM repositories.
-GPG keys can be managed with the `key` LWRP.  The LWRP automatically
+GPG keys can be managed with the `yum_key` LWRP.  The LWRP automatically
 updates the package management cache upon the first run, when a new
 repo is added.
 
