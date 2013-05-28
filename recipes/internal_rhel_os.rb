@@ -1,7 +1,7 @@
 #
 # Author:: Sean OMeara (<someara@opscode.com>)
 # Cookbook Name:: yum
-# Recipe:: internal
+# Recipe:: internal_rhel_os
 #
 # Copyright:: Copyright (c) 2013 Opscode, Inc.
 
@@ -36,14 +36,14 @@ end
 
 ##
 
-yum_key node['yum']['internal']['key'] do
-  url  node['yum']['internal']['key_url']
+yum_key node['yum']['internal_rhel_os']['key'] do
+  url  node['yum']['internal_rhel_os']['key_url']
   action :add
 end
 
-yum_repository "internal" do
+yum_repository "internal_rhel_os" do
   description "Local yum mirror of Enterprise Linux"
-  url node['yum']['internal']['url']
-  key node['yum']['internal']['key']
+  url node['yum']['internal_rhel_os']['url']
+  key node['yum']['internal_rhel_os']['key']
 end
 
