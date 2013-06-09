@@ -31,5 +31,5 @@ yum_repository "epel" do
   mirrorlist node['yum']['epel']['url']
   includepkgs node['yum']['epel']['includepkgs']
   exclude node['yum']['epel']['exclude']
-  action platform?('amazon') ? [:add, :update] : :create
+  action platform?('amazon') ? [:add, :update] : :add
 end
