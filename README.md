@@ -211,6 +211,8 @@ repo is added.
 - bootstrapurl: Optional, bootstrapurl
 - make_cache: Optional, Default is `true`, if `false` then `yum -q
   makecache` will not be ran
+- metadata_expire: Optional, Default is nil (or not applied)
+- type: Optional, Default is nil (or not applied)
 
 *Note*: When using both url (to set baseurl) and mirrorlist, it is probably a
 good idea to also install the fastestmirror plugin, and use
