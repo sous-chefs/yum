@@ -1,3 +1,9 @@
+## v2.3.0:
+
+### New Feature
+
+- [COOK-2924]: Yum should allow type setting in repo file
+
 ## v2.2.4:
 
 ### Bug
