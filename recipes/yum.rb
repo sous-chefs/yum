@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: yum
-# Recipe:: yum 
+# Recipe:: yum
 #
 # Copyright 2011, Eric G. Wolfe
 # Copyright 2011, Opscode, Inc.
@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+platform = platform?("amazon") ? "amazon" : "rhel#{node['platform_version'].to_i}"
+
 template "/etc/yum.conf" do
-  source "yum-rhel#{node['platform_version'].to_i}.conf.erb"
+  source "yum-#{platform}.conf.erb"
 end
