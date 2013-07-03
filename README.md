@@ -73,6 +73,24 @@ remi attributes used in the `yum::remi` recipe, see
 * `yum['remi']['exclude']`
     - list of packages you do NOT want to use for the repo.
 
+atomic attributes used in the `yum::atomic` recipe, see
+`attributes/atomic.rb` for default values:
+
+* `yum['atomic']['key']`
+    - Name of the GPG key used for the repo.
+
+* `yum['atomic']['url']`
+    - URL to the atomic mirrorlist.
+
+* `yum['atomic']['key_url']`
+    - URL to the GPG key for the repo.
+
+* `yum['atomic']['includepkgs']`
+    - list of packages you want to use for the repo.
+
+* `yum['atomic']['exclude']`
+    - list of packages you do NOT want to use for the repo.
+
 Proxy settings used in yum.conf on RHEL family 5 and 6:
 
 * `yum['proxy']`
@@ -144,6 +162,15 @@ dependency.
 Install the [Les RPM de Remi - Repository](http://rpms.famillecollet.com/)
 with the `yum_key` and `yum_repository` resources from this cookbook
 are used to manage the remi repository.  Use the `yum['remi']`
+attributes (see above) to configure the key, url and download the GPG
+key for the repo. The defaults are detected by platform and should
+just work without modification in most use cases.
+
+## atomic
+
+Install the [Atomic Repository](http://www.atomicorp.com/)
+with the `yum_key` and `yum_repository` resources from this cookbook
+are used to manage the atomic repository.  Use the `yum['atomic']`
 attributes (see above) to configure the key, url and download the GPG
 key for the repo. The defaults are detected by platform and should
 just work without modification in most use cases.
@@ -251,6 +278,7 @@ want to package it with a cookbook or use the `url` parameter of the
 
 # License and Author
 
+- Author:: Panagiotis Papadomitsos (<pj@ezgr.net>)
 - Author:: Eric G. Wolfe
 - Author:: Matt Ray (<matt@opscode.com>)
 - Author:: Joshua Timberman (<joshua@opscode.com>)
