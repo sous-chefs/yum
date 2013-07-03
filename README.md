@@ -209,10 +209,13 @@ repo is added.
 - type: Optional, alternate type of repository
 - failovermethod: Optional, failovermethod
 - bootstrapurl: Optional, bootstrapurl
+<<<<<<< HEAD
 - make_cache: Optional, Default is `true`, if `false` then `yum -q
   makecache` will not be ran
 - metadata_expire: Optional, Default is nil (or not applied)
 - type: Optional, Default is nil (or not applied)
+- includepkgs: Optional, opposite of exclude directive, see `yum.conf(5)`
+- proxy: Optional, HTTP proxy to use for this repository (most commonly set to `\_none\_` to make use of an internal repository without hitting a proxy first)
 
 *Note*: When using both url (to set baseurl) and mirrorlist, it is probably a
 good idea to also install the fastestmirror plugin, and use

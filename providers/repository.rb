@@ -116,6 +116,7 @@ def repo_config
                 :priority => new_resource.priority,
                 :metadata_expire => new_resource.metadata_expire,
                 :type => new_resource.type
+                :proxy => new_resource.proxy
               })
     if new_resource.make_cache
       notifies :run, "execute[yum-makecache]", :immediately
