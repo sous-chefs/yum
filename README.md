@@ -209,7 +209,6 @@ repo is added.
 - type: Optional, alternate type of repository
 - failovermethod: Optional, failovermethod
 - bootstrapurl: Optional, bootstrapurl
-<<<<<<< HEAD
 - make_cache: Optional, Default is `true`, if `false` then `yum -q
   makecache` will not be ran
 - metadata_expire: Optional, Default is nil (or not applied)

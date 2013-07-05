@@ -115,7 +115,7 @@ def repo_config
                 :exclude => new_resource.exclude,
                 :priority => new_resource.priority,
                 :metadata_expire => new_resource.metadata_expire,
-                :type => new_resource.type
+                :type => new_resource.type,
                 :proxy => new_resource.proxy
               })
     if new_resource.make_cache
