@@ -23,6 +23,19 @@ when "amazon"
   default['yum']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch"
   default['yum']['epel']['baseurl'] = ""
   default['yum']['epel']['key'] = "RPM-GPG-KEY-EPEL-6"
+when "fedora"
+  default['yum']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-#{node['platform_version'].to_i}&arch=$basearch"
+  default['yum']['epel']['baseurl'] = ""
+
+  if node['platform_version'].to_i = 19
+    default['yum']['epel']['key'] = "RPM-GPG-KEY-fedora-19-primary"
+    default['yum']['epel']['key_url'] = "https://fedoraproject.org/static/FB4B18E6.txt"
+  elsif node['platform_version'].to_i = 18
+    default['yum']['epel']['key'] = "RPM-GPG-KEY-fedora-18-primary"
+    default['yum']['epel']['key_url'] = "https://fedoraproject.org/static/DE7F38BD.txt"
+  else
+    default['yum']['epel']['key'] = ""
+  end
 else
   default['yum']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-#{node['platform_version'].to_i}&arch=$basearch"
   default['yum']['epel']['baseurl'] = ""
@@ -34,6 +47,6 @@ else
   end
 end
 
-default['yum']['epel']['key_url'] = "http://dl.fedoraproject.org/pub/epel/#{node['yum']['epel']['key']}"
+default['yum']['epel']['key_url'] = "http://dl.fedoraproject.org/pub/epel/#{node['yum']['epel']['key']}" if default['yum']['epel']['key_url'].nil? || default['yum']['epel']['key_url'].empty?
 default['yum']['epel']['includepkgs'] = nil
 default['yum']['epel']['exclude'] = nil
