@@ -18,29 +18,31 @@
 # limitations under the License.
 #
 
+platform_version_int = node['platform_version'].to_i
+
 case node['platform']
 when "amazon"
   default['yum']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch"
   default['yum']['epel']['baseurl'] = ""
   default['yum']['epel']['key'] = "RPM-GPG-KEY-EPEL-6"
 when "fedora"
-  default['yum']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-#{node['platform_version'].to_i}&arch=$basearch"
+  default['yum']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-#{platform_version_int}&arch=$basearch"
   default['yum']['epel']['baseurl'] = ""
 
-  if node['platform_version'].to_i = 19
+  if platform_version_int == 19
     default['yum']['epel']['key'] = "RPM-GPG-KEY-fedora-19-primary"
     default['yum']['epel']['key_url'] = "https://fedoraproject.org/static/FB4B18E6.txt"
-  elsif node['platform_version'].to_i = 18
+  elsif platform_version_int == 18
     default['yum']['epel']['key'] = "RPM-GPG-KEY-fedora-18-primary"
     default['yum']['epel']['key_url'] = "https://fedoraproject.org/static/DE7F38BD.txt"
   else
     default['yum']['epel']['key'] = ""
   end
 else
-  default['yum']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-#{node['platform_version'].to_i}&arch=$basearch"
+  default['yum']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-#{platform_version_int}&arch=$basearch"
   default['yum']['epel']['baseurl'] = ""
 
-  if node['platform_version'].to_i >= 6
+  if platform_version_int >= 6
     default['yum']['epel']['key'] = "RPM-GPG-KEY-EPEL-6"
   else
     default['yum']['epel']['key'] = "RPM-GPG-KEY-EPEL"
