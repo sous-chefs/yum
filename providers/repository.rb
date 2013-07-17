@@ -86,9 +86,9 @@ def repo_config
       key new_resource.key
     end
   end
-  #get the metadata
+  #get the metadata for this repo only
   execute "yum-makecache-#{new_resource.repo_name}" do
-    command "yum -q makecache"
+    command "yum -q makecache --disablerepo=* --enablerepo=#{new_resource.repo_name}"
     action :nothing
   end
   #reload internal Chef yum cache
