@@ -14,6 +14,18 @@ platforms:
     box: opscode-centos-5.9
     box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_centos-5.9_provisionerless.box
 
+- name: fedora-18
+  driver_config:
+    box: opscode-fedora-18
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode-fedora-18_provisionerless.box
+    require_chef_omnibus: true
+
+- name: fedora-19
+  driver_config:
+    box: opscode-fedora-19
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode-fedora-19_provisionerless.box
+    require_chef_omnibus: true
+
 suites:
 - name: test
   run_list:

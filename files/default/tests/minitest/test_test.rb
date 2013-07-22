@@ -25,7 +25,12 @@ describe "yum::test" do
 
   describe "elrepo" do
     it "enables the elrepo repository" do
-      assert(repo_enabled("elrepo"))
+      case node[:platform]
+        when 'fedora'
+          file('/etc/yum.repos.d/elrepo.repo').wont_exist
+        else
+          assert(repo_enabled("elrepo"))
+        end
     end
   end
 
