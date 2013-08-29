@@ -3,6 +3,11 @@ yum Cookbook CHANGELOG
 This file is used to list changes made in each version of the yum cookbook.
 
 
+v2.3.2
+------
+### Bug
+- **[COOK-3145](https://tickets.opscode.com/browse/COOK-3145)** - Use correct download URL for epel `key_url`
+
 v2.3.0
 ------
 ### New Feature
