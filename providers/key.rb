@@ -27,9 +27,15 @@ action :add do
     Chef::Log.info "Adding #{new_resource.key} GPG key to /etc/pki/rpm-gpg/"
 
     if node['platform_version'].to_i <= 5
-      package "gnupg"
+      package_name = "gnupg"
     elsif node['platform_version'].to_i >= 6
-      package "gnupg2"
+      package_name = "gnupg2"
+    end
+
+    begin
+      resource_collection.find(:package => package_name)
+    rescue Chef::Exceptions::ResourceNotFound
+      package package_name
     end
 
     execute "import-rpm-gpg-key-#{new_resource.key}" do
