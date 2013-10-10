@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+platform = platform?("amazon") ? "amazon" : "rhel#{node['platform_version'].to_i}"
+
 template "/etc/yum.conf" do
-  source "yum-rhel#{node['platform_version'].to_i}.conf.erb"
+  source "yum-#{platform}.conf.erb"
 end
