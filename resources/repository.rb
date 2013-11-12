@@ -20,6 +20,24 @@
 
 actions :add, :remove, :update, :create
 
+state_attrs :bootstrapurl,
+            :description,
+            :enabled,
+            :exclude,
+            :failovermethod,
+            :includepkgs,
+            :key,
+            :make_cache,
+            :metadata_expire,
+            :mirrorlist,
+            :priority,
+            :proxy,
+            :proxy_username,
+            :repo_name,
+            :type,
+            :type,
+            :url
+
 # name of the repo, used for .repo filename
 attribute :repo_name, kind_of: String, name_attribute: true
 attribute :description, kind_of: String # long description
