@@ -3,8 +3,8 @@
 # Cookbook Name:: yum
 # Provider:: repository
 #
-# Copyright 2010, Tippr Inc.
-# Copyright 2011, Opscode, Inc..
+# Author:: Sean OMeara <someara@opscode.com>
+# Copyright 2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,113 +19,68 @@
 # limitations under the License.
 #
 
-# note that deletion does not remove GPG keys, either from the repo or
-# /etc/pki/rpm-gpg; this is a design decision.
-
-def whyrun_supported?
-  true
-end
-
-action :add do
-  unless ::File.exists?("/etc/yum.repos.d/#{new_resource.repo_name}.repo")
-    Chef::Log.info "Adding #{new_resource.repo_name} repository to /etc/yum.repos.d/#{new_resource.repo_name}.repo"
-    repo_config
-  end
-end
+use_inline_resources
 
 action :create do
-  Chef::Log.info "Adding and updating #{new_resource.repo_name} repository in /etc/yum.repos.d/#{new_resource.repo_name}.repo"
-  repo_config
-end
 
-action :remove do
-  if ::File.exists?("/etc/yum.repos.d/#{new_resource.repo_name}.repo")
-    Chef::Log.info "Removing #{new_resource.repo_name} repository from /etc/yum.repos.d/"
-    file "/etc/yum.repos.d/#{new_resource.repo_name}.repo" do
-      action :delete
-    end
-    new_resource.updated_by_last_action(true)
+  template "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
+    source 'repo.erb'
+    cookbook 'yum'
+    mode '0644'
+    variables(
+      :baseurl => new_resource.baseurl,
+      :cost => new_resource.cost,
+      :description => new_resource.description,
+      :enabled => new_resource.enabled,
+      :enablegroups => new_resource.enablegroups,
+      :exclude => new_resource.exclude,
+      :failovermethod => new_resource.failovermethod,
+      :fastestmirror_enabled => new_resource.fastestmirror_enabled,
+      :gpgcheck => new_resource.gpgcheck,
+      :gpgkey => new_resource.gpgkey,
+      :http_caching => new_resource.http_caching,
+      :include_config => new_resource.include_config,
+      :includepkgs => new_resource.includepkgs,
+      :keepalive => new_resource.keepalive,
+      :max_retries => new_resource.max_retries,
+      :metadata_expire => new_resource.metadata_expire,
+      :mirrorexpire => new_resource.mirrorexpire,
+      :mirrorlist => new_resource.mirrorlist,
+      :mirror_expire => new_resource.mirror_expire,
+      :mirrorlist_expire => new_resource.mirrorlist_expire,
+      :priority => new_resource.priority,
+      :proxy => new_resource.proxy,
+      :proxy_username => new_resource.proxy_username,
+      :proxy_password => new_resource.proxy_password,
+      :report_instanceid => new_resource.report_instanceid,
+      :repositoryid => new_resource.repositoryid,
+      :sslcacert => new_resource.sslcacert,
+      :sslclientcert => new_resource.sslclientcert,
+      :sslclientkey => new_resource.sslclientkey,
+      :sslverify => new_resource.sslverify,
+      :timeout => new_resource.timeout
+      )
+    notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately
+    notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
   end
-end
 
-action :update do
-  repos ||= {}
-  # If the repo is already enabled/disabled as per the resource, we don't want to converge the template resource.
-  if ::File.exists?("/etc/yum.repos.d/#{new_resource.repo_name}.repo")
-    ::File.open("/etc/yum.repos.d/#{new_resource.repo_name}.repo") do |file|
-      repo_name ||= nil
-      file.each_line do |line|
-        case line
-        when /^\[(\S+)\]/
-          repo_name = Regexp.last_match[1]
-          repos[repo_name] ||= {}
-        when /^(\S+?)=(.*)$/
-          param, value = Regexp.last_match[1], Regexp.last_match[2]
-          repos[repo_name][param] = value
-        else
-        end
-      end
-    end
-  else
-    Chef::Log.error "Repo /etc/yum.repos.d/#{new_resource.repo_name}.repo does not exist, you must create it first"
-  end
-  if !repos.key?(new_resource.repo_name) || repos[new_resource.repo_name]['enabled'].to_i != new_resource.enabled
-    Chef::Log.info "Updating #{new_resource.repo_name} repository in /etc/yum.repos.d/#{new_resource.repo_name}.repo (setting enabled=#{new_resource.enabled})"
-    repo_config
-  else
-    Chef::Log.debug "Repository /etc/yum.repos.d/#{new_resource.repo_name}.repo is already set to enabled=#{new_resource.enabled}, skipping"
-  end
-end
-
-private
-
-def repo_config
-  # import the gpg key. If it needs to be downloaded or imported from a cookbook
-  # that can be done in the calling recipe
-  if new_resource.key then
-    yum_key "#{new_resource.repo_name}-key" do
-      key new_resource.key
-    end
-  end
   # get the metadata for this repo only
-  execute "yum-makecache-#{new_resource.repo_name}" do
-    command "yum -q makecache --disablerepo=* --enablerepo=#{new_resource.repo_name}"
+  execute "yum-makecache-#{new_resource.repositoryid}" do
+    command "yum -q makecache --disablerepo=* --enablerepo=#{new_resource.repositoryid}"
     action :nothing
   end
+
   # reload internal Chef yum cache
-  ruby_block "reload-internal-yum-cache-for-#{new_resource.repo_name}" do
+  ruby_block "yum-cache-reload-#{new_resource.repositoryid}" do
     block do
       Chef::Provider::Package::Yum::YumCache.instance.reload
     end
     action :nothing
   end
-  # write out the file
-  template "/etc/yum.repos.d/#{new_resource.repo_name}.repo" do
-    cookbook 'yum'
-    source 'repo.erb'
-    mode '0644'
-    variables(
-      repo_name: new_resource.repo_name,
-      description: new_resource.description,
-      url: new_resource.url,
-      mirrorlist: new_resource.mirrorlist,
-      key: new_resource.key,
-      enabled: new_resource.enabled,
-      type: new_resource.type,
-      failovermethod: new_resource.failovermethod,
-      bootstrapurl: new_resource.bootstrapurl,
-      includepkgs: new_resource.includepkgs,
-      exclude: new_resource.exclude,
-      priority: new_resource.priority,
-      metadata_expire: new_resource.metadata_expire,
-      type: new_resource.type,
-      proxy: new_resource.proxy,
-      proxy_username: new_resource.proxy_username,
-      proxy_password: new_resource.proxy_password
-      )
-    if new_resource.make_cache
-      notifies :run, "execute[yum-makecache-#{new_resource.repo_name}]", :immediately
-      notifies :create, "ruby_block[reload-internal-yum-cache-for-#{new_resource.repo_name}]", :immediately
-    end
+end
+
+action :delete do
+  file "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
+    action :delete
   end
 end

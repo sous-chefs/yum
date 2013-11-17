@@ -132,10 +132,10 @@ wiki page.
 
 ## Functional and Unit Tests
 
-This cookbook is set up to run tests under
-[Opscode's test-kitchen](https://github.com/opscode/test-kitchen). It
-uses minitest-chef to run integration tests after the node has been
-converged to verify that the state of the node.
+<!-- This cookbook is set up to run tests under -->
+<!-- [Opscode's test-kitchen](https://github.com/opscode/test-kitchen). It -->
+<!-- uses minitest-chef to run integration tests after the node has been -->
+<!-- converged to verify that the state of the node. -->
 
 Test kitchen should run completely without exception using the default
 [baseboxes provided by Opscode](https://github.com/opscode/bento).
