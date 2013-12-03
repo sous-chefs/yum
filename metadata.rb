@@ -14,26 +14,26 @@ recipe            'yum::yum', 'Manages yum configuration'
 end
 
 attribute 'yum/exclude',
-  display_name: 'yum.conf exclude',
-  description: 'List of packages to exclude from updates or installs. This should be an array.  Shell globs using wildcards (eg. * and ?) are allowed.',
-  required: 'optional'
+          :display_name => 'yum.conf exclude',
+          :description => 'List of packages to exclude from updates or installs. This should be an array.  Shell globs using wildcards (eg. * and ?) are allowed.',
+          :required => 'optional'
 
 attribute 'yum/installonlypkgs',
-  display_name: 'yum.conf installonlypkgs',
-  description: 'List of packages that should only ever be installed, never updated. Kernels in particular fall into this category. Defaults to kernel, kernel-smp, kernel-bigmem, kernel-enterprise, kernel-debug, kernel-unsupported.',
-  required: 'optional'
+          :display_name => 'yum.conf installonlypkgs',
+          :description => 'List of packages that should only ever be installed, never updated. Kernels in particular fall into this category. Defaults to kernel, kernel-smp, kernel-bigmem, kernel-enterprise, kernel-debug, kernel-unsupported.',
+          :required => 'optional'
 
 attribute 'yum/proxy',
-  display_name: 'yum.conf proxy',
-  description: 'Set the http URL for proxy to use in yum.conf',
-  required: 'optional'
+          :display_name => 'yum.conf proxy',
+          :description => 'Set the http URL for proxy to use in yum.conf',
+          :required => 'optional'
 
 attribute 'yum/proxy_username',
-  display_name: 'yum.conf proxy_username',
-  description: 'Set the proxy_username to use for yum.conf',
-  required: 'optional'
+          :display_name => 'yum.conf proxy_username',
+          :description => 'Set the proxy_username to use for yum.conf',
+          :required => 'optional'
 
 attribute 'yum/proxy_password',
-  display_name: 'yum.conf proxy_password',
-  description: 'Set the proxy_password to use for yum.conf',
-  required: 'optional'
+          :display_name => 'yum.conf proxy_password',
+          :description => 'Set the proxy_password to use for yum.conf',
+          :required => 'optional'
