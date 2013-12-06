@@ -167,6 +167,8 @@ the following cookbook.
 * yum-elrepo
 * yum-repoforge
 * yum-ius
+* yum-percona
+* yum-pgdg
 
 Usage
 -----
