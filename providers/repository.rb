@@ -21,7 +21,7 @@
 
 use_inline_resources
 
-action :create do
+action :create  do
 
   template "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
     source 'repo.erb'
@@ -84,3 +84,6 @@ action :delete do
     action :delete
   end
 end
+
+alias_method :action_add, :action_create
+alias_method :action_remove, :action_delete

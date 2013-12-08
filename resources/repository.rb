@@ -19,7 +19,9 @@
 # limitations under the License.
 #
 
-actions :create, :delete
+actions :create, :delete, :add, :remove
+
+default_action :create
 
 # http://linux.die.net/man/5/yum.conf
 attribute :baseurl, :kind_of => String, :regex => /.*/ , :default => nil
@@ -54,7 +56,5 @@ attribute :sslclientkey, :kind_of => String, :regex => /.*/, :default => nil
 attribute :sslverify, :kind_of => [TrueClass, FalseClass], :default => true
 attribute :timeout, :kind_of => String, :regex => /^\d+$/, :default => nil
 
-def initialize(*args)
-  super
-  @action = :create
-end
+alias_method :url, :baseurl
+alias_method :keyurl, :gpgkey

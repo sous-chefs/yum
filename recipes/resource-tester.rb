@@ -62,3 +62,32 @@ yum_repository 'test2' do
   timeout '10'
   action :create
 end
+
+# create alias 'add'
+yum_repository 'test3' do
+  description 'an test'
+  baseurl 'http://drop.the.baseurl.biz'
+  action :add
+end
+
+# delete alias 'remove'
+yum_repository 'test4' do
+  description 'an test'
+  baseurl 'http://drop.the.baseurl.biz'
+  action :remove
+end
+
+# base alias 'url'
+yum_repository 'test5' do
+  description 'an test'
+  url 'http://drop.the.baseurl.biz'
+  action :create
+end
+
+# gpgkey alias 'keyurl'
+yum_repository 'test6' do
+  description 'an test'
+  url 'http://drop.the.baseurl.biz'
+  keyurl 'http://example.com/RPM-GPG-KEY-FOOBAR-1'
+  action :create
+end
