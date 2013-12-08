@@ -81,7 +81,6 @@ sslverify=1
 '
   end
 
-  
   # The simplest case
   it 'creates yum_repository[test1]' do
     expect(chef_run).to create_yum_repository('test1')
@@ -94,7 +93,7 @@ sslverify=1
   it 'steps into yum_repository and creates template[/etc/yum.repos.d/test1.repo]' do
     expect(chef_run).to render_file('/etc/yum.repos.d/test1.repo').with_content(test1_content)
   end
-  
+
   # Full blown parameterization. Exercercises the
   # recipe->resource->provider->template chain
   it 'creates yum_repository[test2]' do
@@ -104,7 +103,7 @@ sslverify=1
   it 'steps into yum_repository and creates template[/etc/yum.repos.d/unit-test-2.repo]' do
     expect(chef_run).to render_file('/etc/yum.repos.d/unit-test-2.repo').with_content(test2_content)
   end
-  
+
   # create alias 'add'
   it 'adds yum_repository[test3]' do
     expect(chef_run).to add_yum_repository('test3')
@@ -132,5 +131,5 @@ sslverify=1
   it 'steps into yum_repository and creates template[/etc/yum.repos.d/test6.repo]' do
     expect(chef_run).to render_file('/etc/yum.repos.d/test6.repo').with_content(test6_content)
   end
-  
+
 end
