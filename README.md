@@ -51,6 +51,20 @@ EPEL attributes used in the `yum::epel` recipe, see `attributes/epel.rb` for def
 
 The `node['yum']['epel_release']` attribute is removed, see the __epel__ recipe information below.
 
+epel-testing attributes used in the `yum::epel-testing` recipe, see `attributes/epel-testing.rb` for default values:
+
+* `yum['epel-testing']['baseurl']`
+    - Base URL to an epel-testing mirror.
+
+* `yum['epel-testing']['url']`
+    - URL to the epel-testing mirrorlist.
+
+* `yum['epel-testing']['includepkgs']`
+    - list of packages you want to use for the repo.
+
+* `yum['epel-testing']['exclude']`
+    - list of packages you do NOT want to use for the repo.
+
 remi attributes used in the `yum::remi` recipe, see `attributes/remi.rb` for default values:
 
 * `yum['remi']['key']`
@@ -98,6 +112,9 @@ Uses the `yum_key` and `yum_repository` resources from this cookbook are used to
 On all platforms except Amazon, the action is to add the repository. On Amazon, the action is add and update.
 
 Amazon Linux has the EPEL repositories already added in the AMI. In previous versions of this cookbook, they were enabled with `yum-config-manager`, however in the current version, we manage the repository using the LWRP. The main difference is that the source and debuginfo repositories are not available, but if they're needed, add them using the `yum_repository` LWRP in your own cookbook(s).
+
+### epel-testing
+Includes the `epel` recipe above, but also configures and enables the EPEL testing (epel-testing) repository. This repository is used for package testing before inclusion in stable EPEL repository. Use the `node['yum']['epel-testing']` attributes to control URL/package bahavior and `node['yum']['epel']` attributes to control GPG key behavior.
 
 ### ius
 Installs the [IUS Community repositories](http://iuscommunity.org/Repos) via RPM. Uses the `node['yum']['ius_release']` attribute to select the right version of the package to install.
