@@ -3,7 +3,7 @@
 # Provider:: repository
 #
 # Author:: Sean OMeara <someara@getchef.com>
-# Copyright 2013, Chef, Inc.
+# Copyright 2013, Chef
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
