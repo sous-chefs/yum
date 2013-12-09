@@ -125,7 +125,7 @@ yum_globalconfig '/tmp/yum-full.conf' do
   debuglevel '5'
   diskspacecheck true
   distroverpkg 'fedora-release'
-  enable_group_conditionals false
+  enable_group_conditionals true
   errorlevel '5'
   exactarch true
   exclude 'kernel emacs-nox'

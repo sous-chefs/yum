@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'yum::resource-tester' do
   let(:chef_run) do
     ChefSpec::Runner.new(
-      :step_into => %w{ yum_repository, yum_globalconfig }
+      :step_into => %w{ yum_repository yum_globalconfig }
       ).converge(described_recipe)
   end
 
@@ -89,7 +89,6 @@ sslverify=1
     '[main]
 cachefir=/var/cache/yum/$basearch/$releasever
 debuglevel=2
-enable_group_conditionals=0
 exactarch=1
 gpgcheck=0
 installonly_limit=3
@@ -124,7 +123,7 @@ commands=--installroot=root=/over/there
 debuglevel=5
 diskspacecheck=true
 distroverpkg=fedora-release
-enable_group_conditionals=0
+enable_group_conditionals=1
 errorlevel=5
 exactarch=1
 exclude=kernel emacs-nox
