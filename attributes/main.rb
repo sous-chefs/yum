@@ -45,7 +45,6 @@ default['yum']['main']['http_caching'] = nil # %w{ packages all none }
 default['yum']['main']['installonly_limit'] = nil # /\d+/, /keep/
 default['yum']['main']['installonlypkgs'] = nil # /.*/
 default['yum']['main']['installroot'] = nil # /.*/
-
 default['yum']['main']['keepalive'] = nil # [TrueClass, FalseClass]
 default['yum']['main']['keepcache'] = false # [TrueClass, FalseClass]
 default['yum']['main']['kernelpkgnames'] = nil # /.*/
@@ -59,7 +58,8 @@ default['yum']['main']['multilib_policy'] = nil # %w{ all best }
 default['yum']['main']['obsoletes'] = nil  # [TrueClass, FalseClass]
 default['yum']['main']['overwrite_groups'] = nil # [TrueClass, FalseClass]
 default['yum']['main']['password'] = nil #  /.*/
-default['yum']['main']['persistdir'] = '/var/lib/yum'
+default['yum']['main']['path'] = '/etc/yum.conf' #  /.*/
+default['yum']['main']['persistdir'] = nil # /.*/
 default['yum']['main']['pluginconfpath'] = nil #  /.*/
 default['yum']['main']['pluginpath'] = nil #  /.*/
 default['yum']['main']['plugins'] = nil # [TrueClass, FalseClass]

@@ -91,3 +91,95 @@ yum_repository 'test6' do
   keyurl 'http://example.com/RPM-GPG-KEY-FOOBAR-1'
   action :create
 end
+
+########
+
+# default configuration
+yum_globalconfig '/tmp/yum.conf' do
+  action :create
+end
+
+# Full blown parameterization. Exercercises the
+# recipe->resource->provider->template chain
+yum_globalconfig '/tmp/yum-full.conf' do
+  alwaysprompt true
+  assumeyes true
+  bandwidth '40'
+  bugtracker_url 'http://somewhere.eltz.biz'
+  clean_requirements_on_remove true
+  cachedir '/path/to/somewhere/good'
+  color 'always'
+  color_list_available_downgrade 'fg:green'
+  color_list_available_install 'fg:green'
+  color_list_available_reinstall 'fg:green'
+  color_list_available_upgrade 'fg:green'
+  color_list_installed_extra 'fg:green'
+  color_list_installed_newer 'fg:green'
+  color_list_installed_older 'fg:green'
+  color_list_installed_reinstall 'fg:green'
+  color_search_match 'bold'
+  color_update_installed 'fg:blue'
+  color_update_local 'fg:blue'
+  color_update_remote 'fg:blue'
+  commands '--installroot=root=/over/there'
+  debuglevel '5'
+  diskspacecheck true
+  distroverpkg 'fedora-release'
+  enable_group_conditionals false
+  errorlevel '5'
+  exactarch true
+  exclude 'kernel emacs-nox'
+  gpgcheck true
+  group_package_types 'default mandatory'
+  groupremove_leaf_only false
+  history_list_view 'commands'
+  history_record ''
+  history_record_packages ''
+  http_caching ''
+  installonly_limit ''
+  installonlypkgs ''
+  installroot ''
+  keepalive ''
+  keepcache ''
+  kernelpkgnames ''
+  localpkg_gpgcheck ''
+  logfile ''
+  max_retries ''
+  mdpolicy ''
+  metadata_expire ''
+  mirrorlist_expire ''
+  multilib_policy ''
+  obsoletes ''
+  overwrite_groups ''
+  password ''
+  path ''
+  persistdir ''
+  pluginconfpath ''
+  pluginpath ''
+  plugins ''
+  protected_multilib ''
+  protected_packages ''
+  proxy ''
+  proxy_password ''
+  proxy_username ''
+  recent ''
+  repo_gpgcheck ''
+  reset_nice ''
+  rpmverbosity ''
+  showdupesfromrepos ''
+  skip_broken ''
+  ssl_check_cert_permissions ''
+  sslcacert ''
+  sslclientcert ''
+  sslclientkey ''
+  sslverify ''
+  syslog_device ''
+  syslog_facility ''
+  syslog_ident ''
+  throttle ''
+  timeout ''
+  tolerant ''
+  tsflags ''
+  username ''
+  action :create
+ end

@@ -1,0 +1,247 @@
+[main]
+<% if @alwaysprompt %>
+alwaysprompt=<%= @alwaysprompt %>
+<% end %>
+<% if @assumeyes %>
+assumeyes=<%= @assumeyes %>
+<% end %>
+<% if @bandwidth %>
+bandwidth=<%= @bandwidth %>
+<% end %>
+<% if @bugtracker_url %>
+bugtracker_url=<%= @bugtracker_url %>
+<% end %>
+<% if @cachedir %>
+cachefir=<%= @cachedir %>
+<% end %>
+<% if @clean_requirements_on_remove %>
+clean_requirements_on_remove=<%= @clean_requirements_on_remove %>
+<% end %>
+<% if @color %>
+color=<%= @color %>
+<% end %>
+<% if @color_list_available_downgrade %>
+color_list_available_downgrade=<%= @color_list_available_downgrade %>
+<% end %>
+<% if @color_list_available_install %>
+color_list_available_install=<%= @color_list_available_install %>
+<% end %>
+<% if @color_list_available_reinstall %>
+color_list_available_reinstall=<%= @color_list_available_reinstall %>
+<% end %>
+<% if @color_list_available_upgrade %>
+color_list_available_upgrade=<%= @color_list_available_upgrade %>
+<% end %>
+<% if @color_list_installed_extra %>
+color_list_installed_extra=<%= @color_list_installed_extra %>
+<% end %>
+<% if @color_list_installed_newer %>
+color_list_installed_newer=<%= @color_list_installed_newer %>
+<% end %>
+<% if @color_list_installed_older %>
+color_list_installed_older=<%= @color_list_installed_older %>
+<% end %>
+<% if @color_list_installed_reinstall %>
+color_list_installed_reinstall=<%= @color_list_installed_reinstall %>
+<% end %>
+<% if @color_search_match %>
+color_search_match=<%= @color_search_match %>
+<% end %>
+<% if @color_update_installed %>
+color_update_installed=<%= @color_update_installed %>
+<% end %>
+<% if @color_update_local %>
+color_update_local=<%= @color_update_local %>
+<% end %>
+<% if @color_update_remote %>
+color_update_remote=<%= @color_update_remote %>
+<% end %>
+<% if @commands %>
+commands=<%= @commands %>
+<% end %>
+<% if @debuglevel %>
+debuglevel=<%= @debuglevel %>
+<% end %>
+<% if @diskspacecheck %>
+diskspacecheck=<%= @diskspacecheck %>
+<% end %>
+<% if @distroverpkg %>
+distroverpkg=<%= @distroverpkg %>
+<% end %>
+<% if @enable_group_conditionals %>
+enable_group_conditionals=1
+<% else %>
+enable_group_conditionals=0
+<% end %>
+<% if @errorlevel %>
+errorlevel=<%= @errorlevel %>
+<% end %>
+<% if @exactarch %>
+exactarch=1
+<% else %>
+exactarch=0
+<% end %>
+<% if @exclude %>
+exclude=<%= @exclude %>
+<% end %>
+<% if @gpgcheck %>
+gpgcheck=1
+<% else %>
+gpgcheck=0
+<% end %>
+<% if @group_package_types %>
+group_package_types=<%= @group_package_types %>
+<% end %>
+<% if @groupremove_leaf_only %>
+groupremove_leaf_only=<%= @groupremove_leaf_only %>
+<% end %>
+<% if @history_list_view %>
+history_list_view=<%= @history_list_view %>
+<% end %>
+<% if @history_record %>
+history_record=<%= @history_record %>
+<% end %>
+<% if @history_record_packages %>
+history_record_packages=<%= @history_record_packages %>
+<% end %>
+<% if @http_caching %>
+http_caching=<%= @http_caching %>
+<% end %>
+<% if @installonly_limit %>
+installonly_limit=<%= @installonly_limit %>
+<% end %>
+<% if @installonlypkgs %>
+installonlypkgs=<%= @installonlypkgs %>
+<% end %>
+<% if @installroot %>
+installroot=<%= @installroot %>
+<% end %>
+<% if @keepalive %>
+keepalive=<%= @keepalive %>
+<% end %>
+<% if @keepcache %>
+keepcache=1
+<% else %>
+keepcache=0
+<% end %>
+<% if @kernelpkgnames %>
+kernelpkgnames=<%= @kernelpkgnames %>
+<% end %>
+<% if @localpkg_gpgcheck %>
+localpkg_gpgcheck=<%= @localpkg_gpgcheck %>
+<% end %>
+<% if @logfile %>
+logfile=<%= @logfile %>
+<% end %>
+<% if @max_retries %>
+max_retries=<%= @max_retries %>
+<% end %>
+<% if @mdpolicy %>
+mdpolicy=<%= @mdpolicy %>
+<% end %>
+<% if @metadata_expire %>
+metadata_expire=<%= @metadata_expire %>
+<% end %>
+<% if @mirrorlist_expire %>
+mirrorlist_expire=<%= @mirrorlist_expire %>
+<% end %>
+<% if @multilib_policy %>
+multilib_policy=<%= @multilib_policy %>
+<% end %>
+<% if @obsoletes %>
+obsoletes=1
+<% else %>
+obsoletes=0
+<% end %>
+<% if @overwrite_groups %>
+overwrite_groups=<%= @overwrite_groups %>
+<% end %>
+<% if @password %>
+password=<%= @password %>
+<% end %>
+<% if @persistdir %>
+persistdir=<%= @persistdir %>
+<% end %>
+<% if @pluginconfpath %>
+pluginconfpath=<%= @pluginconfpath %>
+<% end %>
+<% if @pluginpath %>
+pluginpath=<%= @pluginpath %>
+<% end %>
+<% if @plugins %>
+plugins=1
+<% else %>
+plugins=0
+<% end %>
+<% if @protected_multilib %>
+protected_multilib=<%= @protected_multilib %>
+<% end %>
+<% if @protected_packages %>
+protected_packages=<%= @protected_packages %>
+<% end %>
+<% if @proxy %>
+proxy=<%= @proxy %>
+<% end %>
+<% if @proxy_password %>
+proxy_password=<%= @proxy_password %>
+<% end %>
+<% if @proxy_username %>
+proxy_username=<%= @proxy_username %>
+<% end %>
+<% if @recent %>
+recent=<%= @recent %>
+<% end %>
+<% if @repo_gpgcheck %>
+repo_gpgcheck=<%= @repo_gpgcheck %>
+<% end %>
+<% if @reset_nice %>
+reset_nice=<%= @reset_nice %>
+<% end %>
+<% if @rpmverbosity %>
+rpmverbosity=<%= @rpmverbosity %>
+<% end %>
+<% if @showdupesfromrepos %>
+showdupesfromrepos=<%= @showdupesfromrepos %>
+<% end %>
+<% if @skip_broken %>
+skip_broken=<%= @skip_broken %>
+<% end %>
+<% if @ssl_check_cert_permissions %>
+ssl_check_cert_permissions=<%= @ssl_check_cert_permissions %>
+<% end %>
+<% if @sslcacert %>
+sslcacert=<%= @sslcacert %>
+<% end %>
+<% if @sslclientcert %>
+sslclientcert=<%= @sslclientcert %>
+<% end %>
+<% if @sslclientkey %>
+sslclientkey=<%= @sslclientkey %>
+<% end %>
+<% if @sslverify %>
+sslverify=<%= @sslverify %>
+<% end %>
+<% if @syslog_device %>
+syslog_device=<%= @syslog_device %>
+<% end %>
+<% if @syslog_facility %>
+syslog_facility=<%= @syslog_facility %>
+<% end %>
+<% if @syslog_ident %>
+syslog_ident=<%= @syslog_ident %>
+<% end %>
+<% if @throttle %>
+throttle=<%= @throttle %>
+<% end %>
+<% if @timeout %>
+timeout=<%= @timeout %>
+<% end %>
+<% if @tolerant %>
+tolerant=<%= @tolerant %>
+<% end %>
+<% if @tsflags %>
+tsflags=<%= @tsflags %>
+<% end %>
+<% if @username %>
+username=<%= @username %>
+<% end %>
