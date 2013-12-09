@@ -1,11 +1,11 @@
 yum Cookbook
 ============
 
-The Yum cookbook exposes the `yum_repository` resource that allows a
-user to make Yum repositories available for use on a system. The
-`yum_repository` resource aims to allow the user to configure all
-options listed in the `yum.conf` man page, found at
-http://linux.die.net/man/5/yum.conf
+The Yum cookbook exposes the `yum_globalconfig` and `yum_repository`
+resources that allows a user to both control global behavior and make
+individual Yum repositories available for use. These resources aim to
+allow the user to configure all options listed in the `yum.conf` man
+page, found at http://linux.die.net/man/5/yum.conf
 
 NOTES
 -----
@@ -20,6 +20,7 @@ until all dependent cookbooks have been ported.
 Requirements
 ------------
 * Chef 11 or higher
+* Ruby 1.9 (preferably from the Chef full-stack installer)
 * RHEL5, RHEL6, or other platforms within the family
 
 Resources/Providers
@@ -32,8 +33,8 @@ repaired, it calls yum-makecache so packages in the repo become
 available to the next resource.
 
 #### Actions
-- :create - creates a repository file and builds the repository listing
-- :remove - removes the repository file
+- `:create` - creates a repository file and builds the repository listing
+- `:delete` - deletes the repository file
 
 #### Parameters
 * `baseurl` -  Must be a URL to the directory where the yum repository's
@@ -148,10 +149,76 @@ yum_repository 'CentOS-Media' do
 end
 ```
 
+### yum_globalconfig
+This renders a template with global yum configuration parameters. The
+default recipe uses it to render `/etc/yum.conf`. It is flexible
+enough to be used in other scenarios, such as building RPMs in
+isolation by modifying `installroot`. 
+
+#### Parameters
+`yum_globalconfig` can take most of the same parameters as a
+`yum_repository`, plus more, too numerous to describe here. Below are
+a few of the more commonly used ones. For a complete list, please
+consult the `yum.conf` man page, found here:
+http://linux.die.net/man/5/yum.conf
+
+* `cachedir` - Directory where yum should store its cache and db
+  files. The default is '/var/cache/yum'.  
+* `keepcache` - Either `true` or `false`. Determines whether or not
+  yum keeps the cache of headers and packages after successful
+  installation. Default is `true` (keep files)
+* `debuglevel` - Debug message output level. Practical range is 0-10.
+  Default is '2'.  
+* `exclude` - List of packages to exclude from updates or installs.
+  This should be a space separated list. Shell globs using wildcards
+  (eg. * and ?) are allowed.  
+* `installonlypkgs` = List of package provides that should only ever
+  be installed, never updated. Kernels in particular fall into this
+  category. Defaults to kernel, kernel-bigmem, kernel-enterprise,
+  kernel-smp, kernel-debug, kernel-unsupported, kernel-source,
+  kernel-devel, kernel-PAE, kernel-PAE-debug.
+* `logfile` - Full directory and file name for where yum should write
+  its log file.
+* `exactarch` -  Either `true` or `false`. Set to `true` to make 'yum update' only
+  update the architectures of packages that you have installed. ie:
+  with this enabled yum will not install an i686 package to update an
+  x86_64 package. Default is `true`
+* `gpgcheck` - Either `true` or `false`. This tells yum whether or not
+  it should perform a GPG signature check on the packages gotten from
+  this repository.
+ 
+#### Example
+``` ruby
+yum_globalconfig '/my/chroot/etc/yum.conf' do
+  cachedir '/my/chroot/etc/yum.conf'
+  keepcache 'yes'
+  debuglevel '2'
+  installroot '/my/chroot'
+  action :create
+end
+```
+
 Recipes
 -------
-All recipes have been removed. Yum is now a "pure" library cookbook,
-responsible for the yum_repository resource type.
+* `default` - Configures `yum_globalconfig[/etc/yum.conf]` with values
+  found in node attributes at `node['yum']['main']`
+
+Attributes
+----------
+The following attributes are set by default
+
+``` ruby
+default['yum']['main']['cachedir'] = '/var/cache/yum/$basearch/$releasever'
+default['yum']['main']['keepcache'] = false
+default['yum']['main']['debuglevel'] = nil
+default['yum']['main']['exclude'] = nil
+default['yum']['main']['logfile'] = '/var/log/yum.log'
+default['yum']['main']['exactarch'] = nil
+default['yum']['main']['obsoletes'] = nil
+default['yum']['main']['installonly_limit'] = nil
+default['yum']['main']['installonlypkgs'] = nil
+default['yum']['main']['installroot'] = nil
+```
 
 Related Cookbooks
 -----------------

@@ -51,7 +51,7 @@ attribute :enable_group_conditionals, :kind_of => [TrueClass, FalseClass], :defa
 attribute :errorlevel, :kind_of => String, :regex => /^\d+$/, :default => nil
 attribute :exactarch, :kind_of => [TrueClass, FalseClass], :default => true
 attribute :exclude, :kind_of => String, :regex => /.*/, :default => nil
-attribute :gpgcheck, :kind_of => [TrueClass, FalseClass], :default => nil
+attribute :gpgcheck, :kind_of => [TrueClass, FalseClass], :default => true
 attribute :group_package_types, :kind_of => String, :regex => /.*/, :default => nil
 attribute :groupremove_leaf_only, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :history_list_view, :kind_of => String, :equal_to => %w{ users commands single-user-commands }, :default => nil
