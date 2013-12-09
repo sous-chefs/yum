@@ -245,13 +245,13 @@ yum_repository resource.
 License & Authors
 -----------------
 - Author:: Eric G. Wolfe
-- Author:: Matt Ray (<matt@opscode.com>)
-- Author:: Joshua Timberman (<joshua@opscode.com>)
-- Author:: Sean OMeara (<someara@opscode.com>)
+- Author:: Matt Ray (<matt@getchef.com>)
+- Author:: Joshua Timberman (<joshua@getchef.com>)
+- Author:: Sean OMeara (<someara@getchef.com>)
 
 ```text
 Copyright:: 2011 Eric G. Wolfe
-Copyright:: 2011-2013 Opscode, Inc.
+Copyright:: 2013 Chef, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
