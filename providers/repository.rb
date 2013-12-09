@@ -26,39 +26,7 @@ action :create  do
     source 'repo.erb'
     cookbook 'yum'
     mode '0644'
-    variables(
-      :baseurl => new_resource.baseurl,
-      :cost => new_resource.cost,
-      :description => new_resource.description,
-      :enabled => new_resource.enabled,
-      :enablegroups => new_resource.enablegroups,
-      :exclude => new_resource.exclude,
-      :failovermethod => new_resource.failovermethod,
-      :fastestmirror_enabled => new_resource.fastestmirror_enabled,
-      :gpgcheck => new_resource.gpgcheck,
-      :gpgkey => new_resource.gpgkey,
-      :http_caching => new_resource.http_caching,
-      :include_config => new_resource.include_config,
-      :includepkgs => new_resource.includepkgs,
-      :keepalive => new_resource.keepalive,
-      :max_retries => new_resource.max_retries,
-      :metadata_expire => new_resource.metadata_expire,
-      :mirrorexpire => new_resource.mirrorexpire,
-      :mirrorlist => new_resource.mirrorlist,
-      :mirror_expire => new_resource.mirror_expire,
-      :mirrorlist_expire => new_resource.mirrorlist_expire,
-      :priority => new_resource.priority,
-      :proxy => new_resource.proxy,
-      :proxy_username => new_resource.proxy_username,
-      :proxy_password => new_resource.proxy_password,
-      :report_instanceid => new_resource.report_instanceid,
-      :repositoryid => new_resource.repositoryid,
-      :sslcacert => new_resource.sslcacert,
-      :sslclientcert => new_resource.sslclientcert,
-      :sslclientkey => new_resource.sslclientkey,
-      :sslverify => new_resource.sslverify,
-      :timeout => new_resource.timeout
-      )
+    variables(:config => new_resource )
     notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately
     notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
   end

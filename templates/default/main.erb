@@ -2,247 +2,247 @@
 # Do NOT modify this file by hand.
 
 [main]
-<% if @alwaysprompt %>
-alwaysprompt=<%= @alwaysprompt %>
+<% if @config.alwaysprompt %>
+alwaysprompt=<%= @config.alwaysprompt %>
 <% end %>
-<% if @assumeyes %>
-assumeyes=<%= @assumeyes %>
+<% if @config.assumeyes %>
+assumeyes=<%= @config.assumeyes %>
 <% end %>
-<% if @bandwidth %>
-bandwidth=<%= @bandwidth %>
+<% if @config.bandwidth %>
+bandwidth=<%= @config.bandwidth %>
 <% end %>
-<% if @bugtracker_url %>
-bugtracker_url=<%= @bugtracker_url %>
+<% if @config.bugtracker_url %>
+bugtracker_url=<%= @config.bugtracker_url %>
 <% end %>
-<% if @cachedir %>
-cachefir=<%= @cachedir %>
+<% if @config.cachedir %>
+cachefir=<%= @config.cachedir %>
 <% end %>
-<% if @clean_requirements_on_remove %>
-clean_requirements_on_remove=<%= @clean_requirements_on_remove %>
+<% if @config.clean_requirements_on_remove %>
+clean_requirements_on_remove=<%= @config.clean_requirements_on_remove %>
 <% end %>
-<% if @color %>
-color=<%= @color %>
+<% if @config.color %>
+color=<%= @config.color %>
 <% end %>
-<% if @color_list_available_downgrade %>
-color_list_available_downgrade=<%= @color_list_available_downgrade %>
+<% if @config.color_list_available_downgrade %>
+color_list_available_downgrade=<%= @config.color_list_available_downgrade %>
 <% end %>
-<% if @color_list_available_install %>
-color_list_available_install=<%= @color_list_available_install %>
+<% if @config.color_list_available_install %>
+color_list_available_install=<%= @config.color_list_available_install %>
 <% end %>
-<% if @color_list_available_reinstall %>
-color_list_available_reinstall=<%= @color_list_available_reinstall %>
+<% if @config.color_list_available_reinstall %>
+color_list_available_reinstall=<%= @config.color_list_available_reinstall %>
 <% end %>
-<% if @color_list_available_upgrade %>
-color_list_available_upgrade=<%= @color_list_available_upgrade %>
+<% if @config.color_list_available_upgrade %>
+color_list_available_upgrade=<%= @config.color_list_available_upgrade %>
 <% end %>
-<% if @color_list_installed_extra %>
-color_list_installed_extra=<%= @color_list_installed_extra %>
+<% if @config.color_list_installed_extra %>
+color_list_installed_extra=<%= @config.color_list_installed_extra %>
 <% end %>
-<% if @color_list_installed_newer %>
-color_list_installed_newer=<%= @color_list_installed_newer %>
+<% if @config.color_list_installed_newer %>
+color_list_installed_newer=<%= @config.color_list_installed_newer %>
 <% end %>
-<% if @color_list_installed_older %>
-color_list_installed_older=<%= @color_list_installed_older %>
+<% if @config.color_list_installed_older %>
+color_list_installed_older=<%= @config.color_list_installed_older %>
 <% end %>
-<% if @color_list_installed_reinstall %>
-color_list_installed_reinstall=<%= @color_list_installed_reinstall %>
+<% if @config.color_list_installed_reinstall %>
+color_list_installed_reinstall=<%= @config.color_list_installed_reinstall %>
 <% end %>
-<% if @color_search_match %>
-color_search_match=<%= @color_search_match %>
+<% if @config.color_search_match %>
+color_search_match=<%= @config.color_search_match %>
 <% end %>
-<% if @color_update_installed %>
-color_update_installed=<%= @color_update_installed %>
+<% if @config.color_update_installed %>
+color_update_installed=<%= @config.color_update_installed %>
 <% end %>
-<% if @color_update_local %>
-color_update_local=<%= @color_update_local %>
+<% if @config.color_update_local %>
+color_update_local=<%= @config.color_update_local %>
 <% end %>
-<% if @color_update_remote %>
-color_update_remote=<%= @color_update_remote %>
+<% if @config.color_update_remote %>
+color_update_remote=<%= @config.color_update_remote %>
 <% end %>
-<% if @commands %>
-commands=<%= @commands %>
+<% if @config.commands %>
+commands=<%= @config.commands %>
 <% end %>
-<% if @debuglevel %>
-debuglevel=<%= @debuglevel %>
+<% if @config.debuglevel %>
+debuglevel=<%= @config.debuglevel %>
 <% end %>
-<% if @diskspacecheck %>
-diskspacecheck=<%= @diskspacecheck %>
+<% if @config.diskspacecheck %>
+diskspacecheck=<%= @config.diskspacecheck %>
 <% end %>
-<% if @distroverpkg %>
-distroverpkg=<%= @distroverpkg %>
+<% if @config.distroverpkg %>
+distroverpkg=<%= @config.distroverpkg %>
 <% end %>
-<% if @enable_group_conditionals %>
+<% if @config.enable_group_conditionals %>
 enable_group_conditionals=1
 <% end %>
-<% if @errorlevel %>
-errorlevel=<%= @errorlevel %>
+<% if @config.errorlevel %>
+errorlevel=<%= @config.errorlevel %>
 <% end %>
-<% if @exactarch %>
+<% if @config.exactarch %>
 exactarch=1
 <% else %>
 exactarch=0
 <% end %>
-<% if @exclude %>
-exclude=<%= @exclude %>
+<% if @config.exclude %>
+exclude=<%= @config.exclude %>
 <% end %>
-<% if @gpgcheck %>
+<% if @config.gpgcheck %>
 gpgcheck=1
 <% else %>
 gpgcheck=0
 <% end %>
-<% if @group_package_types %>
-group_package_types=<%= @group_package_types %>
+<% if @config.group_package_types %>
+group_package_types=<%= @config.group_package_types %>
 <% end %>
-<% if @groupremove_leaf_only %>
-groupremove_leaf_only=<%= @groupremove_leaf_only %>
+<% if @config.groupremove_leaf_only %>
+groupremove_leaf_only=<%= @config.groupremove_leaf_only %>
 <% end %>
-<% if @history_list_view %>
-history_list_view=<%= @history_list_view %>
+<% if @config.history_list_view %>
+history_list_view=<%= @config.history_list_view %>
 <% end %>
-<% if @history_record %>
-history_record=<%= @history_record %>
+<% if @config.history_record %>
+history_record=<%= @config.history_record %>
 <% end %>
-<% if @history_record_packages %>
-history_record_packages=<%= @history_record_packages %>
+<% if @config.history_record_packages %>
+history_record_packages=<%= @config.history_record_packages %>
 <% end %>
-<% if @http_caching %>
-http_caching=<%= @http_caching %>
+<% if @config.http_caching %>
+http_caching=<%= @config.http_caching %>
 <% end %>
-<% if @installonly_limit %>
-installonly_limit=<%= @installonly_limit %>
+<% if @config.installonly_limit %>
+installonly_limit=<%= @config.installonly_limit %>
 <% end %>
-<% if @installonlypkgs %>
-installonlypkgs=<%= @installonlypkgs %>
+<% if @config.installonlypkgs %>
+installonlypkgs=<%= @config.installonlypkgs %>
 <% end %>
-<% if @installroot %>
-installroot=<%= @installroot %>
+<% if @config.installroot %>
+installroot=<%= @config.installroot %>
 <% end %>
-<% if @keepalive %>
-keepalive=<%= @keepalive %>
+<% if @config.keepalive %>
+keepalive=<%= @config.keepalive %>
 <% end %>
-<% if @keepcache %>
+<% if @config.keepcache %>
 keepcache=1
 <% else %>
 keepcache=0
 <% end %>
-<% if @kernelpkgnames %>
-kernelpkgnames=<%= @kernelpkgnames %>
+<% if @config.kernelpkgnames %>
+kernelpkgnames=<%= @config.kernelpkgnames %>
 <% end %>
-<% if @localpkg_gpgcheck %>
-localpkg_gpgcheck=<%= @localpkg_gpgcheck %>
+<% if @config.localpkg_gpgcheck %>
+localpkg_gpgcheck=<%= @config.localpkg_gpgcheck %>
 <% end %>
-<% if @logfile %>
-logfile=<%= @logfile %>
+<% if @config.logfile %>
+logfile=<%= @config.logfile %>
 <% end %>
-<% if @max_retries %>
-max_retries=<%= @max_retries %>
+<% if @config.max_retries %>
+max_retries=<%= @config.max_retries %>
 <% end %>
-<% if @mdpolicy %>
-mdpolicy=<%= @mdpolicy %>
+<% if @config.mdpolicy %>
+mdpolicy=<%= @config.mdpolicy %>
 <% end %>
-<% if @metadata_expire %>
-metadata_expire=<%= @metadata_expire %>
+<% if @config.metadata_expire %>
+metadata_expire=<%= @config.metadata_expire %>
 <% end %>
-<% if @mirrorlist_expire %>
-mirrorlist_expire=<%= @mirrorlist_expire %>
+<% if @config.mirrorlist_expire %>
+mirrorlist_expire=<%= @config.mirrorlist_expire %>
 <% end %>
-<% if @multilib_policy %>
-multilib_policy=<%= @multilib_policy %>
+<% if @config.multilib_policy %>
+multilib_policy=<%= @config.multilib_policy %>
 <% end %>
-<% if @obsoletes %>
+<% if @config.obsoletes %>
 obsoletes=1
 <% else %>
 obsoletes=0
 <% end %>
-<% if @overwrite_groups %>
-overwrite_groups=<%= @overwrite_groups %>
+<% if @config.overwrite_groups %>
+overwrite_groups=<%= @config.overwrite_groups %>
 <% end %>
-<% if @password %>
-password=<%= @password %>
+<% if @config.password %>
+password=<%= @config.password %>
 <% end %>
-<% if @persistdir %>
-persistdir=<%= @persistdir %>
+<% if @config.persistdir %>
+persistdir=<%= @config.persistdir %>
 <% end %>
-<% if @pluginconfpath %>
-pluginconfpath=<%= @pluginconfpath %>
+<% if @config.pluginconfpath %>
+pluginconfpath=<%= @config.pluginconfpath %>
 <% end %>
-<% if @pluginpath %>
-pluginpath=<%= @pluginpath %>
+<% if @config.pluginpath %>
+pluginpath=<%= @config.pluginpath %>
 <% end %>
-<% if @plugins %>
+<% if @config.plugins %>
 plugins=1
 <% else %>
 plugins=0
 <% end %>
-<% if @protected_multilib %>
-protected_multilib=<%= @protected_multilib %>
+<% if @config.protected_multilib %>
+protected_multilib=<%= @config.protected_multilib %>
 <% end %>
-<% if @protected_packages %>
-protected_packages=<%= @protected_packages %>
+<% if @config.protected_packages %>
+protected_packages=<%= @config.protected_packages %>
 <% end %>
-<% if @proxy %>
-proxy=<%= @proxy %>
+<% if @config.proxy %>
+proxy=<%= @config.proxy %>
 <% end %>
-<% if @proxy_password %>
-proxy_password=<%= @proxy_password %>
+<% if @config.proxy_password %>
+proxy_password=<%= @config.proxy_password %>
 <% end %>
-<% if @proxy_username %>
-proxy_username=<%= @proxy_username %>
+<% if @config.proxy_username %>
+proxy_username=<%= @config.proxy_username %>
 <% end %>
-<% if @recent %>
-recent=<%= @recent %>
+<% if @config.recent %>
+recent=<%= @config.recent %>
 <% end %>
-<% if @repo_gpgcheck %>
-repo_gpgcheck=<%= @repo_gpgcheck %>
+<% if @config.repo_gpgcheck %>
+repo_gpgcheck=<%= @config.repo_gpgcheck %>
 <% end %>
-<% if @reset_nice %>
-reset_nice=<%= @reset_nice %>
+<% if @config.reset_nice %>
+reset_nice=<%= @config.reset_nice %>
 <% end %>
-<% if @rpmverbosity %>
-rpmverbosity=<%= @rpmverbosity %>
+<% if @config.rpmverbosity %>
+rpmverbosity=<%= @config.rpmverbosity %>
 <% end %>
-<% if @showdupesfromrepos %>
-showdupesfromrepos=<%= @showdupesfromrepos %>
+<% if @config.showdupesfromrepos %>
+showdupesfromrepos=<%= @config.showdupesfromrepos %>
 <% end %>
-<% if @skip_broken %>
-skip_broken=<%= @skip_broken %>
+<% if @config.skip_broken %>
+skip_broken=<%= @config.skip_broken %>
 <% end %>
-<% if @ssl_check_cert_permissions %>
-ssl_check_cert_permissions=<%= @ssl_check_cert_permissions %>
+<% if @config.ssl_check_cert_permissions %>
+ssl_check_cert_permissions=<%= @config.ssl_check_cert_permissions %>
 <% end %>
-<% if @sslcacert %>
-sslcacert=<%= @sslcacert %>
+<% if @config.sslcacert %>
+sslcacert=<%= @config.sslcacert %>
 <% end %>
-<% if @sslclientcert %>
-sslclientcert=<%= @sslclientcert %>
+<% if @config.sslclientcert %>
+sslclientcert=<%= @config.sslclientcert %>
 <% end %>
-<% if @sslclientkey %>
-sslclientkey=<%= @sslclientkey %>
+<% if @config.sslclientkey %>
+sslclientkey=<%= @config.sslclientkey %>
 <% end %>
-<% if @sslverify %>
-sslverify=<%= @sslverify %>
+<% if @config.sslverify %>
+sslverify=<%= @config.sslverify %>
 <% end %>
-<% if @syslog_device %>
-syslog_device=<%= @syslog_device %>
+<% if @config.syslog_device %>
+syslog_device=<%= @config.syslog_device %>
 <% end %>
-<% if @syslog_facility %>
-syslog_facility=<%= @syslog_facility %>
+<% if @config.syslog_facility %>
+syslog_facility=<%= @config.syslog_facility %>
 <% end %>
-<% if @syslog_ident %>
-syslog_ident=<%= @syslog_ident %>
+<% if @config.syslog_ident %>
+syslog_ident=<%= @config.syslog_ident %>
 <% end %>
-<% if @throttle %>
-throttle=<%= @throttle %>
+<% if @config.throttle %>
+throttle=<%= @config.throttle %>
 <% end %>
-<% if @timeout %>
-timeout=<%= @timeout %>
+<% if @config.timeout %>
+timeout=<%= @config.timeout %>
 <% end %>
-<% if @tolerant %>
-tolerant=<%= @tolerant %>
+<% if @config.tolerant %>
+tolerant=<%= @config.tolerant %>
 <% end %>
-<% if @tsflags %>
-tsflags=<%= @tsflags %>
+<% if @config.tsflags %>
+tsflags=<%= @config.tsflags %>
 <% end %>
-<% if @username %>
-username=<%= @username %>
+<% if @config.username %>
+username=<%= @config.username %>
 <% end %>
