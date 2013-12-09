@@ -67,7 +67,7 @@ attribute :kernelpkgnames, :kind_of => String, :regex => /.*/, :default => nil
 attribute :localpkg_gpgcheck, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :logfile, :kind_of => String, :regex => /.*/, :default => '/var/log/yum.log'
 attribute :max_retries, :kind_of => String, :regex => /^\d+$/, :default => nil
-attribute :mdpolicy, :kind_of => String, :equal_to => %w{ packages all none }, :default => nil
+attribute :mdpolicy, :kind_of => String, :equal_to => %w{ instant group:primary group:small group:main group:all }, :default => nil
 attribute :metadata_expire, :kind_of => String, :regex => /^\d+$/, :default => nil
 attribute :mirrorlist_expire, :kind_of => String, :regex => /^\d+$/, :default => nil
 attribute :multilib_policy, :kind_of => String, :equal_to => %w{ all best }, :default => nil
@@ -79,7 +79,7 @@ attribute :persistdir, :kind_of => String, :regex => /.*/, :default => nil
 attribute :pluginconfpath, :kind_of => String, :regex => /.*/, :default => nil
 attribute :pluginpath, :kind_of => String, :regex => /.*/, :default => nil
 attribute :plugins, :kind_of => [TrueClass, FalseClass], :default => '1'
-attribute :protected_multilib, :kind_of => String, :regex => /.*/, :default => nil
+attribute :protected_multilib, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :protected_packages, :kind_of => String, :regex => /.*/, :default => nil
 attribute :proxy, :kind_of => String, :regex => /.*/, :default => nil
 attribute :proxy_password, :kind_of => String, :regex => /.*/, :default => nil
