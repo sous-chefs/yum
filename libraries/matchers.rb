@@ -1,4 +1,4 @@
-# Encoding: utf-8
+# Matchers for chefspec 3
 
 if defined?(ChefSpec)
   def create_yum_repository(resource_name)

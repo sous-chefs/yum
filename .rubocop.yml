@@ -1,3 +1,6 @@
+Encoding:
+  Enabled: false
+
 LineLength:
   Max: 200
 

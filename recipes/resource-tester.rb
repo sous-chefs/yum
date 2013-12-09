@@ -1,4 +1,3 @@
-# Encoding: utf-8
 #
 # Cookbook:: yum
 # Recipe:: resource-tester

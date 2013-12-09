@@ -1,7 +1,4 @@
-# Encoding: utf-8
-
 # http://linux.die.net/man/5/yum.conf
-
 case node['platform_version'].to_i
 when 5
   default['yum']['main']['cachedir'] = '/var/cache/yum'

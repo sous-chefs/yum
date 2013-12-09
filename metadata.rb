@@ -1,4 +1,3 @@
-# Encoding: utf-8
 name              'yum'
 maintainer        'Opscode, Inc.'
 maintainer_email  'cookbooks@opscode.com'

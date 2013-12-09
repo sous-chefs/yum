@@ -1,4 +1,3 @@
-# Encoding: utf-8
 #
 # Author:: Sean OMeara (<someara@opscode.com>)
 # Recipe:: yum::default
