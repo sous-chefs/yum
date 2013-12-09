@@ -182,4 +182,4 @@ yum_globalconfig '/tmp/yum-full.conf' do
   tsflags 'noscripts'
   username 'baub'
   action :create
- end
+end
