@@ -69,9 +69,7 @@ diskspacecheck=<%= @diskspacecheck %>
 distroverpkg=<%= @distroverpkg %>
 <% end %>
 <% if @enable_group_conditionals %>
-enable_group_conditionals=1
-<% else %>
-enable_group_conditionals=0
+enable_group_conditionals=<%= @enable_group_conditionals %>
 <% end %>
 <% if @errorlevel %>
 errorlevel=<%= @errorlevel %>

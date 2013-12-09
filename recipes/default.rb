@@ -27,6 +27,7 @@ yum_globalconfig '/etc/yum.conf' do
   obsoletes node['yum']['main']['obsoletes']
   installonly_limit node['yum']['main']['installonly_limit']
   installonlypkgs node['yum']['main']['installonlypkgs']
+  installroot node['yum']['main']['installroot']
   distroverpkg node['yum']['main']['distroverpkg']
   action :create
 end

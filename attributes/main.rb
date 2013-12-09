@@ -9,6 +9,13 @@ else
   default['yum']['main']['cachedir'] = '/var/cache/yum/$basearch/$releasever'
 end
 
+case node['platform']
+when 'amazon'
+  default['yum']['main']['distroverpkg'] = 'system-release'
+else
+  default['yum']['main']['distroverpkg'] = "#{node['platform']}-release"
+end
+
 default['yum']['main']['alwaysprompt'] = nil # [TrueClass, FalseClass]
 default['yum']['main']['assumeyes'] = nil  # [TrueClass, FalseClass]
 default['yum']['main']['bandwidth'] = nil # /^\d+$/
@@ -30,7 +37,6 @@ default['yum']['main']['color_update_remote'] = nil #  /.*/
 default['yum']['main']['commands'] = nil #  /.*/
 default['yum']['main']['debuglevel'] = nil # /^\d+$/
 default['yum']['main']['diskspacecheck'] = nil # [TrueClass, FalseClass]
-default['yum']['main']['distroverpkg'] = "#{node['platform']}-release"
 default['yum']['main']['enable_group_conditionals'] = nil # [TrueClass, FalseClass]
 default['yum']['main']['errorlevel'] = nil # /^\d+$/
 default['yum']['main']['exactarch'] = nil # [TrueClass, FalseClass]
