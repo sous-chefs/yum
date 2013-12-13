@@ -3,6 +3,19 @@ yum Cookbook CHANGELOG
 This file is used to list changes made in each version of the yum cookbook.
 
 
+v3.0.0
+------
+3.0.0
+Major rewrite with breaking changes.
+Recipes broken out into individual cookbooks
+yum_key resource has been removed
+yum_repository resource now takes gpgkey as a URL directly
+yum_repository actions have been reduced to :create and :delete
+'name' has been changed to repositoryid to avoid ambiguity
+chefspec test coverage
+gpgcheck is set to 'true' by default and must be explicitly disabled
+
+
 v2.4.4
 ------
 Reverting to Ruby 1.8 hash syntax.
