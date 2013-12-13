@@ -1,6 +1,6 @@
-# Contributing to Opscode Cookbooks
+# Contributing to Chef Cookbooks
 
-We are glad you want to contribute to Opscode Cookbooks! The first
+We are glad you want to contribute to Chef Cookbooks! The first
 step is the desire to improve the project.
 
 You can find the answers to additional frequently asked questions
@@ -39,8 +39,8 @@ understands what rights they are licensing and agrees to them.
 Sometimes the copyright holder isn't the contributor, most often when
 the contributor is doing work for a company.
 
-To make a good faith effort to ensure these criteria are met, Opscode
-requires a Contributor License Agreement (CLA) or a Corporate
+To make a good faith effort to ensure these criteria are met, Chef
+Software Inc requires a Contributor License Agreement (CLA) or a Corporate
 Contributor License Agreement (CCLA) for all contributions. This is
 without exception due to some matters not being related to copyright
 and to avoid having to continually check with our lawyers about small
@@ -109,7 +109,7 @@ to them.
 
 ### Github and Pull Requests
 
-All of Opscode's open source cookbook projects are available on
+All of Chef's open source cookbook projects are available on
 [Github](http://www.github.com/opscode-cookbooks).
 
 We don't require you to use Github, and we will even take patch diffs
@@ -133,12 +133,12 @@ wiki page.
 ## Functional and Unit Tests
 
 This cookbook is set up to run tests under
-[Opscode's test-kitchen](https://github.com/opscode/test-kitchen). It
+[Chef's test-kitchen](https://github.com/opscode/test-kitchen). It
 uses minitest-chef to run integration tests after the node has been
 converged to verify that the state of the node.
-
+   
 Test kitchen should run completely without exception using the default
-[baseboxes provided by Opscode](https://github.com/opscode/bento).
+[baseboxes provided by Chef](https://github.com/opscode/bento).
 Because Test Kitchen creates VirtualBox machines and runs through
 every configuration in the Kitchenfile, it may take some time for
 these tests to complete.
@@ -168,7 +168,7 @@ mailing list, or the #chef-hacking IRC channel.
 
 ## Code Review
 
-Opscode regularly reviews code contributions and provides suggestions
+Chef regularly reviews code contributions and provides suggestions
 for improvement in the code itself or the implementation.
 
 We find contributions by searching the ticket tracker for _resolved_
@@ -183,7 +183,7 @@ or two, depending on the current release cycle.
 
 ## Release Cycle
 
-The versioning for Opscode Cookbook projects is X.Y.Z.
+The versioning for Chef Cookbook projects is X.Y.Z.
 
 * X is a major release, which may not be fully compatible with prior
   major releases
@@ -196,9 +196,9 @@ cookbook begins, the "Z" patch number is incremented to the next odd
 number, however the next release of the cookbook may be a major or
 minor incrementing version.
 
-Releases of Opscode's cookbooks are usually announced on the Chef user
+Releases of Chef's cookbooks are usually announced on the Chef user
 mailing list. Releases of several cookbooks may be batched together
-and announced on the [Opscode Blog](http://www.opscode.com/blog).
+and announced on the [Chef Blog](http://www.getchef.com/blog).
 
 ## Working with the community
 
@@ -211,7 +211,7 @@ other members of the Chef community:
 * #chef and #chef-hacking IRC channels on irc.freenode.net
 * [Community Cookbook site](http://community.opscode.com)
 * [Chef wiki](http://wiki.opscode.com/display/chef)
-* Opscode Chef [product page](http://www.opscode.com/chef)
+* Chef, Inc [product page](http://www.getchef.com/chef)
 
 
 ## Cookbook Contribution Do's and Don't's

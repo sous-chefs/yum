@@ -2,6 +2,4 @@ site :opscode
 
 metadata
 
-group :integration do
-  cookbook "minitest-handler"
-end
+cookbook 'yum_test', path: 'test/fixtures/cookbooks/yum_test'

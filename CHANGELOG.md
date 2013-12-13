@@ -84,7 +84,7 @@ v2.0.2
 
 v2.0.0
 ------
-This version changes the behavior of the EPEL recipe (most commonly used in other Opscode cookbooks) on Amazon, and removes an attribute, `node['yum']['epel_release']`. See the README for details.
+This version changes the behavior of the EPEL recipe (most commonly used in other Chef cookbooks) on Amazon, and removes an attribute, `node['yum']['epel_release']`. See the README for details.
 
 - [COOK-1772] - Simplify management of EPEL with LWRP
 

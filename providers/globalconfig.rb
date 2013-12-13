@@ -1,10 +1,9 @@
-# Encoding: utf-8
 #
 # Cookbook Name:: yum
-# Recipe:: yum
+# Provider:: repository
 #
-# Copyright 2011, Eric G. Wolfe
-# Copyright 2011, Opscode, Inc.
+# Author:: Sean OMeara <someara@getchef.com>
+# Copyright 2013, Chef
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,6 +18,19 @@
 # limitations under the License.
 #
 
-template '/etc/yum.conf' do
-  source "yum-rhel#{node['platform_version'].to_i}.conf.erb"
+use_inline_resources
+
+action :create  do
+  template new_resource.path do
+    source 'main.erb'
+    cookbook 'yum'
+    mode '0644'
+    variables(:config => new_resource)
+  end
+end
+
+action :delete do
+  file new_resource.path do
+    action :delete
+  end
 end
