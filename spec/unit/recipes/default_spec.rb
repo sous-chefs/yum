@@ -6,5 +6,5 @@ describe 'yum::default' do
   it 'creates yum_globalconfig[/etc/yum.conf]' do
     expect(chef_run).to create_yum_globalconfig('/etc/yum.conf')
   end
-  
+
 end
