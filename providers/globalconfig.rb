@@ -18,7 +18,8 @@
 # limitations under the License.
 #
 
-use_inline_resources
+# Allow for Chef 10 support
+use_inline_resources if defined?(use_inline_resources)
 
 action :create  do
   template new_resource.path do
