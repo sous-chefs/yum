@@ -91,6 +91,14 @@ yum_repository 'test6' do
   action :create
 end
 
+# baseurl/gpgkey array resources
+yum_repository 'baseurl-gpgkey-array-test' do
+  description 'baseurl/gpgkey array test'
+  baseurl ['http://a.b.c', 'http://d.e.f']
+  gpgkey ['http://a.b.c/RPM-GPG-KEY-a', 'http://d.e.f/RPM-GPG-KEY-b']
+  action :create
+end
+
 ########
 
 # default configuration
