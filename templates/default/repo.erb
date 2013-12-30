@@ -4,7 +4,11 @@
 [<%= @config.repositoryid %>]
 name=<%= @config.description %>
 <% if @config.baseurl %>
+<% if @config.baseurl.kind_of?(Array) %>
+baseurl=<%= @config.baseurl.join("\n  ") %>
+<% elsif @config.baseurl.kind_of?(String) %>
 baseurl=<%= @config.baseurl %>
+<% end %>
 <% end %>
 <% if @config.cost %>
 cost=<%= @config.cost %>
@@ -32,7 +36,11 @@ gpgcheck=1
 gpgcheck=0
 <% end %>
 <% if @config.gpgkey %>
+<% if @config.gpgkey.kind_of?(Array) %>
+gpgkey=<%= @config.gpgkey.join("\n  ") %>
+<% elsif @config.gpgkey.kind_of?(String) %>
 gpgkey=<%= @config.gpgkey %>
+<% end %>
 <% end %>
 <% if @config.http_caching %>
 http_caching=<%= @config.http_caching %>

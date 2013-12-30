@@ -39,7 +39,8 @@ available to the next resource.
 #### Parameters
 * `baseurl` -  Must be a URL to the directory where the yum repository's
   'repodata' directory lives. Can be an http://, ftp:// or file://
-  URL. You can specify multiple URLs in one baseurl statement.
+  URL. You can specify multiple URLs in one baseurl statement by passing an array
+  to this parameter.
 * `cost` - relative cost of accessing this repository. Useful for
   weighing one repo's packages as greater/less than any other.
   defaults to 1000
@@ -63,7 +64,8 @@ available to the next resource.
   repository. This option is used if yum needs a public key to verify
   a package and the required key hasn't been imported into the RPM
   database. If this option is set, yum will automatically import the
-  key from the specified URL.
+  key from the specified URL.  You can specify multiple URLs in one
+  gpgkey statement by passing an array to this parameter.
 * `http_caching` - Either 'all', 'packages', or 'none'. Determines how
   upstream HTTP caches are instructed to handle any HTTP downloads
   that Yum does. Defaults to 'all'
