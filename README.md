@@ -12,8 +12,7 @@ NOTES
 WARNING: Yum cookbook version 3.0.0 and above contain non-backwards
 compatible breaking changes and will not work with cookbooks written
 against the 2.x and 1.x series. Changes have been made to the
-yum_repository resource, and the yum_key resource has been eliminated
-entirely. Recipes have been eliminated and moved into their own
+yum_repository resource. Recipes have been eliminated and moved into their own
 cookbooks. Please lock yum to the 2.x series in your Chef environments
 until all dependent cookbooks have been ported.
 
@@ -26,11 +25,43 @@ Requirements
 Resources/Providers
 -------------------
 
+### yum_key
+This LWRP handles importing GPG keys for YUM repositories. Keys can be
+imported by the `url` parameter or placed in `/etc/pki/rpm-gpg/` by a
+recipe and then installed with the LWRP without passing the URL.
+
+#### Actions
+- :add: installs the GPG key into `/etc/pki/rpm-gpg/`
+- :remove: removes the GPG key from `/etc/pki/rpm-gpg/`
+
+#### Attribute Parameters
+- key: name attribute. The name of the GPG key to install.
+- url: if the key needs to be downloaded, the URL providing the download.
+
+#### Example
+
+``` ruby
+# add the Zenoss GPG key
+yum_key "RPM-GPG-KEY-zenoss" do
+  url "http://dev.zenoss.com/yum/RPM-GPG-KEY-zenoss"
+  action :add
+end
+
+# remove Zenoss GPG key
+yum_key "RPM-GPG-KEY-zenoss" do
+  action :remove
+end
+```
+
 ### yum_repository
 This resource manages a yum repository configuration file at
 /etc/yum.repos.d/`repositoryid`.repo. When the file needs to be
 repaired, it calls yum-makecache so packages in the repo become
 available to the next resource.
+
+#### Attribute Parameters
+- key: name attribute. The name of the GPG key to install.
+- url: if the key needs to be downloaded, the URL providing the download.
 
 #### Actions
 - `:create` - creates a repository file and builds the repository listing
@@ -62,8 +93,8 @@ available to the next resource.
 * `gpgkey` - A URL pointing to the ASCII-armored GPG key file for the
   repository. This option is used if yum needs a public key to verify
   a package and the required key hasn't been imported into the RPM
-  database. If this option is set, yum will automatically import the
-  key from the specified URL.
+  database. If `assumeyes` is true and `gpgkey` is set, yum will
+  automatically import the key from the specified URL.
 * `http_caching` - Either 'all', 'packages', or 'none'. Determines how
   upstream HTTP caches are instructed to handle any HTTP downloads
   that Yum does. Defaults to 'all'
