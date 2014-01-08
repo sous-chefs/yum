@@ -38,7 +38,7 @@ attribute :include_config, :kind_of => String, :regex => /.*/, :default => nil
 attribute :includepkgs, :kind_of => String, :regex => /.*/, :default => nil
 attribute :keepalive, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :max_retries, :kind_of => String, :regex => /.*/, :default => nil
-attribute :metadata_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+d$/, /never/], :default => nil
+attribute :metadata_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+[mhd]$/, /never/], :default => nil
 attribute :mirrorexpire, :kind_of => String, :regex => /.*/, :default => nil
 attribute :mirrorlist, :kind_of => String, :regex => /.*/, :default => nil
 attribute :mirror_expire, :kind_of => String, :regex => /^\d+$/, :default => nil
