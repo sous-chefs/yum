@@ -1,5 +1,5 @@
 name              'yum_test'
-maintainer        'Chef'
+maintainer        'Rackspace, US, Inc.'
 maintainer_email  'matt.thode@rackspace.com'
 license           'Apache 2.0'
 description       'Configures various yum components on Red Hat-like systems'

@@ -1,6 +1,6 @@
 name              'yum'
-maintainer        'Chef'
-maintainer_email  'matt.thode@rackspace.com'
+maintainer        'Rackspace, US, Inc.'
+maintainer_email  'rackspace-cookbooks@rackspace.com'
 license           'Apache 2.0'
 description       'Configures various yum components on Red Hat-like systems'
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))

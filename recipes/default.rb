@@ -1,8 +1,10 @@
 #
 # Author:: Sean OMeara (<someara@getchef.com>)
+# Author:: Matthew Thode (<matt.thode@rackspace.com>)
 # Recipe:: yum::default
 #
 # Copyright 2013, Chef
+# Copyright 2014, Rackspace, US, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,16 +19,16 @@
 # limitations under the License.
 
 yum_globalconfig '/etc/yum.conf' do
-  cachedir node['yum']['main']['cachedir']
-  keepcache node['yum']['main']['keepcache']
-  debuglevel node['yum']['main']['debuglevel']
-  exclude node['yum']['main']['exclude']
-  logfile node['yum']['main']['logfile']
-  exactarch node['yum']['main']['exactarch']
-  obsoletes node['yum']['main']['obsoletes']
-  installonly_limit node['yum']['main']['installonly_limit']
-  installonlypkgs node['yum']['main']['installonlypkgs']
-  installroot node['yum']['main']['installroot']
-  distroverpkg node['yum']['main']['distroverpkg']
+  cachedir node[:yum][:main][:cachedir]
+  keepcache node[:yum][:main][:keepcache]
+  debuglevel node[:yum][:main][:debuglevel]
+  exclude node[:yum][:main][:exclude]
+  logfile node[:yum][:main][:logfile]
+  exactarch node[:yum][:main][:exactarch]
+  obsoletes node[:yum][:main][:obsoletes]
+  installonly_limit node[:yum][:main][:installonly_limit]
+  installonlypkgs node[:yum][:main][:installonlypkgs]
+  installroot node[:yum][:main][:installroot]
+  distroverpkg node[:yum][:main][:distroverpkg]
   action :create
 end
