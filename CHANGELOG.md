@@ -6,6 +6,17 @@ v4.0.0
 ------
 Rackspace Fork
 
+v3.0.4 (2013-12-29)
+-------------------
+### Bug
+- **[COOK-4156](https://tickets.opscode.com/browse/COOK-4156)** - yum cookbook creates a yum.conf with "cachefir" directive
+
+
+v3.0.2
+------
+Updating globalconfig provider for Chef 10 compatability
+
+
 v3.0.0
 ------
 3.0.0

@@ -88,7 +88,7 @@ sslverify=1
 # Do NOT modify this file by hand.
 
 [main]
-cachefir=/var/cache/yum/$basearch/$releasever
+cachedir=/var/cache/yum/$basearch/$releasever
 debuglevel=2
 exactarch=1
 gpgcheck=1
@@ -108,7 +108,7 @@ alwaysprompt=true
 assumeyes=true
 bandwidth=40
 bugtracker_url=http://somewhere.eltz.biz
-cachefir=/path/to/somewhere/good
+cachedir=/path/to/somewhere/good
 clean_requirements_on_remove=true
 color=always
 color_list_available_downgrade=fg:green
