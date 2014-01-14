@@ -247,10 +247,12 @@ License & Authors
 - Author:: Matt Ray (<matt@getchef.com>)
 - Author:: Joshua Timberman (<joshua@getchef.com>)
 - Author:: Sean OMeara (<someara@getchef.com>)
+- Author:: Matthew Thode (<matt.thode@rackspace.com>)
 
 ```text
 Copyright:: 2011 Eric G. Wolfe
 Copyright:: 2013 Chef
+Copyright:: 2014 Rackspace
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
