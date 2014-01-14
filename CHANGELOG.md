@@ -2,6 +2,9 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v4.0.0
+------
+Rackspace Fork
 
 v3.0.0
 ------
