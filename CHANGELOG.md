@@ -3,6 +3,11 @@ yum Cookbook CHANGELOG
 This file is used to list changes made in each version of the yum cookbook.
 
 
+v3.0.8 (2014-01-27)
+-------------------
+Fixing typo in default.rb. yum_globalconfig now passes proxy attribute correctly.
+
+
 v3.0.6 (2014-01-27)
 -------------------
 Updating default.rb to consume node['yum']['main']['proxy']
