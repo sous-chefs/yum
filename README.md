@@ -83,7 +83,7 @@ end
 * `gpgcheck` - Either `true` or `false`. This tells yum whether or not
   it should perform a GPG signature check on packages. When this is
   set in the [main] section it sets the default for all repositories.
-  The default is `true`.
+  If `gpgkey` is set, `gpgcheck` will be `true` unless explicitly set to `false`.
 * `gpgkey` - A URL pointing to the ASCII-armored GPG key file for the
   repository. This option is used if yum needs a public key to verify
   a package and the required key hasn't been imported into the RPM
