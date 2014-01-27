@@ -36,6 +36,12 @@ action :create  do
   # notifies timing to :immediately for the same reasons. Remove both
   # of these when dropping Chef 10 support.
 
+  # if gpgcheck is nil, then make decision based on existence of gpgkey
+  # otherwise, use the true/false value of gpgcheck
+  if new_resource.gpgcheck.nil?
+    new_resource.gpgcheck !new_resource.gpgkey.nil?
+  end
+
   template "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
     source 'repo.erb'
     cookbook 'yum'
