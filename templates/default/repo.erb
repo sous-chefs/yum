@@ -26,10 +26,10 @@ failovermethod=<%= @config.failovermethod %>
 <% if @config.fastestmirror_enabled %>
 fastestmirror_enabled=<%= @config.fastestmirror_enabled %>
 <% end %>
-<% if @config.gpgcheck %>
-gpgcheck=1
+<% if @config.gpgcheck.nil? %>
+gpgcheck=<%= @config.gpgkey ? 1 : 0%>
 <% else %>
-gpgcheck=0
+gpgcheck=<%= @config.gpgcheck ? 1 : 0%>
 <% end %>
 <% if @config.gpgkey %>
 gpgkey=<%= @config.gpgkey %>

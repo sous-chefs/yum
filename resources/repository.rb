@@ -31,7 +31,7 @@ attribute :enablegroups, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :exclude, :kind_of => String, :regex => /.*/, :default => nil
 attribute :failovermethod, :kind_of => String, :equal_to => %w{ priority roundrobin }, :default => nil
 attribute :fastestmirror_enabled, :kind_of => [TrueClass, FalseClass], :default => nil
-attribute :gpgcheck, :kind_of => [TrueClass, FalseClass], :default => true
+attribute :gpgcheck, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :gpgkey, :kind_of => String, :regex => /.*/, :default => nil
 attribute :http_caching, :kind_of => String, :equal_to => %w{ packages all none }, :default => nil
 attribute :include_config, :kind_of => String, :regex => /.*/, :default => nil

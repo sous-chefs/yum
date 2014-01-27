@@ -91,6 +91,44 @@ yum_repository 'test6' do
   action :create
 end
 
+# if 'gpgkey' is not set,
+# 'gpgcheck' is 0
+yum_repository 'test9a' do
+  description 'an test'
+  url 'http://drop.the.baseurl.biz'
+  action :create
+end
+
+# if 'gpgkey' is set but 'gpgcheck' is not set,
+# 'gpgcheck' is 1
+yum_repository 'test9b' do
+  description 'an test'
+  url 'http://drop.the.baseurl.biz'
+  gpgkey 'http://example.com/RPM-GPG-KEY-FOOBAR-1'
+  action :create
+end
+
+# if 'gpgcheck' is set,
+# 'gpgcheck' must have the expected value
+yum_repository 'test9c' do
+  description 'an test'
+  url 'http://drop.the.baseurl.biz'
+  gpgcheck true
+  action :create
+end
+
+# if 'gpgcheck' and 'gpgkey' are set,
+# 'gpgcheck' must have the expected value
+yum_repository 'test9d' do
+  description 'an test'
+  url 'http://drop.the.baseurl.biz'
+  gpgkey 'http://example.com/RPM-GPG-KEY-FOOBAR-1'
+  gpgcheck false
+  action :create
+end
+
+
+
 ########
 
 # default configuration
