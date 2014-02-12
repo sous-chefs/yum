@@ -14,7 +14,6 @@ after_script:
 - bundle exec kitchen destroy
 env:
   global:
-  - secure: bjqpTMCJJ1zzQCMvJWDORZCKPCYUVWM4PZaWA7/9kx/JT1t0HuyoLh4YTgxNeVecsDW/7g/elIai06AMonJrJhaTXYbmeC4NN6fwfz1AWesdyPey6FQnmnvkadPCFGTbOEVeNG5NDNf3c6wL1IEwR3PTkL7u0Fp6xQnAfBwXZVQ=
   - secure: J2vNLt6xL3qqML3QOpRcomy3h0Hulg9BaRz+4xRyl+nTcJ+TMJDLrpCj0K8rwnv4goi3mrPYJw/r8shq7nRXPX1xPOQUMCVNb7q7YsGPnSV/MoWQUhWNSyCqznJ8kiQ+fKMRWa7p82QdzO9TI9xpFRZEn/ZTtgFPHiMR5sxD2YE=
   - secure: h/z3OVrecNAYV905m0ijyCy0sydJ58//B/8gVddmk5yAJcjUlJsfaAgn9dlrHIdV2nI8nIlA4iLHuSxKYQzv1NNNDbhcztUDrx0UzuvlruIii8hTx0F+a9/6KHjrmCrRPjUv6aQH6lTK2LS2k65kayjmlW+lnbsEJVMxz3g/Omo=
   - secure: NV6SDKYywyWiinsG7kf7aRFnt+Cg+iF1Llm0H8hgD2UCFqzFdtaHG9D0nimvZFL9BVuKTnSnq22cpgyrZGZijmDnWjUzj4o7sHnZMixWqiFoQOzSrifQqAUW/gy85qrIm7PDhmQe80UODwZ/SylxmVYwWpBho4LvhoiAdXySncY=

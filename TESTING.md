@@ -11,11 +11,13 @@ into the parent directory of this cookbook and running "bundle install"
 
 Rakefile
 --------
-The Rakefile ships with a number of tasks. Each of which can be ran
+The Rakefile ships with a number of tasks, each of which can be ran
 individually, or in groups. Typing "rake" by itself will perform style
 checks with Rubocop and Foodcritic, ChefSpec with rspec, and
-integration with Test Kitchen using the Vagrant driver by default.
-Alternatively, integration tests can be ran with Test Kitchen cloud drivers.
+integration with Test Kitchen using the Vagrant driver by
+default.Alternatively, integration tests can be ran with Test Kitchen
+cloud drivers.
+
 ```
 $ rake -T
 rake integration:cloud    # Run Test Kitchen with cloud plugins
@@ -136,8 +138,6 @@ and add them to the .travis.yml.
 
 ```
 gem install travis
-travis encrypt KITCHEN_YAML=.kitchen.cloud.yml --add
-
 travis encrypt AWS_ACCESS_KEY_ID='your_bits_here' --add
 travis encrypt AWS_SECRET_ACCESS_'your_bits_here' --add
 travis encrypt AWS_KEYPAIR_NAME='your_bits_here' --add
@@ -155,7 +155,7 @@ SSH key. This can be worked around by breaking them up into 90 byte
 chunks, stashing them into ENV variables, then digging them out in the
 ```before_install``` section of .travis.yml
 
-Here are some examples of AWK scripts to do the encoding.
+Here is an AWK script to do the encoding.
 ```
 base64 ~/.ssh/travisci_cook_digitalocean.pem | \
 awk '{
@@ -181,8 +181,7 @@ Then in .travis.yml:
 before_install:
 - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 - echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/id_do.base64
-- cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode >
-  ~/.ssh/id_do.pem
+- cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode >  ~/.ssh/id_do.pem
   - echo -n $EC2_KEY_CHUNK_{0..30} >> ~/.ssh/id_ec2.base64
   - cat ~/.ssh/id_ec2.base64 | tr -d ' ' | base64 --decode > ~/.ssh/id_ec2.pem
 ```
