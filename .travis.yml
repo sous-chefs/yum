@@ -7,7 +7,8 @@ before_install:
 - cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode > ~/.ssh/id_do.pem
 - echo -n $EC2_KEY_CHUNK_{0..30} >> ~/.ssh/id_ec2.base64
 - cat ~/.ssh/id_ec2.base64 | tr -d ' ' | base64 --decode > ~/.ssh/id_ec2.pem
-- echo TRAVIS_PULL_REQUEST: $TRAVIS_PULL_REQUEST
+- echo -n $TRAVIS_PULL_REQUEST > TRAVIS_PULL_REQUEST
+- cat TRAVIS_PULL_REQUEST
 script:
 - bundle exec rake travis
 after_script:
