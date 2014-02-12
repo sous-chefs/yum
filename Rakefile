@@ -36,14 +36,22 @@ namespace :integration do
   
   desc 'Run Test Kitchen with cloud plugins'
   task :cloud do
+    puts "DEBUG: TRAVIS: #{ENV['TRAVIS']}"
     puts "DEBUG: TRAVIS_PULL_REQUEST: #{ENV['TRAVIS_PULL_REQUEST']}"
-    if ENV['TRAVIS_PULL_REQUEST'] == 'false'
+
+    run_kitchen = true
+    if ENV['TRAVIS'] == 'true' && ENV['TRAVIS_PULL_REQUEST'] != 'false'
+      run_kitchen = false
+    end
+    puts "DEBUG: run_kitchen: #{run_kitchen}"
+    
+    if run_kitchen
       Kitchen.logger = Kitchen.default_file_logger
       @loader = Kitchen::Loader::YAML.new('./.kitchen.cloud.yml')
       config = Kitchen::Config.new( :loader => @loader)
       config.instances.each do |instance|
         instance.test(:always)      
-      end
+      end      
     end
   end
 end
