@@ -12,7 +12,7 @@ group :unit do
 end
 
 group :kitchen_common do
-  gem 'test-kitchen', '~> 1.0'
+  gem 'test-kitchen', '~> 1.2'
 end
 
 group :kitchen_vagrant do
@@ -33,4 +33,5 @@ group :development do
   gem 'guard-foodcritic'
   gem 'guard-rspec'
   gem 'guard-rubocop'
+  gem 'rake'
 end
