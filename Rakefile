@@ -36,11 +36,13 @@ namespace :integration do
   
   desc 'Run Test Kitchen with cloud plugins'
   task :cloud do
-    Kitchen.logger = Kitchen.default_file_logger
-    @loader = Kitchen::Loader::YAML.new('./.kitchen.cloud.yml')
-    config = Kitchen::Config.new( :loader => @loader)
-    config.instances.each do |instance|
-      instance.test(:always)      
+    unless ENV['TRAVIS_PULL_REQUEST']
+      Kitchen.logger = Kitchen.default_file_logger
+      @loader = Kitchen::Loader::YAML.new('./.kitchen.cloud.yml')
+      config = Kitchen::Config.new( :loader => @loader)
+      config.instances.each do |instance|
+        instance.test(:always)      
+      end
     end
   end
 end
