@@ -40,9 +40,9 @@ or
 rake style:ruby
 ```
 
-Chef style tests can be performed with Foodcrituc by issuing either
+Chef style tests can be performed with Foodcritic by issuing either
 ```
-bundle exec Foodcritic
+bundle exec foodcritic
 ```
 or
 ```
@@ -58,7 +58,7 @@ assertions about the resource_collection.
 
 Integration Testing
 -------------------
-Integration testing is performed by test-kitchen. Test Kitchen will
+Integration testing is performed by Test Kitchen. Test Kitchen will
 use either the Vagrant driver or various cloud drivers to instantiate
 machines and apply cookbooks. After a successful converge, tests are
 uploaded and ran out of band of Chef. Tests should be designed to
@@ -82,11 +82,11 @@ rake integration:vagrant
 Integration Testing using Cloud providers
 -----------------------------------------
 Integration tests can be performed on cloud providers using
-test-kitchen plugins. This cookbook ships a ```.kitchen.cloud.yml```
+Test Kitchen plugins. This cookbook ships a ```.kitchen.cloud.yml```
 that references environmental variables present in the shell that
 ```kitchen test``` is ran from. These usually contain authentication
 tokens for driving IaaS APIs, as well as the paths to ssh private keys
-needed for test-kitchen log into them after they've been created.
+needed for Test Kitchen log into them after they've been created.
 
 Examples of environment variables being set in ```~/.bash_profile```:
 ```
@@ -122,7 +122,7 @@ At the time of this writing, you cannot find the numerical values
 needed for your SSH_KEY_IDS from the GUI. Instead, you will need to
 access the API from the command line.
 
-```curl -L 'https://api.digitalocean.com/ssh_keys/?client_id=your_bits_here&api_key=your_bits_here'```
+    curl -L 'https://api.digitalocean.com/ssh_keys/?client_id=your_bits_here&api_key=your_bits_here'
 
 Words about .travis.yml
 -----------------------
@@ -179,13 +179,9 @@ awk '{
 Then in .travis.yml:
 ```
 before_install:
-- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 - echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/id_do.base64
 - cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode >  ~/.ssh/id_do.pem
   - echo -n $EC2_KEY_CHUNK_{0..30} >> ~/.ssh/id_ec2.base64
   - cat ~/.ssh/id_ec2.base64 | tr -d ' ' | base64 --decode > ~/.ssh/id_ec2.pem
 ```
 
-Author
-------
-Sean OMeara <someara@getchef.com>
