@@ -48,6 +48,7 @@ proxy=http://hellothereiamproxystring.biz
 proxy_username=kermit
 proxy_password=dafrog
 retries=10
+skip_if_unavailable=1
 sslcacert=/path/to/directory
 sslclientcert=/path/to/client/cert
 sslclientkey=/path/to/client/key

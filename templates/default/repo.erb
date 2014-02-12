@@ -76,6 +76,9 @@ retries=<%= @config.max_retries %>
 <% if @config.report_instanceid %>
 report_instanceid=<%= @config.report_instanceid %>
 <% end %>
+<% if @config.skip_if_unavailable %>
+skip_if_unavailable=1
+<% end %>
 <% if @config.sslcacert %>
 sslcacert=<%= @config.sslcacert %>
 <% end %>

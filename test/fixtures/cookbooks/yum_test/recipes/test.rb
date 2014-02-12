@@ -54,6 +54,7 @@ yum_repository 'test2' do
   proxy_password 'dafrog'
   report_instanceid false
   repositoryid 'unit-test-2'
+  skip_if_unavailable true
   sslcacert '/path/to/directory'
   sslclientcert '/path/to/client/cert'
   sslclientkey '/path/to/client/key'
