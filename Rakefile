@@ -36,7 +36,7 @@ namespace :integration do
   
   desc 'Run Test Kitchen with cloud plugins'
   task :cloud do
-    puts "DEBUG: TRAVIS_PULL_REQUEST: #{TRAVIS_PULL_REQUEST}"
+    puts "DEBUG: TRAVIS_PULL_REQUEST: #{ENV['TRAVIS_PULL_REQUEST']}"
     if ENV['TRAVIS_PULL_REQUEST'] == 'false'
       Kitchen.logger = Kitchen.default_file_logger
       @loader = Kitchen::Loader::YAML.new('./.kitchen.cloud.yml')
