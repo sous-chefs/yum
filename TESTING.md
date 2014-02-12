@@ -149,10 +149,10 @@ travis encrypt DIGITAL_OCEAN_SSH_KEY_IDS='your_bits_here' --add
 travis encrypt DIGITAL_OCEAN_SSH_KEY_PATH='~/.ssh/id_do.pem' --add
 ```
 
-The first part is a little more complicated. Travis ENV
-variables are restricted to 90 bytes, and will not fit an entire
-SSH key. This can be worked around by breaking them up into 90 byte
-chunks, stashing them into ENV variables, then digging them out in the
+The second part is a little more complicated. Travis ENV variables are
+restricted to 90 bytes, and will not fit an entire SSH key. This can
+be worked around by breaking them up into 90 byte chunks, stashing
+them into ENV variables, then digging them out in the
 ```before_install``` section of .travis.yml
 
 Here is an AWK script to do the encoding.
