@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'yum_test::test' do
+describe 'um_test::test' do
   let(:chef_run) do
     ChefSpec::Runner.new(
       :step_into => %w{ yum_repository yum_globalconfig }
