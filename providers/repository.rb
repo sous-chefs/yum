@@ -37,8 +37,12 @@ action :create  do
   # of these when dropping Chef 10 support.
 
   template "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
-    source 'repo.erb'
-    cookbook 'yum'
+    if new_resource.source.nil?
+      source 'repo.erb'
+      cookbook 'yum'
+    else
+      source new_resource.source
+    end
     mode '0644'
     variables(:config => new_resource)
     notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately

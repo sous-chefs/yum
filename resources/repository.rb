@@ -50,6 +50,7 @@ attribute :proxy_password, :kind_of => String, :regex => /.*/, :default => nil
 attribute :report_instanceid, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :repositoryid, :kind_of => String, :regex => /.*/, :name_attribute => true
 attribute :skip_if_unavailable, :kind_of => [TrueClass, FalseClass], :default => nil
+attribute :source, :kind_of => String, :regex => /.*/, :default => nil
 attribute :sslcacert, :kind_of => String, :regex => /.*/, :default => nil
 attribute :sslclientcert, :kind_of => String, :regex => /.*/, :default => nil
 attribute :sslclientkey, :kind_of => String, :regex => /.*/, :default => nil
