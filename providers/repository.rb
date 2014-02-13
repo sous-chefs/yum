@@ -59,8 +59,20 @@ action :create  do
 end
 
 action :delete do
-  file "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
+  template "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
     action :delete
+    notifies :run, "execute[yum clean #{new_resource.repositoryid}]", :immediately
+    notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
+  end
+
+  execute "yum clean #{new_resource.repositoryid}"do
+    command "yum clean all --disablerepo=* --enablerepo=#{new_resource.repositoryid}"
+    action :nothing
+  end
+
+  ruby_block "yum-cache-reload-#{new_resource.repositoryid}" do
+    block { Chef::Provider::Package::Yum::YumCache.instance.reload }
+    action :nothing
   end
 end
 
