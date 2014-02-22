@@ -71,6 +71,7 @@ action :delete do
 
   execute "yum clean #{new_resource.repositoryid}" do
     command "yum clean all --disablerepo=* --enablerepo=#{new_resource.repositoryid}"
+    only_if "yum repolist | grep -P '^#{new_resource.repositoryid}([ \t]|$)'"
     action :nothing
   end
 
