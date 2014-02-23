@@ -3,6 +3,13 @@ yum Cookbook CHANGELOG
 This file is used to list changes made in each version of the yum cookbook.
 
 
+v3.1.2 (2014-02-23)
+-------------------
+Fixing bugs around :delete action and cache clean
+Fixing specs to cover :remove and :delete aliasing properly
+Adding Travis-ci build matrix bits
+
+
 v3.1.0 (2014-02-13)
 -------------------
 - Updating testing harness for integration testing on Travis-ci
