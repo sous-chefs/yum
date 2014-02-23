@@ -7,8 +7,8 @@ describe 'yum_test::test_repository_five' do
       ).converge(described_recipe)
   end
 
-  let(:test_repository_five_template) do
-    test_repository_five_run.template('/etc/yum.repos.d/test5.repo')
+  let(:test_repository_five_file) do
+    test_repository_five_run.file('/etc/yum.repos.d/test5.repo')
   end
 
   context 'deletes a yum_repository' do
@@ -17,7 +17,7 @@ describe 'yum_test::test_repository_five' do
     end
 
     it 'deletes file[/etc/yum.repos.d/test5.repo]' do
-      expect(test_repository_five_run).to delete_template('/etc/yum.repos.d/test5.repo')
+      expect(test_repository_five_run).to delete_file('/etc/yum.repos.d/test5.repo')
     end
 
     it 'does not run execute[yum clean test5]' do
@@ -29,11 +29,11 @@ describe 'yum_test::test_repository_five' do
     end
 
     it 'sends a :run to execute[yum clean test5]' do
-      expect(test_repository_five_template).to notify('execute[yum clean test5]')
+      expect(test_repository_five_file).to notify('execute[yum clean test5]')
     end
 
     it 'sends a :create to ruby_block[yum-cache-reload-test5]' do
-      expect(test_repository_five_template).to notify('ruby_block[yum-cache-reload-test5]')
+      expect(test_repository_five_file).to notify('ruby_block[yum-cache-reload-test5]')
     end
 
   end
