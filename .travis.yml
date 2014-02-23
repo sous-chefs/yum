@@ -8,7 +8,9 @@ before_install:
 - echo -n $EC2_KEY_CHUNK_{0..30} >> ~/.ssh/id_ec2.base64
 - cat ~/.ssh/id_ec2.base64 | tr -d ' ' | base64 --decode > ~/.ssh/id_ec2.pem
 script:
-- bundle exec rake travis
+- bundle exec rake style
+- bundle exec rake spec
+- bundle exec kitchen test $KITCHEN_INSTANCE
 after_script:
 - bundle exec kitchen destroy
 env:
@@ -72,3 +74,8 @@ env:
   - secure: jyDgwz8hsfveiSGEZ+ebjD/HxGX52hdirpSZhJFHuxnJ3yWw2tLwEm/x2oPuwH/8qVHF2tD8ZuJ6+J6OUH2Tf+ZkD22GAmhexuSO8BpNjKxz7hMC3+woWuBwTvZFwosvt9hOcyMESJ4lX8pl+SezWDz0yzhdIc1y2+a6JvABUGM=
   - secure: sm19LGQ8pDNHJlGMjTcRFjRh+wYmfiuH1aa6RVcy+R0YbM8By/Rwwunhr055OL1BNAhkavjDJpBv8r00m8VjOS5UgfCbBWcfSPpRKKPVMh6OsoDGrj7nM5rUlXsIQd+63w3+dN5j8UBMICi50ij93fWJtD5JvPjcnOY6nh7eaY8=
   - secure: DJCweA/4YuyX1xXiLdccjy4rFWtNdctcK6A3ZfWTyxxShkYQN8GCZM7pFY77ubEPSOk08AeYVRAW9hgG/6xSA/tGCIuUaxpFh0/n9/+sUcgMhy5629P+Tv3YL8OSfRGTckHzG5Lmq0C6BnT0MGaPb6bp63P38Ye3QsNOhpWv3ds=
+  matrix:
+  - KITCHEN_INSTANCE='default-centos-58'
+  - KITCHEN_INSTANCE='default-centos-64'
+  - KITCHEN_INSTANCE='default-amazon-201309'
+  - KITCHEN_INSTANCE='default-fedora-19'
