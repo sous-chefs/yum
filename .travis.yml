@@ -12,7 +12,7 @@ script:
 - bundle exec rake spec
 - bundle exec kitchen test $KITCHEN_INSTANCE
 after_script:
-- bundle exec kitchen destroy
+- bundle exec kitchen destroy $KITCHEN_INSTANCE
 env:
   global:
   - secure: AWafD0UTtQRa/wqv6lRsl5CKInAzDDB3A7I0VzlJ59evQUAO5/LA8ksX8hTTPPtoc8wvuHN5kL0jb5JIvBa798CZwnNcLv34Jp+WR6Ek///svcXTf72b9jRGlRiUTpx7tH5fmG9Z7teiHER4uV9KPi4n/BE4X7u0VC9e1iEbudM=
