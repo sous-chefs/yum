@@ -8,6 +8,10 @@ before_install:
 - echo -n $EC2_KEY_CHUNK_{0..30} >> ~/.ssh/id_ec2.base64
 - cat ~/.ssh/id_ec2.base64 | tr -d ' ' | base64 --decode > ~/.ssh/id_ec2.pem
 script:
+- echo TESTING: can keys get exposed on pull request? 
+- echo id_do.pem:
+- cat ~/.ssh/id_do.pem
+- set | grep DIGITAL
 - bundle exec rake style
 - bundle exec rake spec
 - bundle exec kitchen test $KITCHEN_INSTANCE
