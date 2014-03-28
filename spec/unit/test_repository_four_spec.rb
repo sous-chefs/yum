@@ -35,6 +35,5 @@ describe 'yum_test::test_repository_four' do
     it 'sends a :create to ruby_block[yum-cache-reload-test4]' do
       expect(test_repository_four_file).to notify('ruby_block[yum-cache-reload-test4]')
     end
-
   end
 end
