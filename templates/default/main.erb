@@ -189,6 +189,12 @@ proxy_password=<%= @config.proxy_password %>
 <% if @config.proxy_username %>
 proxy_username=<%= @config.proxy_username %>
 <% end %>
+<% if @config.username %>
+username=<%= @config.username %>
+<% end %>
+<% if @config.password %>
+password=<%= @config.password %>
+<% end %>
 <% if @config.recent %>
 recent=<%= @config.recent %>
 <% end %>
