@@ -9,6 +9,8 @@ end
 case node['platform']
 when 'amazon'
   default['yum']['main']['distroverpkg'] = 'system-release'
+when 'scientific'
+  default['yum']['main']['distroverpkg'] = 'sl-release'
 else
   default['yum']['main']['distroverpkg'] = "#{node['platform']}-release"
 end

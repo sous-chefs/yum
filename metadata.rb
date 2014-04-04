@@ -8,5 +8,6 @@ version           '3.1.7'
 
 supports 'redhat'
 supports 'centos'
+supports 'scientific'
 supports 'amazon'
 supports 'fedora'
