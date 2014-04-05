@@ -36,6 +36,15 @@ action :create  do
   # notifies timing to :immediately for the same reasons. Remove both
   # of these when dropping Chef 10 support.
 
+  # Add the fastest mirror plugin to the enabled plugins for backwards
+  # compatibility
+  case new_resource.fastestmirror_enabled
+    when true
+      new_resource.plugins << {'fastestmirror' => true}
+    when false
+      new_resource.plugins << {'fastestmirror' => false}
+  end
+
   template "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
     if new_resource.source.nil?
       source 'repo.erb'
