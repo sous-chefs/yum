@@ -1,4 +1,4 @@
-chef_api :config
+source 'http://api.berkshelf.com'
 
 metadata
 
