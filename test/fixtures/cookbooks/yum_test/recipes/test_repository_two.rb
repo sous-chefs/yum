@@ -3,7 +3,7 @@
 yum_repository 'test2' do
   description 'test all the things!'
   baseurl 'http://example.com/wat'
-  cost  '10'
+  cost '10'
   enabled true
   enablegroups true
   exclude 'package1 package2 package3'
