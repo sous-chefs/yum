@@ -23,8 +23,10 @@ exclude=<%= @config.exclude %>
 <% if @config.failovermethod %>
 failovermethod=<%= @config.failovermethod %>
 <% end %>
-<% if @config.fastestmirror_enabled %>
-fastestmirror_enabled=<%= @config.fastestmirror_enabled %>
+<% @config.plugins.each do |plugin| %>
+<% plugin.each do |plugin_name, enabled_value| %>
+<%= plugin_name %>_enabled=<%= enabled_value %>
+<% end %>
 <% end %>
 <% if @config.gpgcheck %>
 gpgcheck=1
