@@ -76,6 +76,7 @@ default['yum']['main']['proxy_username'] = nil #  /.*/
 default['yum']['main']['username'] = nil #  /.*/
 default['yum']['main']['password'] = nil #  /.*/
 default['yum']['main']['recent'] = nil # /^\d+$/
+default['yum']['main']['releasever'] = nil #  /.*/
 default['yum']['main']['repo_gpgcheck'] = nil # [TrueClass, FalseClass]
 default['yum']['main']['reset_nice'] = nil # [TrueClass, FalseClass]
 default['yum']['main']['rpmverbosity'] = nil # %w{ info critical# emergency error warn debug }
