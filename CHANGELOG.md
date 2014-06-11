@@ -3,6 +3,12 @@ yum Cookbook CHANGELOG
 This file is used to list changes made in each version of the yum cookbook.
 
 
+v3.2.2 (2014-06-11)
+-------------------
+#77 - Parameter default to be Trueclass instead of "1"
+#78 - add releasever parameter
+
+
 v3.2.0 (2014-04-09)
 -------------------
 - [COOK-4510] - Adding username and password parameters to node attributes
