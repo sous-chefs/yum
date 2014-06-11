@@ -29,5 +29,6 @@ yum_globalconfig '/etc/yum.conf' do
   installonlypkgs node['yum']['main']['installonlypkgs']
   installroot node['yum']['main']['installroot']
   distroverpkg node['yum']['main']['distroverpkg']
+  releasever node['yum']['main']['releasever']
   action :create
 end
