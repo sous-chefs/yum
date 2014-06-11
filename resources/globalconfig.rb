@@ -70,14 +70,14 @@ attribute :mdpolicy, :kind_of => String, :equal_to => %w(instant group:primary g
 attribute :metadata_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+[mhd]$/, /never/], :default => nil
 attribute :mirrorlist_expire, :kind_of => String, :regex => /^\d+$/, :default => nil
 attribute :multilib_policy, :kind_of => String, :equal_to => %w(all best), :default => nil
-attribute :obsoletes, :kind_of => [TrueClass, FalseClass], :default => '1'
+attribute :obsoletes, :kind_of => [TrueClass, FalseClass], :default => true
 attribute :overwrite_groups, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :password, :kind_of => String, :regex => /.*/, :default => nil
 attribute :path, :kind_of => String, :regex => /.*/, :default => nil, :name_attribute => true
 attribute :persistdir, :kind_of => String, :regex => /.*/, :default => nil
 attribute :pluginconfpath, :kind_of => String, :regex => /.*/, :default => nil
 attribute :pluginpath, :kind_of => String, :regex => /.*/, :default => nil
-attribute :plugins, :kind_of => [TrueClass, FalseClass], :default => '1'
+attribute :plugins, :kind_of => [TrueClass, FalseClass], :default => true
 attribute :protected_multilib, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :protected_packages, :kind_of => String, :regex => /.*/, :default => nil
 attribute :proxy, :kind_of => String, :regex => /.*/, :default => nil
