@@ -3,13 +3,6 @@
 We are glad you want to contribute to Chef Cookbooks! The first
 step is the desire to improve the project.
 
-You can find the answers to additional frequently asked questions
-[on the wiki](http://wiki.opscode.com/display/chef/How+to+Contribute).
-
-You can find additional information about
-[contributing to cookbooks](http://wiki.opscode.com/display/chef/How+to+Contribute+to+Opscode+Cookbooks)
-on the wiki as well.
-
 ## Quick-contribute
 
 * Create an account on the [Supermarket](http://supermarket.getchef.com)
@@ -190,9 +183,9 @@ Please do ensure that your changes do not break or modify behavior for
 other platforms supported by the cookbook. For example if your changes
 are for Debian, make sure that they do not break on CentOS.
 
-Please do not modify the version number in the metadata.rb, Opscode
-will select the appropriate version based on the release cycle
-information above.
+Please do not modify the version number in the metadata.rb, Chef
+Software, Inc will select the appropriate version based on the release
+cycle information above.
 
 Please do not update the CHANGELOG.md for a new version. Not all
 changes to a cookbook may be merged and released in the same versions.
