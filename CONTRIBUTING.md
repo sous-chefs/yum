@@ -1,7 +1,10 @@
 # Contributing to Chef Cookbooks
 
 We are glad you want to contribute to Chef Cookbooks! The first
-step is the desire to improve the project.
+step is the desire to improve the project. If you're new to the Chef
+community, please read
+[How to become a contributor](https://supermarket.getchef.com/become-a-contributor)
+on the Supermarket website for more information.
 
 ## Quick-contribute
 
