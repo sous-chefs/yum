@@ -98,6 +98,8 @@ end
   an empty list.
 * `keepalive` - Either `true` or `false`. This tells yum whether or not
   HTTP/1.1 keepalive should be used with this repository.  
+* `make_cache` - Optional, Default is `true`, if `false` then `yum -q makecache` will not
+  be ran
 * `max_retries` - Set the number of times any attempt to retrieve a file
   should retry before returning an error. Setting this to '0' makes
   yum try forever. Default is '10'.

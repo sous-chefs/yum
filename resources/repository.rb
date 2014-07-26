@@ -37,6 +37,7 @@ attribute :http_caching, :kind_of => String, :equal_to => %w(packages all none),
 attribute :include_config, :kind_of => String, :regex => /.*/, :default => nil
 attribute :includepkgs, :kind_of => String, :regex => /.*/, :default => nil
 attribute :keepalive, :kind_of => [TrueClass, FalseClass], :default => nil
+attribute :make_cache, :kind_of => [TrueClass, FalseClass], :default => true
 attribute :max_retries, :kind_of => String, :regex => /.*/, :default => nil
 attribute :metadata_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+[mhd]$/, /never/], :default => nil
 attribute :mirrorexpire, :kind_of => String, :regex => /.*/, :default => nil
