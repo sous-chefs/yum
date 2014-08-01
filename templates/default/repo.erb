@@ -107,3 +107,18 @@ sslverify=0
 <% if @config.timeout %>
 timeout=<%= @config.timeout %>
 <% end %>
+<% if @config.options -%>
+<%   @config.options.each do |key, value| -%>
+<%= key %>=<%=
+       case value
+       when Array
+         value.join("\n       ")
+       when TrueClass
+         '1'
+       when FalseClass
+         '0'
+       else
+         value
+       end %>
+<%   end -%>
+<% end -%>
