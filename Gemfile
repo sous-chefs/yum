@@ -7,11 +7,11 @@ group :lint do
 end
 
 group :unit do
-  gem 'berkshelf',  '~> 3.0.0.beta6'
   gem 'chefspec',   '~> 3.1'
 end
 
 group :kitchen_common do
+  gem 'berkshelf', '~> 3.1.4'
   gem 'test-kitchen', '~> 1.2'
 end
 
