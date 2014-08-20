@@ -45,8 +45,10 @@ action :create  do
     end
     mode '0644'
     variables(:config => new_resource)
-    notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately
-    notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
+    if new_resource.make_cache
+      notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately
+      notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
+    end
   end
 
   # get the metadata for this repo only

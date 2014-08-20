@@ -5,6 +5,8 @@ driver_config:
   aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %> 
   aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
   aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
+  flavor_id: <%= ENV['EC2_FLAVOR_ID'] %>
+  availability_zone: <%= ENV['AWS_AVAILABILITY_ZONE'] %>
 
 provisioner:
   name: chef_zero
@@ -16,7 +18,7 @@ platforms:
   driver_config:
     image_id: 1601
     flavor_id: 63
-    region_id: 4
+    region_id: 8
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
     ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
 
@@ -25,7 +27,7 @@ platforms:
   driver_config:
     image_id: 562354
     flavor_id: 63
-    region_id: 4
+    region_id: 8
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
     ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
 
@@ -36,12 +38,12 @@ platforms:
     username: ec2-user
     ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
 
-- name: fedora-19
+- name: fedora-10
   driver_plugin: digitalocean
   driver_config:
-    image_id: 696598
+    image_id: 3243145
     flavor_id: 63
-    region_id: 4
+    region_id: 8
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
     ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
 
