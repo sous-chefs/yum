@@ -2,6 +2,9 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.2.4 (2014-08-20)
+-------------------
+#82 - Adding a makecache parameter
 
 v3.2.2 (2014-06-11)
 -------------------
