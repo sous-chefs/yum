@@ -8,4 +8,5 @@ LineLength:
   Max: 200
 
 HashSyntax:
+  Enabled: false
   EnforcedStyle: hash_rockets
