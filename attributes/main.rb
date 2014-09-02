@@ -73,7 +73,6 @@ default['yum']['main']['protected_packages'] = nil # /.*/
 default['yum']['main']['proxy'] = nil #  /.*/
 default['yum']['main']['proxy_password'] = nil #  /.*/
 default['yum']['main']['proxy_username'] = nil #  /.*/
-default['yum']['main']['username'] = nil #  /.*/
 default['yum']['main']['password'] = nil #  /.*/
 default['yum']['main']['recent'] = nil # /^\d+$/
 default['yum']['main']['releasever'] = nil #  /.*/
