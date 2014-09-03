@@ -42,8 +42,8 @@ attribute :max_retries, :kind_of => String, :regex => /.*/, :default => nil
 attribute :metadata_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+[mhd]$/, /never/], :default => nil
 attribute :mirrorexpire, :kind_of => String, :regex => /.*/, :default => nil
 attribute :mirrorlist, :kind_of => String, :regex => /.*/, :default => nil
-attribute :mirror_expire, :kind_of => String, :regex => /^\d+$/, :default => nil
-attribute :mirrorlist_expire, :kind_of => String, :regex => /^\d+$/, :default => nil
+attribute :mirror_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+[mhd]$/], :default => nil
+attribute :mirrorlist_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+[mhd]$/], :default => nil
 attribute :priority, :kind_of => String, :regex => /^(\d?[0-9]|[0-9][0-9])$/, :default => nil
 attribute :proxy, :kind_of => String, :regex => /.*/, :default => nil
 attribute :proxy_username, :kind_of => String, :regex => /.*/, :default => nil
