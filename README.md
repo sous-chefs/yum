@@ -129,6 +129,10 @@ end
   find that yum is not downloading the mirrorlists as often as you
   would like lower the value of this option.
 * `mirrorlist_expire` - alias for mirror_expire
+* `mode` - Permissions mode of .repo file on disk. Useful for
+  scenarios where secrets are in the repo file. If set to '600',
+  normal users will not be able to use yum search, yum info, etc.
+  Defaults to '0644'  
 * `priority` - When the yum-priorities plug-in is enabled, you set
   priorities on repository entries, where N is an integer from 1 to 99. The
   default priority for repositories is 99.

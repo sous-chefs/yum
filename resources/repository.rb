@@ -44,6 +44,7 @@ attribute :mirrorexpire, :kind_of => String, :regex => /.*/, :default => nil
 attribute :mirrorlist, :kind_of => String, :regex => /.*/, :default => nil
 attribute :mirror_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+[mhd]$/], :default => nil
 attribute :mirrorlist_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+[mhd]$/], :default => nil
+attribute :mode, :default => '0644'
 attribute :priority, :kind_of => String, :regex => /^(\d?[0-9]|[0-9][0-9])$/, :default => nil
 attribute :proxy, :kind_of => String, :regex => /.*/, :default => nil
 attribute :proxy_username, :kind_of => String, :regex => /.*/, :default => nil

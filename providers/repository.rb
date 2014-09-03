@@ -43,7 +43,7 @@ action :create  do
     else
       source new_resource.source
     end
-    mode '0644'
+    mode new_resource.mode
     variables(:config => new_resource)
     if new_resource.make_cache
       notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately
