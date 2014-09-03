@@ -1,3 +1,4 @@
+#<% require 'kitchen-sync' %>
 ---
 driver_config:
   digitalocean_client_id: <%= ENV['DIGITAL_OCEAN_CLIENT_ID'] %>
@@ -31,17 +32,33 @@ platforms:
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
     ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
 
-- name: amazon-2013.09
+- name: redhat-6.5
   driver_plugin: ec2
   driver_config:
-    image_id: ami-3be4bc52
+    image_id: ami-8d756fe4
     username: ec2-user
     ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
 
-- name: fedora-10
+- name: amazon-2014.03
+  driver_plugin: ec2
+  driver_config:
+    image_id: ami-6b726502
+    username: ec2-user
+    ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
+
+- name: fedora-20
   driver_plugin: digitalocean
   driver_config:
     image_id: 3243145
+    flavor_id: 63
+    region_id: 8
+    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
+    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+
+- name: centos-7.0
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 4856048
     flavor_id: 63
     region_id: 8
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
