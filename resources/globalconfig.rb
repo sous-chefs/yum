@@ -70,7 +70,7 @@ attribute :mdpolicy, :kind_of => String, :equal_to => %w(instant group:primary g
 attribute :metadata_expire, :kind_of => String, :regex => [/^\d+$/, /^\d+[mhd]$/, /never/], :default => nil
 attribute :mirrorlist_expire, :kind_of => String, :regex => /^\d+$/, :default => nil
 attribute :multilib_policy, :kind_of => String, :equal_to => %w(all best), :default => nil
-attribute :obsoletes, :kind_of => [TrueClass, FalseClass], :default => true
+attribute :obsoletes, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :overwrite_groups, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :password, :kind_of => String, :regex => /.*/, :default => nil
 attribute :path, :kind_of => String, :regex => /.*/, :default => nil, :name_attribute => true
