@@ -180,7 +180,7 @@ http://linux.die.net/man/5/yum.conf
   files. The default is '/var/cache/yum'.  
 * `keepcache` - Either `true` or `false`. Determines whether or not
   yum keeps the cache of headers and packages after successful
-  installation. Default is `true` (keep files)
+  installation. Default is `false`
 * `debuglevel` - Debug message output level. Practical range is 0-10.
   Default is '2'.  
 * `exclude` - List of packages to exclude from updates or installs.
