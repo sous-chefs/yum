@@ -2,6 +2,18 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.3.0 (2014-09-03)
+-------------------
+- Adding tuning attributes for all supported resource parameters
+- Adding options hash parameter
+- Adding (real) rhel-6.5 and centos-7.0 to test-kitchen coverage
+- Updating regex for mirror_expire and mirrorlist_expire to include /^\d+[mhd]$/
+- Updating README so keepcache reflects reality (defaults to false)
+- Changing 'obsoletes' behavior in globalconfig resource to match
+  default behavior. (now defaults to nil, yum defaults to false)
+- Adding makecache action to repository resource
+- Adding mode parameter to repository resource. Defaults to '0644'.
+
 v3.2.4 (2014-08-20)
 -------------------
 #82 - Adding a makecache parameter
