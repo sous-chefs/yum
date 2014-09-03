@@ -86,12 +86,12 @@ end
 action :makecache do
   execute "yum-makecache-#{new_resource.repositoryid}" do
     command "yum -q makecache --disablerepo=* --enablerepo=#{new_resource.repositoryid}"
-    action :nothing
+    action :run
   end
 
   ruby_block "yum-cache-reload-#{new_resource.repositoryid}" do
     block { Chef::Provider::Package::Yum::YumCache.instance.reload }
-    action :nothing
+    action :run
   end
 end
 
