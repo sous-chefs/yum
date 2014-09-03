@@ -103,3 +103,5 @@ attribute :timeout, :kind_of => String, :regex => /^\d+$/, :default => nil
 attribute :tolerant, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :tsflags, :kind_of => String, :regex => /.*/, :default => nil
 attribute :username, :kind_of => String, :regex => /.*/, :default => nil
+
+attribute :options, :kind_of => Hash

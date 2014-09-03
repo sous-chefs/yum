@@ -60,5 +60,7 @@ attribute :sslclientkey, :kind_of => String, :regex => /.*/, :default => nil
 attribute :sslverify, :kind_of => [TrueClass, FalseClass], :default => true
 attribute :timeout, :kind_of => String, :regex => /^\d+$/, :default => nil
 
+attribute :options, :kind_of => Hash
+
 alias_method :url, :baseurl
 alias_method :keyurl, :gpgkey
