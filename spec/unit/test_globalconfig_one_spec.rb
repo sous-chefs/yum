@@ -19,7 +19,7 @@ gpgcheck=1
 installonly_limit=3
 keepcache=0
 logfile=/var/log/yum.log
-obsoletes=1
+obsoletes=0
 plugins=1'
   end
 
