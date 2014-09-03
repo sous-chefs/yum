@@ -83,5 +83,17 @@ action :delete do
   end
 end
 
+action :makecache do
+  execute "yum-makecache-#{new_resource.repositoryid}" do
+    command "yum -q makecache --disablerepo=* --enablerepo=#{new_resource.repositoryid}"
+    action :nothing
+  end
+
+  ruby_block "yum-cache-reload-#{new_resource.repositoryid}" do
+    block { Chef::Provider::Package::Yum::YumCache.instance.reload }
+    action :nothing
+  end
+end
+
 alias_method :action_add, :action_create
 alias_method :action_remove, :action_delete

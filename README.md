@@ -60,6 +60,7 @@ end
 #### Actions
 - `:create` - creates a repository file and builds the repository listing
 - `:delete` - deletes the repository file
+- `:makecache` - update yum cache
 
 #### Parameters
 * `baseurl` -  Must be a URL to the directory where the yum repository's
