@@ -1,6 +1,9 @@
 yum Cookbook
 ============
 
+[![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.getchef.com/cookbooks/yum)
+[![Travis status](http://img.shields.io/travis/opscode-cookbooks/yum.svg)](https://travis-ci.org/opscode-cookbooks/yum)
+
 The Yum cookbook exposes the `yum_globalconfig` and `yum_repository`
 resources that allows a user to both control global behavior and make
 individual Yum repositories available for use. These resources aim to
