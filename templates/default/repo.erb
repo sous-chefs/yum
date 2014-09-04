@@ -99,10 +99,8 @@ sslclientcert=<%= @config.sslclientcert %>
 <% if @config.sslclientkey %>
 sslclientkey=<%= @config.sslclientkey %>
 <% end %>
-<% if @config.sslverify %>
-sslverify=1
-<% else %>
-sslverify=0
+<% unless @config.sslverify.nil? %>
+sslverify=<%= @config.sslverify %>
 <% end %>
 <% if @config.timeout %>
 timeout=<%= @config.timeout %>
