@@ -2,6 +2,11 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.3.0 (2014-09-04)
+-------------------
+- Fix issue with sslverify if set to false
+- Add fancy badges
+
 v3.3.0 (2014-09-03)
 -------------------
 - Adding tuning attributes for all supported resource parameters
