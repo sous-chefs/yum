@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-group :lint do
-  gem 'foodcritic', '~> 3.0'
-  gem 'rubocop', '~> 0.24'
-end
+gem 'berkshelf'
+gem 'rake'
+gem 'test-kitchen'
 
-group :unit do
-  gem 'chefspec',   '~> 4.0'
-  gem 'berkshelf'
+group :test, :development do
+  gem 'kitchen-vagrant'
+  gem 'rubocop'
+  gem 'foodcritic'
+  gem 'chefspec'
 end

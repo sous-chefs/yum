@@ -26,7 +26,7 @@ class Chef
     actions :create, :delete
     default_action :create
 
-    attribute :enabled, :kind_of => [TrueClass, FalseClass], :default => false
+    attribute :enabled, :kind_of => [TrueClass, FalseClass], :default => true
     attribute :config_path, :kind_of => String, :default => lazy { default_config_path }
     attribute :plugin_name, :kind_of => String, :name_attribute => true
     attribute :source, :kind_of => String, :default => 'plugin.erb'
