@@ -24,4 +24,12 @@ if defined?(ChefSpec)
   def delete_yum_globalconfig(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:yum_globalconfig, :delete, resource_name)
   end
+
+  def create_yum_plugin(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:yum_plugin, :create, resource_name)
+  end
+
+  def delete_yum_plugin(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:yum_plugin, :delete, resource_name)
+  end
 end
