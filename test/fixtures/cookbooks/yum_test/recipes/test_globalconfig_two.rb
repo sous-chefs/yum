@@ -34,7 +34,7 @@ yum_globalconfig '/tmp/yum-full.conf' do
   history_list_view 'commands'
   history_record true
   history_record_packages 'rpm'
-  http_caching true
+  http_caching 'all'
   installonly_limit '3'
   installonlypkgs 'kernel, emacs-nox'
   installroot '/over/there'
