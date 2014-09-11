@@ -56,7 +56,7 @@ attribute :groupremove_leaf_only, :kind_of => [TrueClass, FalseClass], :default 
 attribute :history_list_view, :kind_of => String, :equal_to => %w(users commands single-user-commands), :default => nil
 attribute :history_record, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :history_record_packages, :kind_of => String, :regex => /.*/, :default => nil
-attribute :http_caching, :kind_of => [TrueClass, FalseClass], :default => nil
+attribute :http_caching, :kind_of => String, :equal_to => %w(packages all none), :default => nil
 attribute :installonly_limit, :kind_of => String, :regex => [/^\d+/, /keep/], :default => '3'
 attribute :installonlypkgs, :kind_of => String, :regex => /.*/, :default => nil
 attribute :installroot, :kind_of => String, :regex => /.*/, :default => nil
