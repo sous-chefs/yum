@@ -2,6 +2,10 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.3.2 (2014-09-11)
+-------------------
+- Fix globalconfig resource param for http_caching
+
 v3.3.0 (2014-09-04)
 -------------------
 - Fix issue with sslverify if set to false
