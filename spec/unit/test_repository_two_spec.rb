@@ -44,7 +44,7 @@ skip_if_unavailable=1
 sslcacert=/path/to/directory
 sslclientcert=/path/to/client/cert
 sslclientkey=/path/to/client/key
-sslverify=1
+sslverify=true
 timeout=10
 '
   end

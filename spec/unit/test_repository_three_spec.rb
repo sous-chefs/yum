@@ -20,7 +20,7 @@ name=an test
 baseurl=http://drop.the.baseurl.biz
 enabled=1
 gpgcheck=1
-sslverify=1
+sslverify=true
 '
   end
 
