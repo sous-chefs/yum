@@ -87,6 +87,7 @@ yum_globalconfig '/etc/yum.conf' do
   sslcacert node['yum']['main']['sslcacert']
   sslclientcert node['yum']['main']['sslclientcert']
   sslclientkey node['yum']['main']['sslclientkey']
+  sslverify node['yum']['main']['sslverify']
   syslog_device node['yum']['main']['syslog_device']
   syslog_facility node['yum']['main']['syslog_facility']
   syslog_ident node['yum']['main']['syslog_ident']
