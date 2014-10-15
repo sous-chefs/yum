@@ -21,6 +21,7 @@ yum_globalconfig '/etc/yum.conf' do
   assumeyes node['yum']['main']['assumeyes']
   bandwidth node['yum']['main']['bandwidth']
   bugtracker_url node['yum']['main']['bugtracker_url']
+  cachedir node['yum']['main']['cachedir']
   clean_requirements_on_remove node['yum']['main']['clean_requirements_on_remove']
   color node['yum']['main']['color']
   color_list_available_downgrade node['yum']['main']['color_list_available_downgrade']
