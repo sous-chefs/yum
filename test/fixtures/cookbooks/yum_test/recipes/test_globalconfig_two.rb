@@ -48,7 +48,7 @@ yum_globalconfig '/tmp/yum-full.conf' do
   metadata_expire '21600'
   mirrorlist_expire '21600'
   multilib_policy 'best'
-  obsoletes true
+  obsoletes false
   overwrite_groups true
   password 'ohai'
   path '/tmp/yum-full.conf'
