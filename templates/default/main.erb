@@ -149,10 +149,10 @@ mirrorlist_expire=<%= @config.mirrorlist_expire %>
 <% if @config.multilib_policy %>
 multilib_policy=<%= @config.multilib_policy %>
 <% end %>
-<% if @config.obsoletes %>
-obsoletes=1
-<% else %>
+<% if @config.obsoletes == false %>
 obsoletes=0
+<% else %>
+obsoletes=1
 <% end %>
 <% if @config.overwrite_groups %>
 overwrite_groups=<%= @config.overwrite_groups %>
