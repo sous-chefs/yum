@@ -2,7 +2,6 @@
 ---
 driver_config:
   digitalocean_client_id: <%= ENV['DIGITAL_OCEAN_CLIENT_ID'] %>
-  digitalocean_api_key: <%= ENV['DIGITAL_OCEAN_API_KEY'] %>
   aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %> 
   aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
   aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
@@ -15,20 +14,29 @@ provisioner:
 
 platforms:
 - name: centos-5.8
-  driver_plugin: digitalocean
+  driver_plugin: digital_ocean
   driver_config:
-    image_id: 1601
-    flavor_id: 63
-    region_id: 8
+    size: 1gb
+    image: centos-5-8-x64
+    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
     ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
 
-- name: centos-6.4
-  driver_plugin: digitalocean
+- name: centos-6.5
+  driver_plugin: digital_ocean
   driver_config:
-    image_id: 562354
-    flavor_id: 63
-    region_id: 8
+    size: 1gb
+    image: centos-6-5-x64
+    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
+    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+
+- name: centos-7.0
+  driver_plugin: digital_ocean
+  driver_config:
+    size: 1gb
+    image: centos-7-0-x64
+    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
     ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
 
@@ -47,20 +55,11 @@ platforms:
     ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
 
 - name: fedora-20
-  driver_plugin: digitalocean
+  driver_plugin: digital_ocean
   driver_config:
-    image_id: 3243145
-    flavor_id: 63
-    region_id: 8
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
-
-- name: centos-7.0
-  driver_plugin: digitalocean
-  driver_config:
-    image_id: 4856048
-    flavor_id: 63
-    region_id: 8
+    size: 1gb
+    image: fedora-20-x64
+    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
     ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
 
