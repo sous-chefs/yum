@@ -86,6 +86,7 @@ attribute :proxy_username, :kind_of => String, :regex => /.*/, :default => nil
 attribute :recent, :kind_of => String, :regex => /^\d+$/, :default => nil
 attribute :releasever, :kind_of => String, :regex => /.*/, :default => nil
 attribute :repo_gpgcheck, :kind_of => [TrueClass, FalseClass], :default => nil
+attribute :reposdir, :kind_of => String, :regex => /.*/, :default => nil
 attribute :reset_nice, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :rpmverbosity, :kind_of => String, :equal_to => %w(info critical emergency error warn debug), :default => nil
 attribute :showdupesfromrepos, :kind_of => [TrueClass, FalseClass], :default => nil
