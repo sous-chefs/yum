@@ -2,6 +2,12 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.4.1 (2014-10-29)
+-------------------
+- Run yum-makecache only_if new_resource.enabled
+- Allow setting of reposdir in global yum config and man page
+- Change default 'obsoletes' behavior to match yum defaults
+
 v3.4.0 (2014-10-15)
 -------------------
 - Dynamically generate the new_resource attributes
