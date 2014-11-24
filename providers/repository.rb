@@ -36,11 +36,6 @@ action :create  do
   # notifies timing to :immediately for the same reasons. Remove both
   # of these when dropping Chef 10 support.
 
-  # support https transport
-  package 'ca-certificates' do
-    action :upgrade
-  end
-
   template "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
     if new_resource.source.nil?
       source 'repo.erb'
