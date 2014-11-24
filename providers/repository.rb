@@ -37,10 +37,10 @@ action :create  do
   # of these when dropping Chef 10 support.
 
   # support https transport
-  package "ca-certificates" do
+  package 'ca-certificates' do
     action :upgrade
   end
-  
+
   template "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
     if new_resource.source.nil?
       source 'repo.erb'
@@ -70,7 +70,7 @@ action :create  do
   end
 end
 
-action :delete do 
+action :delete do
   file "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
     action :delete
     notifies :run, "execute[yum clean #{new_resource.repositoryid}]", :immediately

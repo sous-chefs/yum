@@ -28,6 +28,10 @@ Have a nice day.
         )
     end
 
+    it 'steps into yum_repository and upgrades package[ca-certificates]' do
+      expect(test_repository_eight_run).to upgrade_package('ca-certificates')
+    end
+
     it 'steps into yum_repository and creates template[/etc/yum.repos.d/test8.repo]' do
       expect(test_repository_eight_run).to create_template('/etc/yum.repos.d/test8.repo')
         .with(

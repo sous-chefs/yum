@@ -29,6 +29,10 @@ sslverify=true
       expect(test_repository_six_run).to create_yum_repository('test6')
     end
 
+    it 'steps into yum_repository and upgrades package[ca-certificates]' do
+      expect(test_repository_six_run).to upgrade_package('ca-certificates')
+    end
+
     it 'steps into yum_repository and creates template[/etc/yum.repos.d/test6.repo]' do
       expect(test_repository_six_run).to create_template('/etc/yum.repos.d/test6.repo')
     end

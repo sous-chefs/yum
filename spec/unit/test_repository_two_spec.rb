@@ -54,6 +54,10 @@ timeout=10
       expect(test_repository_two_run).to create_yum_repository('test2')
     end
 
+    it 'steps into yum_repository and upgrades package[ca-certificates]' do
+      expect(test_repository_two_run).to upgrade_package('ca-certificates')
+    end
+
     it 'steps into yum_repository and creates template[/etc/yum.repos.d/unit-test-2.repo]' do
       expect(test_repository_two_run).to create_template('/etc/yum.repos.d/unit-test-2.repo')
     end
