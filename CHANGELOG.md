@@ -2,6 +2,10 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.5.0 (2014-11-24)
+-------------------
+- Adding management of ca-certificates package to yum_repository provider
+
 v3.4.1 (2014-10-29)
 -------------------
 - Run yum-makecache only_if new_resource.enabled
