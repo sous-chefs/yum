@@ -11,6 +11,8 @@ when 'amazon'
   default['yum']['main']['distroverpkg'] = 'system-release'
 when 'scientific'
   default['yum']['main']['distroverpkg'] = 'sl-release'
+when 'redhat'
+  default['yum']['main']['distroverpkg'] = nil
 else
   default['yum']['main']['distroverpkg'] = "#{node['platform']}-release"
 end
