@@ -2,6 +2,10 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.5.3 (2015-01-16)
+-------------------
+- Adding reposdir to globalconfig template
+
 v3.5.2 (2014-12-24)
 -------------------
 - Fixing redhat-release detection for Redhat 7
