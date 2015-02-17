@@ -198,6 +198,9 @@ releasever=<%= @config.releasever %>
 <% if @config.repo_gpgcheck %>
 repo_gpgcheck=<%= @config.repo_gpgcheck %>
 <% end %>
+<% if @config.reposdir %>
+reposdir=<%= @config.reposdir %>
+<% end %>
 <% if @config.reset_nice %>
 reset_nice=<%= @config.reset_nice %>
 <% end %>
@@ -251,7 +254,7 @@ username=<%= @config.username %>
 <% end %>
 <% if @config.options -%>
 <%   @config.options.each do |key, value| -%>
-<%= key %>=<%= 
+<%= key %>=<%=
        case value
        when Array
          value.join("\n       ")
