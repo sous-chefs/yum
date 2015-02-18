@@ -1,4 +1,4 @@
-# https://github.com/opscode-cookbooks/yum/issues/92
+# https://github.com/chef-cookbooks/yum/issues/92
 
 yum_repository 'test9' do
   source 'custom_template.erb'

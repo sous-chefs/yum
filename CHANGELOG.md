@@ -108,7 +108,7 @@ Updating default.rb to consume node['yum']['main']['proxy']
 v3.0.4 (2013-12-29)
 -------------------
 ### Bug
-- **[COOK-4156](https://tickets.opscode.com/browse/COOK-4156)** - yum cookbook creates a yum.conf with "cachefir" directive
+- **[COOK-4156](https://tickets.chef.io/browse/COOK-4156)** - yum cookbook creates a yum.conf with "cachefir" directive
 
 
 v3.0.2
@@ -149,14 +149,14 @@ v2.4.0
 v2.3.4
 ------
 ### Improvement
-- **[COOK-3689](https://tickets.opscode.com/browse/COOK-3689)** - Fix warnings about resource cloning
-- **[COOK-3574](https://tickets.opscode.com/browse/COOK-3574)** - Add missing "description" field in metadata
+- **[COOK-3689](https://tickets.chef.io/browse/COOK-3689)** - Fix warnings about resource cloning
+- **[COOK-3574](https://tickets.chef.io/browse/COOK-3574)** - Add missing "description" field in metadata
 
 
 v2.3.2
 ------
 ### Bug
-- **[COOK-3145](https://tickets.opscode.com/browse/COOK-3145)** - Use correct download URL for epel `key_url`
+- **[COOK-3145](https://tickets.chef.io/browse/COOK-3145)** - Use correct download URL for epel `key_url`
 
 v2.3.0
 ------

@@ -3,13 +3,13 @@
 We are glad you want to contribute to Chef Cookbooks! The first
 step is the desire to improve the project. If you're new to the Chef
 community, please read
-[How to become a contributor](https://supermarket.getchef.com/become-a-contributor)
+[How to become a contributor](https://supermarket.chef.io/become-a-contributor)
 on the Supermarket website for more information.
 
 ## Quick-contribute
 
-* Create an account on the [Supermarket](http://supermarket.getchef.com)
-* Sign our contributor agreement (CLA)[online](https://supermarket.getchef.com/ccla-signatures/new)
+* Create an account on the [Supermarket](http://supermarket.chef.io)
+* Sign our contributor agreement (CLA)[online](https://supermarket.chef.io/ccla-signatures/new)
 * Visit the Github page for the project.
 * Fork the repository
 * Create a feature branch for your change.
@@ -43,16 +43,16 @@ It only takes a few minutes to complete a CLA, and you retain the
 copyright to your contribution.
 
 You can complete our contributor agreement (CLA)
-[online](https://supermarket.getchef.com/ccla-signatures/new) If
+[online](https://supermarket.chef.io/ccla-signatures/new) If
 you're contributing on behalf of your employer, have your employer
 fill out our
-[Corporate CLA](https://supermarket.getchef.com/ccla-signatures/new)
+[Corporate CLA](https://supermarket.chef.io/ccla-signatures/new)
 instead.
 
 ## Using git
 
 You can get a quick copy of the repository for this cookbook by
-running `git clone git://github.com/opscode-coobkooks/COOKBOOKNAME.git`.
+running `git clone git://github.com/chef-coobkooks/COOKBOOKNAME.git`.
 
 For collaboration purposes, it is best if you create a Github account
 and fork the repository to your own account. Once you do this you will
@@ -91,7 +91,7 @@ to them.
 ### More information
 
 Additional help with git is available on the
-[Working with Git](http://wiki.opscode.com/display/chef/Working+with+Git)
+[Working with Git](http://wiki.chef.io/display/chef/Working+with+Git)
 wiki page.
 
 ## Functional and Unit Tests
@@ -102,7 +102,7 @@ It uses Serverspec or Bats to perform integration tests after the node
 has been converged.
    
 Test kitchen should run completely without exception using the default
-[baseboxes provided by Chef](https://github.com/opscode/bento).
+[baseboxes provided by Chef](https://github.com/chef/bento).
 Because Test Kitchen creates VirtualBox machines and runs through
 every configuration in the Kitchenfile, it may take some time for
 these tests to complete.
@@ -149,26 +149,26 @@ The versioning for Chef Cookbook projects is X.Y.Z.
 
 Releases of Chef's cookbooks are usually announced on the Chef user
 mailing list. Releases of several cookbooks may be batched together
-and announced on the [Chef Blog](http://www.getchef.com/blog).
+and announced on the [Chef Blog](http://www.chef.io/blog).
 
 ## Working with the community
 
 These resources will help you learn more about Chef and connect to
 other members of the Chef community:
 
-* [chef](http://lists.opscode.com/sympa/info/chef) and
-  [chef-dev](http://lists.opscode.com/sympa/info/chef-dev) mailing
+* [chef](http://lists.chef.io/sympa/info/chef) and
+  [chef-dev](http://lists.chef.io/sympa/info/chef-dev) mailing
   lists
 * #chef and #chef-hacking IRC channels on irc.freenode.net
-* [Community Cookbook site](http://community.opscode.com)
-* [Chef wiki](http://wiki.opscode.com/display/chef)
-* Chef, Inc [product page](http://www.getchef.com/chef)
+* [Community Cookbook site](http://community.chef.io)
+* [Chef wiki](http://wiki.chef.io/display/chef)
+* Chef, Inc [product page](http://www.chef.io/chef)
 
 ## Cookbook Contribution Do's and Don't's
 
 Please do include tests for your contribution. If you need help, ask
-on the [chef-dev mailing list](http://lists.opscode.com/sympa/info/chef-dev)
-or the [#chef-hacking IRC channel](http://community.opscode.com/chat/chef-hacking).
+on the [chef-dev mailing list](http://lists.chef.io/sympa/info/chef-dev)
+or the [#chef-hacking IRC channel](http://community.chef.io/chat/chef-hacking).
 Not all platforms that a cookbook supports may be supported by Test
 Kitchen. Please provide evidence of testing your contribution if it
 isn't trivial so we don't have to duplicate effort in testing. Chef
@@ -192,5 +192,5 @@ cycle information above.
 
 Please do not update the CHANGELOG.md for a new version. Not all
 changes to a cookbook may be merged and released in the same versions.
-Opscode will update the CHANGELOG.md when releasing a new version of
+Chef Software will update the CHANGELOG.md when releasing a new version of
 the cookbook.

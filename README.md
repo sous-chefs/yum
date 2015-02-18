@@ -1,8 +1,8 @@
 yum Cookbook
 ============
 
-[![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.getchef.com/cookbooks/yum)
-[![Travis status](http://img.shields.io/travis/opscode-cookbooks/yum.svg)](https://travis-ci.org/opscode-cookbooks/yum)
+[![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.chef.io/cookbooks/yum)
+[![Travis status](http://img.shields.io/travis/chef-cookbooks/yum.svg)](https://travis-ci.org/chef-cookbooks/yum)
 
 The Yum cookbook exposes the `yum_globalconfig` and `yum_repository`
 resources that allows a user to both control global behavior and make
@@ -256,9 +256,9 @@ yum_repository resource.
 License & Authors
 -----------------
 - Author:: Eric G. Wolfe
-- Author:: Matt Ray (<matt@getchef.com>)
-- Author:: Joshua Timberman (<joshua@getchef.com>)
-- Author:: Sean OMeara (<someara@getchef.com>)
+- Author:: Matt Ray (<matt@chef.io>)
+- Author:: Joshua Timberman (<joshua@chef.io>)
+- Author:: Sean OMeara (<someara@chef.io>)
 
 ```text
 Copyright:: 2011 Eric G. Wolfe
