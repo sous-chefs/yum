@@ -2,6 +2,10 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.5.4 (2015-04-07)
+-------------------
+- Changing tolerant config line to stringified integer
+
 v3.5.3 (2015-01-16)
 -------------------
 - Adding reposdir to globalconfig template
