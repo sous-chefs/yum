@@ -244,7 +244,7 @@ throttle=<%= @config.throttle %>
 timeout=<%= @config.timeout %>
 <% end %>
 <% if @config.tolerant %>
-tolerant=<%= @config.tolerant %>
+tolerant=<%= ( @config.tolerant ) ? '1' : '0' %>
 <% end %>
 <% if @config.tsflags %>
 tsflags=<%= @config.tsflags %>
