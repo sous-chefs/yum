@@ -2,6 +2,11 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.6.0 (2015-04-23)
+-------------------
+- Adding "yum clean" before "yum makecache" in yum_repository :create
+- Adding why_run support to yum_globalconfig
+
 v3.5.4 (2015-04-07)
 -------------------
 - Changing tolerant config line to stringified integer
