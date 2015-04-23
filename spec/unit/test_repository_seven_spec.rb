@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'yum_test::test_repository_seven' do
   let(:test_repository_seven_run) do
-    ChefSpec::Runner.new(
+    ChefSpec::SoloRunner.new(
       :step_into => 'yum_repository'
       ).converge(described_recipe)
   end
@@ -28,10 +28,6 @@ sslverify=true
   context 'creating a yum_repository with minimal parameters' do
     it 'creates yum_repository[test7]' do
       expect(test_repository_seven_run).to create_yum_repository('test7')
-    end
-
-    it 'steps into yum_repository and upgrades package[ca-certificates]' do
-      expect(test_repository_seven_run).to upgrade_package('ca-certificates')
     end
 
     it 'steps into yum_repository and creates template[/etc/yum.repos.d/test7.repo]' do

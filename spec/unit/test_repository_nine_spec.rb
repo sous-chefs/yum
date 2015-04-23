@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'yum_test::test_repository_nine' do
   let(:test_repository_nine_run) do
-    ChefSpec::Runner.new(
+    ChefSpec::SoloRunner.new(
       :step_into => 'yum_repository'
       ).converge(described_recipe)
   end
@@ -27,10 +27,6 @@ Have a nice day.
         :baseurl => 'http://drop.the.baseurl.biz',
         :enabled => false
         )
-    end
-
-    it 'steps into yum_repository and upgrades package[ca-certificates]' do
-      expect(test_repository_nine_run).to upgrade_package('ca-certificates')
     end
 
     it 'steps into yum_repository and creates template[/etc/yum.repos.d/test9.repo]' do

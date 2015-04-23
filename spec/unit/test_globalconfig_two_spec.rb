@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'yum_test::test_globalconfig_two' do
   let(:test_globalconfig_two_run) do
-    ChefSpec::Runner.new(
+    ChefSpec::SoloRunner.new(
       :step_into => 'yum_globalconfig'
       ).converge(described_recipe)
   end
