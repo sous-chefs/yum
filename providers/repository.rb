@@ -47,8 +47,14 @@ action :create  do
     variables(:config => new_resource)
     if new_resource.make_cache
       notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately
+      notifies :run, "execute[yum clean #{new_resource.repositoryid}]", :immediately
       notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
     end
+  end
+
+  execute "yum clean #{new_resource.repositoryid}" do
+    command "yum clean all --disablerepo=* --enablerepo=#{new_resource.repositoryid}"
+    action :nothing
   end
 
   # get the metadata for this repo only

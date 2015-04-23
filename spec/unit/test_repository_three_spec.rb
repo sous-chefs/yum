@@ -4,7 +4,7 @@ describe 'yum_test::test_repository_three' do
   let(:test_repository_three_run) do
     ChefSpec::SoloRunner.new(
       :step_into => 'yum_repository'
-      ).converge(described_recipe)
+    ).converge(described_recipe)
   end
 
   let(:test_repository_three_template) do
@@ -35,6 +35,10 @@ sslverify=true
 
     it 'steps into yum_repository and renders file[/etc/yum.repos.d/test3.repo]' do
       expect(test_repository_three_run).to render_file('/etc/yum.repos.d/test3.repo').with_content(test_repository_three_content)
+    end
+
+    it 'steps into yum_repository and runs execute[yum clean test3]' do
+      expect(test_repository_three_run).to_not run_execute('yum clean test3')
     end
 
     it 'steps into yum_repository and runs execute[yum-makecache-test3]' do

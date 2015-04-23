@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 describe 'yum_test::test_repository_two' do
-
   let(:test_repository_two_run) do
     ChefSpec::SoloRunner.new(
       :step_into => 'yum_repository'
-      ).converge(described_recipe)
+    ).converge(described_recipe)
   end
 
   let(:test_repository_two_template) do
@@ -62,6 +61,10 @@ timeout=10
       expect(test_repository_two_run).to render_file('/etc/yum.repos.d/unit-test-2.repo').with_content(test_repository_two_content)
     end
 
+    it 'steps into yum_repository and runs execute[yum clean unit-test2]' do
+      expect(test_repository_two_run).to_not run_execute('yum clean unit-test-2')
+    end
+
     it 'steps into yum_repository and runs execute[yum-makecache-unit-test-2]' do
       expect(test_repository_two_run).to_not run_execute('yum-makecache-unit-test-2')
     end
@@ -78,5 +81,4 @@ timeout=10
       expect(test_repository_two_template).to notify('ruby_block[yum-cache-reload-unit-test-2]')
     end
   end
-
 end

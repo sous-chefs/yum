@@ -4,7 +4,7 @@ describe 'yum_test::test_globalconfig_one' do
   let(:test_global_config_one_run) do
     ChefSpec::SoloRunner.new(
       :step_into => 'yum_globalconfig'
-      ).converge(described_recipe)
+    ).converge(described_recipe)
   end
 
   let(:test_globalconfig_one_content) do

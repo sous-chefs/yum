@@ -4,7 +4,7 @@ describe 'yum_test::test_repository_four' do
   let(:test_repository_four_run) do
     ChefSpec::SoloRunner.new(
       :step_into => 'yum_repository'
-      ).converge(described_recipe)
+    ).converge(described_recipe)
   end
 
   let(:test_repository_four_file) do
