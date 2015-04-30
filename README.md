@@ -1,6 +1,8 @@
 yum Cookbook
 ============
 
+[![Join the chat at https://gitter.im/chef-cookbooks/yum](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chef-cookbooks/yum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.chef.io/cookbooks/yum)
 [![Travis status](http://img.shields.io/travis/chef-cookbooks/yum.svg)](https://travis-ci.org/chef-cookbooks/yum)
 
