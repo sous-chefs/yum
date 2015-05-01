@@ -16,52 +16,52 @@ platforms:
 - name: centos-5.8
   driver_plugin: digital_ocean
   driver_config:
-    size: 1gb
+    size: 2gb
     image: centos-5-8-x64
-    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+    region: <%= ENV['DIGITALOCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEYS'] %>
+    ssh_key: <%= ENV['DIGITALOCEAN_SSH_KEY_PATH'] %>
 
 - name: centos-6.5
   driver_plugin: digital_ocean
   driver_config:
-    size: 1gb
+    size: 2gb
     image: centos-6-5-x64
-    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+    region: <%= ENV['DIGITALOCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEYS'] %>
+    ssh_key: <%= ENV['DIGITALOCEAN_SSH_KEY_PATH'] %>
 
 - name: centos-7.0
   driver_plugin: digital_ocean
   driver_config:
-    size: 1gb
+    size: 2gb
     image: centos-7-0-x64
-    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+    region: <%= ENV['DIGITALOCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEYS'] %>
+    ssh_key: <%= ENV['DIGITALOCEAN_SSH_KEY_PATH'] %>
 
-- name: redhat-6.5
+# - name: redhat-6.5
+#   driver_plugin: ec2
+#   driver_config:
+#     image_id: ami-8d756fe4
+#     username: ec2-user
+#     ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
+
+- name: amazon-2014.09
   driver_plugin: ec2
   driver_config:
-    image_id: ami-8d756fe4
-    username: ec2-user
-    ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
-
-- name: amazon-2014.03
-  driver_plugin: ec2
-  driver_config:
-    image_id: ami-6b726502
+    image_id: ami-9a6ed3f2
     username: ec2-user
     ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
 
 - name: fedora-20
   driver_plugin: digital_ocean
   driver_config:
-    size: 1gb
+    size: 2gb
     image: fedora-20-x64
-    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+    region: <%= ENV['DIGITALOCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEYS'] %>
+    ssh_key: <%= ENV['DIGITALOCEAN_SSH_KEY_PATH'] %>
 
 suites:
 - name: default
