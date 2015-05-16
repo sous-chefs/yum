@@ -38,6 +38,7 @@ priority=10
 proxy=http://hellothereiamproxystring.biz
 proxy_username=kermit
 proxy_password=dafrog
+repo_gpgcheck=1
 retries=10
 skip_if_unavailable=1
 sslcacert=/path/to/directory

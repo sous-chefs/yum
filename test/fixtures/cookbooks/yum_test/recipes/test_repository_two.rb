@@ -24,6 +24,7 @@ yum_repository 'test2' do
   proxy 'http://hellothereiamproxystring.biz'
   proxy_username 'kermit'
   proxy_password 'dafrog'
+  repo_gpgcheck true
   report_instanceid false
   repositoryid 'unit-test-2'
   skip_if_unavailable true

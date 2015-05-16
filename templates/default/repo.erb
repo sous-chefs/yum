@@ -81,6 +81,9 @@ username=<%= @config.username %>
 <% if @config.password %>
 password=<%= @config.password %>
 <% end %>
+<% if @config.repo_gpgcheck %>
+repo_gpgcheck=1
+<% end %>
 <% if @config.max_retries %>
 retries=<%= @config.max_retries %>
 <% end %>
