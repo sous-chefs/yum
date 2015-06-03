@@ -46,8 +46,8 @@ action :create  do
     mode new_resource.mode
     variables(:config => new_resource)
     if new_resource.make_cache
-      notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately
       notifies :run, "execute[yum clean #{new_resource.repositoryid}]", :immediately
+      notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately
       notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
     end
   end
