@@ -3,7 +3,7 @@ maintainer 'Chef'
 maintainer_email 'cookbooks@chef.io'
 license 'Apache 2.0'
 description 'Configures various yum components on Red Hat-like systems'
-version '3.6.0'
+version '3.6.1'
 
 supports 'redhat'
 supports 'centos'

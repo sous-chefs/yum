@@ -2,6 +2,11 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.6.1 (2015-06-04)
+-------------------
+- Executing yum clean before makecache
+- Adding repo_gpgcheck
+
 v3.6.0 (2015-04-23)
 -------------------
 - Adding "yum clean" before "yum makecache" in yum_repository :create
