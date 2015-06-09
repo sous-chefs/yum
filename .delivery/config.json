@@ -1,0 +1,14 @@
+{
+  "version": "2",
+  "build_cookbook": {
+    "git": "https://github.com/opscode-cookbooks/delivery-truck.git",
+    "branch": "master",
+    "name": "delivery-truck"
+  },
+  "skip_phases": [
+    "smoke",
+    "security",
+    "quality"
+  ],
+  "build_nodes": {}
+}
