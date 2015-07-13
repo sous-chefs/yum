@@ -2,6 +2,11 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.6.2 (2015-07-13)
+-------------------
+- Adding -y to makecache, to import key when repo_gpgcheck = true.
+- Accepting Integer value for max_retries
+
 v3.6.1 (2015-06-04)
 -------------------
 - Executing yum clean before makecache
