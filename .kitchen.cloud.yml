@@ -54,11 +54,11 @@ platforms:
     username: ec2-user
     ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
 
-- name: fedora-20
+- name: fedora-21
   driver_plugin: digital_ocean
   driver_config:
     size: 2gb
-    image: fedora-20-x64
+    image: fedora-21-x64
     region: <%= ENV['DIGITALOCEAN_REGION'] %>
     ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEYS'] %>
     ssh_key: <%= ENV['DIGITALOCEAN_SSH_KEY_PATH'] %>
