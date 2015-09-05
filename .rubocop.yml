@@ -1,3 +1,8 @@
+AllCops:
+  Exclude:
+    - vendor/**/*
+    - 'Guardfile'
+
 AlignParameters:
   Enabled: false
 
@@ -31,7 +36,3 @@ PerceivedComplexity:
 
 Style/FileName:
   Enabled: false
-
-AllCops:
-  Exclude:
-    - 'Guardfile'
