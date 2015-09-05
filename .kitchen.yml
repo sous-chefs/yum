@@ -7,10 +7,9 @@ provisioner:
 platforms:
   - name: centos-5.11
   - name: centos-5.11-i386
-  - name: centos-6.6
-  - name: centos-6.6-i386
-  - name: fedora-19
-  - name: fedora-20
+  - name: centos-6.7
+  - name: centos-6.7-i386
+  - name: fedora-21
 
 suites:
   - name: default
