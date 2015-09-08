@@ -43,10 +43,16 @@ Have a nice day.
 
     it 'steps into yum_repository and runs execute[yum clean test8]' do
       expect(test_repository_eight_run).to_not run_execute('yum clean test8')
+        .with(
+          :command => 'yum clean --disablerepo=* --enablerepo=test8'
+        )
     end
 
     it 'steps into yum_repository and runs execute[yum-makecache-test8]' do
       expect(test_repository_eight_run).to_not run_execute('yum-makecache-test8')
+        .with(
+          :command => 'yum -q makecache --disablerepo=* --enablerepo=test8'
+        )
     end
 
     it 'steps into yum_repository and runs ruby_block[yum-cache-reload-test8]' do
