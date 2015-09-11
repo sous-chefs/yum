@@ -30,7 +30,7 @@ def whyrun_supported?
   true
 end
 
-action :create  do
+action :create do
   # Hack around the lack of "use_inline_resources" before Chef 11 by
   # uniquely naming the execute[yum-makecache] resources. Set the
   # notifies timing to :immediately for the same reasons. Remove both
@@ -44,7 +44,7 @@ action :create  do
       source new_resource.source
     end
     mode new_resource.mode
-    variables(:config => new_resource)
+    variables(config: new_resource)
     if new_resource.make_cache
       notifies :run, "execute[yum clean #{new_resource.repositoryid}]", :immediately
       notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately

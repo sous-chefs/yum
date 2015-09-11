@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'yum_test::test_repository_eight' do
   let(:test_repository_eight_run) do
     ChefSpec::SoloRunner.new(
-      :step_into => 'yum_repository'
+      step_into: 'yum_repository'
     ).converge(described_recipe)
   end
 
@@ -22,17 +22,17 @@ Have a nice day.
     it 'creates yum_repository[test8]' do
       expect(test_repository_eight_run).to create_yum_repository('test8')
         .with(
-          :source => 'custom_template.erb',
-          :description => 'an test',
-          :baseurl => 'http://drop.the.baseurl.biz'
+          source: 'custom_template.erb',
+          description: 'an test',
+          baseurl: 'http://drop.the.baseurl.biz'
         )
     end
 
     it 'steps into yum_repository and creates template[/etc/yum.repos.d/test8.repo]' do
       expect(test_repository_eight_run).to create_template('/etc/yum.repos.d/test8.repo')
         .with(
-          :path => '/etc/yum.repos.d/test8.repo',
-          :source => 'custom_template.erb'
+          path: '/etc/yum.repos.d/test8.repo',
+          source: 'custom_template.erb'
         )
     end
 
@@ -44,14 +44,14 @@ Have a nice day.
     it 'steps into yum_repository and runs execute[yum clean test8]' do
       expect(test_repository_eight_run).to_not run_execute('yum clean test8')
         .with(
-          :command => 'yum clean --disablerepo=* --enablerepo=test8'
+          command: 'yum clean --disablerepo=* --enablerepo=test8'
         )
     end
 
     it 'steps into yum_repository and runs execute[yum-makecache-test8]' do
       expect(test_repository_eight_run).to_not run_execute('yum-makecache-test8')
         .with(
-          :command => 'yum -q makecache --disablerepo=* --enablerepo=test8'
+          command: 'yum -q makecache --disablerepo=* --enablerepo=test8'
         )
     end
 
