@@ -261,7 +261,7 @@ License & Authors
 
 ```text
 Copyright:: 2011 Eric G. Wolfe
-Copyright:: 2013 Chef
+Copyright:: 2013-2014 Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
