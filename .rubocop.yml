@@ -18,10 +18,6 @@ MethodLength:
 LineLength:
   Enabled: false
 
-HashSyntax:
-  Enabled: false
-  EnforcedStyle: hash_rockets
-
 Documentation:
   Enabled: false
 
