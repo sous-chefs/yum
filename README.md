@@ -21,9 +21,15 @@ until all dependent cookbooks have been ported.
 
 Requirements
 ------------
-* Chef 11 or higher
-* Ruby 1.9 (preferably from the Chef full-stack installer)
-* RHEL5, RHEL6, or other platforms within the family
+#### Platforms
+* RHEL/CentOS and derivatives
+* Fedora
+
+#### Chef
+* Chef 11+
+
+#### Cookbooks
+* none
 
 Resources/Providers
 -------------------
