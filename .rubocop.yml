@@ -1,34 +1,27 @@
 AllCops:
   Exclude:
     - vendor/**/*
-    - 'Guardfile'
+    - Guardfile
 
 AlignParameters:
   Enabled: false
-
-Encoding:
-  Enabled: false
-
 ClassLength:
   Enabled: false
-
-MethodLength:
-  Enabled: false
-
-LineLength:
-  Enabled: false
-
-Documentation:
-  Enabled: false
-
-PerceivedComplexity:
-  Enabled: false
-
 CyclomaticComplexity:
   Enabled: false
-
+Documentation:
+  Enabled: false
+Encoding:
+  Enabled: false
+LineLength:
+  Enabled: false
+MethodLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
 PerceivedComplexity:
   Enabled: false
-
+SingleSpaceBeforeFirstArg:
+  Enabled: false
 Style/FileName:
   Enabled: false
