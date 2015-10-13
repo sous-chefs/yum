@@ -2,6 +2,13 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.8.0 (2015-10-13)
+-------------------
+- adding clean_headers boolean property to yum_resource
+- restoring Chef 10 backwards compat for the sake of ChefSpec
+  (unique resource names needed to avoid cloning)
+- Fixing localpkg_gpgcheck values
+
 v3.7.1 (2015-09-08)
 -------------------
 - #135 - reverting "yum clean headers" as it breaks dnf compat
