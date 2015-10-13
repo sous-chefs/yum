@@ -2,6 +2,10 @@ yum Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum cookbook.
 
+v3.8.1 (2015-10-13)
+-------------------
+- Fixing up Chef13 deprecation warnings
+
 v3.8.0 (2015-10-13)
 -------------------
 - adding clean_headers boolean property to yum_resource
