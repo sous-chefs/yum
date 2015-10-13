@@ -42,10 +42,10 @@ Have a nice day.
         .with_content(test_repository_nine_content)
     end
 
-    it 'steps into yum_repository and runs execute[yum clean test9]' do
-      expect(test_repository_nine_run).to_not run_execute('yum clean test9')
+    it 'steps into yum_repository and runs execute[yum clean headers test9]' do
+      expect(test_repository_nine_run).to_not run_execute('yum clean headers test9')
         .with(
-          command: 'yum clean --disablerepo=* --enablerepo=test9'
+          command: 'yum clean headers --disablerepo=* --enablerepo=test9'
         )
     end
 

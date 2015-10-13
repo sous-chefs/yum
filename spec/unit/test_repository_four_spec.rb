@@ -20,16 +20,16 @@ describe 'yum_test::test_repository_four' do
       expect(test_repository_four_run).to delete_file('/etc/yum.repos.d/test4.repo')
     end
 
-    it 'does not run execute[yum clean test4]' do
-      expect(test_repository_four_run).to_not run_execute('yum clean test4')
+    it 'does not run execute[yum clean all test4]' do
+      expect(test_repository_four_run).to_not run_execute('yum clean all test4')
     end
 
     it 'does not run ruby_block[yum-cache-reload-test4]' do
       expect(test_repository_four_run).to_not run_ruby_block('yum-cache-reload-test4')
     end
 
-    it 'sends a :run to execute[yum clean test4]' do
-      expect(test_repository_four_file).to notify('execute[yum clean test4]')
+    it 'sends a :run to execute[yum clean all test4]' do
+      expect(test_repository_four_file).to notify('execute[yum clean all test4]')
     end
 
     it 'sends a :create to ruby_block[yum-cache-reload-test4]' do

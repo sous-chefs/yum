@@ -36,8 +36,8 @@ gpgcheck=1
       expect(test_repository_three_run).to render_file('/etc/yum.repos.d/test3.repo').with_content(test_repository_three_content)
     end
 
-    it 'steps into yum_repository and runs execute[yum clean test3]' do
-      expect(test_repository_three_run).to_not run_execute('yum clean test3')
+    it 'steps into yum_repository and runs execute[yum clean headers test3]' do
+      expect(test_repository_three_run).to_not run_execute('yum clean headers test3')
     end
 
     it 'steps into yum_repository and runs execute[yum-makecache-test3]' do
