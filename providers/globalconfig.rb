@@ -3,7 +3,7 @@
 # Provider:: repository
 #
 # Author:: Sean OMeara <someara@chef.io>
-# Copyright 2013-2015, Chef Software, Inc.
+# Copyright 2013, Chef
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,8 @@
 # limitations under the License.
 #
 
-use_inline_resources
+# Allow for Chef 10 support
+use_inline_resources if defined?(use_inline_resources)
 
 def whyrun_supported?
   true
