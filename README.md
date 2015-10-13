@@ -2,6 +2,7 @@ yum Cookbook
 ============
 [![Build Status](https://travis-ci.org/chef-cookbooks/yum.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum)
 [![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.chef.io/cookbooks/yum)
+[![Code Climate](https://codeclimate.com/github/chef-cookbooks/yum/badges/gpa.svg)](https://supermarket.chef.io/cookbooks/yum)
 
 The Yum cookbook exposes the `yum_globalconfig` and `yum_repository`
 resources that allows a user to both control global behavior and make
