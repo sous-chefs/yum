@@ -18,6 +18,7 @@ exactarch=1
 gpgcheck=1
 installonly_limit=3
 keepcache=0
+localpkg_gpgcheck=0
 logfile=/var/log/yum.log
 obsoletes=1
 plugins=1'
