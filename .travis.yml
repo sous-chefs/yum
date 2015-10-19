@@ -1,4 +1,8 @@
-sudo: false
+rvm: 2.2
+
+sudo: required
+
+# install the pre-release chef-dk.  Use chef-stable-precise to install the stable release
 addons:
   apt:
     sources:
@@ -6,19 +10,28 @@ addons:
     packages:
       - chefdk
 
+services: docker
+
+env:
+  matrix:
+  - INSTANCE=default-centos-58
+  - INSTANCE=default-centos-65
+  - INSTANCE=default-centos-71
+
+# Don't `bundle install`
 install: echo "skip bundle install"
 
 # Ensure we make ChefDK's Ruby the default
 before_script:
+  # https://github.com/zuazo/kitchen-in-travis-native/issues/1#issuecomment-142230889
+  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
-  # We have to install chef-sugar for ChefSpec
-  - /opt/chefdk/embedded/bin/chef gem install chef-sugar
-
+  - /opt/chefdk/embedded/bin/chef gem install kitchen-docker
 script:
   - /opt/chefdk/embedded/bin/chef --version
   - /opt/chefdk/embedded/bin/rubocop --version
   - /opt/chefdk/embedded/bin/rubocop
   - /opt/chefdk/embedded/bin/foodcritic --version
-  - /opt/chefdk/embedded/bin/foodcritic -f any . --exclude spec
-  - /opt/chefdk/embedded/bin/bundle install
-  - /opt/chefdk/embedded/bin/bundle exec rspec spec
+  - /opt/chefdk/embedded/bin/foodcritic . --exclude spec
+  - /opt/chefdk/embedded/bin/rspec
+  - KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}

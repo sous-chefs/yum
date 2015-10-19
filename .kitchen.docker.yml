@@ -1,24 +1,35 @@
-#<% require 'kitchen-sync' %>
----
+settings:
+  parallel: true
+
 driver:
   name: docker
-
-provisioner:
-  name: chef_zero
-  # require_chef_omnibus: 11.16.4
-  # require_chef_omnibus: 12.0.3
-  require_chef_omnibus: latest
+  # privileged is required otherwise the container doesn't boot right
+  privileged: true
 
 platforms:
-- name: centos-6.4
-  driver_config:
-    image: centos
+- name: centos-5.8
+  driver:
+    image: centos:5
     platform: rhel
+    run_command: /sbin/init
+    provision_command:
+      - /bin/yum install -y initscripts net-tools wget
 
-- name: centos-7.0
-  driver_config:
-    image: centos
+- name: centos-6.5
+  driver:
+    image: centos:6
     platform: rhel
+    run_command: /sbin/init
+    provision_command:
+      - /bin/yum install -y initscripts net-tools wget
+
+- name: centos-7.1
+  driver:
+    image: centos:7
+    platform: rhel
+    run_command: /usr/lib/systemd/systemd
+    provision_command:
+      - /bin/yum install -y initscripts net-tools wget
 
 suites:
 - name: default
