@@ -32,7 +32,7 @@ platforms:
       - /bin/yum install -y initscripts net-tools wget
 
 suites:
-- name: default
-  run_list:
-  - recipe[yum::default]
-  attributes: {}
+  - name: default
+    run_list:
+      - recipe[yum::default]
+      - recipe[yum_test::test_repo]
