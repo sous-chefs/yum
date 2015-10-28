@@ -36,6 +36,13 @@ action :create do
   # notifies timing to :immediately for the same reasons. Remove both
   # of these when dropping Chef 10 support.
 
+  if new_resource.clean_headers
+    Chef::Log.warn <<-eos
+      Use of `clean_headers` in resource yum[#{new_resource.repositoryid}] is now deprecated and will be removed in a future release.
+      `clean_metadata` should be used instead
+    eos
+  end
+
   template "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
     if new_resource.source.nil?
       source 'repo.erb'
@@ -46,14 +53,14 @@ action :create do
     mode new_resource.mode
     variables(config: new_resource)
     if new_resource.make_cache
-      notifies :run, "execute[yum clean headers #{new_resource.repositoryid}]", :immediately if new_resource.clean_headers
+      notifies :run, "execute[yum clean metadata #{new_resource.repositoryid}]", :immediately if new_resource.clean_metadata || new_resource.clean_headers
       notifies :run, "execute[yum-makecache-#{new_resource.repositoryid}]", :immediately
       notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
     end
   end
 
-  execute "yum clean headers #{new_resource.repositoryid}" do
-    command "yum clean headers --disablerepo=* --enablerepo=#{new_resource.repositoryid}"
+  execute "yum clean metadata #{new_resource.repositoryid}" do
+    command "yum clean metadata --disablerepo=* --enablerepo=#{new_resource.repositoryid}"
     action :nothing
   end
 
