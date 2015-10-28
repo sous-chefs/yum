@@ -3,7 +3,7 @@ maintainer 'Chef Software, Inc.'
 maintainer_email 'cookbooks@chef.io'
 license 'Apache 2.0'
 description 'Configures various yum components on Red Hat-like systems'
-version '3.8.1'
+version '3.8.2'
 
 %w(amazon centos fedora oracle redhat scientific).each do |os|
   supports os
