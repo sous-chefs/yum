@@ -37,8 +37,8 @@ gpgkey=http://example.com/RPM-GPG-KEY-FOOBAR-1
       expect(test_repository_seven_run).to render_file('/etc/yum.repos.d/test7.repo').with_content(test_repository_seven_content)
     end
 
-    it 'steps into yum_repository and runs execute[yum clean headers test7]' do
-      expect(test_repository_seven_run).to_not run_execute('yum clean headers test7')
+    it 'steps into yum_repository and runs execute[yum clean metadata test7]' do
+      expect(test_repository_seven_run).to_not run_execute('yum clean metadata test7')
     end
 
     it 'steps into yum_repository and runs execute[yum-makecache-test7]' do

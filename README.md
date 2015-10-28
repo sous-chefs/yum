@@ -78,7 +78,7 @@ end
 * `cost` - relative cost of accessing this repository. Useful for
   weighing one repo's packages as greater/less than any other.
   defaults to 1000
-* `clean_headers` - Run "yum clean headers <reponame>" during
+* `clean_metadata` - Run "yum clean metadata <reponame>" during
   repository creation. defaults to true.
 * `description` - Maps to the 'name' parameter in a repository .conf.
   Descriptive name for the repository channel. This directive must be

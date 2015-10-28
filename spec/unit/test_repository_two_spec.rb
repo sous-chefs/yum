@@ -62,8 +62,8 @@ timeout=10
       expect(test_repository_two_run).to render_file('/etc/yum.repos.d/unit-test-2.repo').with_content(test_repository_two_content)
     end
 
-    it 'steps into yum_repository and runs execute[yum clean headers unit-test2]' do
-      expect(test_repository_two_run).to_not run_execute('yum clean headers unit-test-2')
+    it 'steps into yum_repository and runs execute[yum clean metadata unit-test2]' do
+      expect(test_repository_two_run).to_not run_execute('yum clean metadata unit-test-2')
     end
 
     it 'steps into yum_repository and runs execute[yum-makecache-unit-test-2]' do
