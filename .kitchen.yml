@@ -1,17 +1,33 @@
 driver:
-  name: vagrant
+  name: dokken
+  chef_version: 12.5.1
+
+transport:
+  name: dokken
 
 provisioner:
-  name: chef_zero
+  name: dokken
+
+verifier:
+  root_path: '/opt/verifier'
+  sudo: false
 
 platforms:
-  - name: centos-5.11
-  - name: centos-5.11-i386
-  - name: centos-6.4
-  - name: centos-6.7
-  - name: centos-6.7-i386
-  - name: centos-7.1
-  - name: fedora-21
+- name: centos-5
+  driver:
+    image: centos:5
+
+- name: centos-6
+  driver:
+    image: centos:6
+
+- name: centos-7
+  driver:
+    image: centos:7
+
+- name: fedora-22
+  driver:
+    image: fedora:22
 
 suites:
   - name: default
