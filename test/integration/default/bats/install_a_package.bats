@@ -2,5 +2,5 @@
 # Test to make sure the package manager still works.
 
 @test "install a package" {
-  sudo yum -y install emacs-nox
+  yum -y install emacs-nox
 }
