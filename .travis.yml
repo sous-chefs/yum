@@ -23,7 +23,9 @@ install: echo "skip bundle install"
 # Ensure we make ChefDK's Ruby the default
 before_script:
   # https://github.com/zuazo/kitchen-in-travis-native/issues/1#issuecomment-142230889
+  - docker version
   - docker info
+  - mount
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   - /opt/chefdk/embedded/bin/chef gem install kitchen-dokken
