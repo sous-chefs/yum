@@ -16,6 +16,7 @@ env:
   - INSTANCE=default-centos-6
   - INSTANCE=default-centos-7
   - INSTANCE=default-fedora-22
+  - INSTANCE=dnf-compat-fedora-22
 
 # Don't `bundle install`
 install: echo "skip bundle install"
@@ -36,4 +37,4 @@ script:
   - /opt/chefdk/embedded/bin/foodcritic --version
   - /opt/chefdk/embedded/bin/foodcritic . --exclude spec
   - /opt/chefdk/embedded/bin/rspec
-  - KITCHEN_YAML=.kitchen.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
+  - KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
