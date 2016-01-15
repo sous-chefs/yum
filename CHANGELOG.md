@@ -1,6 +1,9 @@
 # yum Cookbook CHANGELOG
 This file is used to list changes made in each version of the yum cookbook.
 
+## v3.9.0 (2016-01-14)
+- Added dnf_yum_compat recipe to ensure yum is installed on Fedora systems for Chef package resource compatibility. This will no longer be necessary when native dnf package support ships in chef-client.
+
 ## v3.8.2 (2015-10-28)
 - #141 - Replace clean_headers with clean_metadata
 
