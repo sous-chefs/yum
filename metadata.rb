@@ -5,7 +5,7 @@ license 'Apache 2.0'
 description 'Configures various yum components on Red Hat-like systems'
 version '3.10.0'
 
-%w(amazon centos fedora oracle redhat scientific).each do |os|
+%w(amazon centos fedora oracle redhat scientific zlinux).each do |os|
   supports os
 end
 
