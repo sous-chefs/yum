@@ -1,6 +1,7 @@
 driver:
   name: dokken
-  chef_version: 12.6.0
+  chef_version: latest
+  privileged: true # because Docker and SystemD/Upstart
 
 transport:
   name: dokken
@@ -25,9 +26,9 @@ platforms:
   driver:
     image: centos:7
 
-- name: fedora-22
+- name: fedora-23
   driver:
-    image: fedora:22
+    image: fedora:23
 
 suites:
   - name: default
@@ -38,4 +39,4 @@ suites:
     run_list:
       - recipe[yum::dnf_yum_compat]
       - recipe[yum_test::test_dnf_compat]
-    includes: fedora-22
+    includes: fedora-23
