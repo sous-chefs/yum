@@ -6,7 +6,7 @@ provisioner:
 
 platforms:
   - name: centos-5.11
-  - name: centos-6.7
+  - name: centos-6.8
   - name: centos-7.2
   - name: fedora-23
 
