@@ -1,10 +1,7 @@
 # yum Cookbook
-[![Build Status](https://travis-ci.org/chef-cookbooks/yum.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum) [![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.chef.io/cookbooks/yum) [![Code Climate](https://codeclimate.com/github/chef-cookbooks/yum/badges/gpa.svg)](https://codeclimate.com/github/chef-cookbooks/yum)
+[![Build Status](https://travis-ci.org/chef-cookbooks/yum.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum) [![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.chef.io/cookbooks/yum)
 
 The Yum cookbook exposes the `yum_globalconfig` and `yum_repository` resources that allows a user to both control global behavior and make individual Yum repositories available for use. These resources aim to allow the user to configure all options listed in the `yum.conf` man page, found at [http://linux.die.net/man/5/yum.conf](http://linux.die.net/man/5/yum.conf)
-
-## NOTES
-WARNING: Yum cookbook version 3.0.0 and above contain non-backwards compatible breaking changes and will not work with cookbooks written against the 2.x and 1.x series. Changes have been made to the yum_repository resource, and the yum_key resource has been eliminated entirely. Recipes have been eliminated and moved into their own cookbooks. Please lock yum to the 2.x series in your Chef environments until all dependent cookbooks have been ported.
 
 ## Requirements
 ### Platforms
