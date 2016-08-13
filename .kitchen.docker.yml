@@ -26,9 +26,9 @@ platforms:
   driver:
     image: centos:7
 
-- name: fedora-23
+- name: fedora-latest
   driver:
-    image: fedora:23
+    image: fedora:latest
 
 suites:
   - name: default
