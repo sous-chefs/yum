@@ -233,7 +233,7 @@ sslclientcert=<%= @config.sslclientcert %>
 sslclientkey=<%= @config.sslclientkey %>
 <% end %>
 <% unless @config.sslverify.nil? %>
-sslverify=<%= ( @config.sslverify ) ? 'true' : 'false' %>
+sslverify=<%= ( @config.sslverify ) ? "true" : "false" %>
 <% end %>
 <% if @config.syslog_device %>
 syslog_device=<%= @config.syslog_device %>
@@ -251,7 +251,7 @@ throttle=<%= @config.throttle %>
 timeout=<%= @config.timeout %>
 <% end %>
 <% if @config.tolerant %>
-tolerant=<%= ( @config.tolerant ) ? '1' : '0' %>
+tolerant=<%= ( @config.tolerant ) ? "1" : "0" %>
 <% end %>
 <% if @config.tsflags %>
 tsflags=<%= @config.tsflags %>
@@ -266,9 +266,9 @@ username=<%= @config.username %>
        when Array
          value.join("\n       ")
        when TrueClass
-         '1'
+         "1"
        when FalseClass
-         '0'
+         "0"
        else
          value
        end %>

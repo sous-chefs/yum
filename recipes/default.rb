@@ -17,8 +17,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-yum_globalconfig '/etc/yum.conf' do
-  node['yum']['main'].each do |config, value|
+yum_globalconfig "/etc/yum.conf" do
+  node["yum"]["main"].each do |config, value|
     send(config.to_sym, value) unless value.nil?
   end
 

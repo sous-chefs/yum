@@ -103,7 +103,7 @@ sslclientcert=<%= @config.sslclientcert %>
 sslclientkey=<%= @config.sslclientkey %>
 <% end %>
 <% unless @config.sslverify.nil? %>
-sslverify=<%= ( @config.sslverify ) ? 'true' : 'false' %>
+sslverify=<%= ( @config.sslverify ) ? "true" : "false" %>
 <% end %>
 <% if @config.timeout %>
 timeout=<%= @config.timeout %>
@@ -115,9 +115,9 @@ timeout=<%= @config.timeout %>
        when Array
          value.join("\n       ")
        when TrueClass
-         '1'
+         "1"
        when FalseClass
-         '0'
+         "0"
        else
          value
        end %>

@@ -27,9 +27,9 @@ end
 
 action :create do
   template new_resource.path do
-    source 'main.erb'
-    cookbook 'yum'
-    mode '0644'
+    source "main.erb"
+    cookbook "yum"
+    mode "0644"
     variables(config: new_resource)
   end
 end
