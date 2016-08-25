@@ -132,6 +132,12 @@ default['yum']['main']['installonlypkgs'] = nil
 default['yum']['main']['installroot'] = nil
 ```
 
+For Amazon platform nodes, 
+
+```ruby
+default['yum']['main']['releasever'] = 'latest'
+```
+
 ## Related Cookbooks
 Recipes from older versions of this cookbook have been moved individual cookbooks. Recipes for managing platform yum configurations and installing specific repositories can be found in one (or more!) of the following cookbook.
 - yum-centos
