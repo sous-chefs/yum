@@ -15,17 +15,17 @@
 # limitations under the License.
 #
 
-require 'rake'
+require "rake"
 
-SOURCE = File.join(File.dirname(__FILE__), '..', 'MAINTAINERS.toml')
-TARGET = File.join(File.dirname(__FILE__), '..', 'MAINTAINERS.md')
+SOURCE = File.join(File.dirname(__FILE__), "..", "MAINTAINERS.toml")
+TARGET = File.join(File.dirname(__FILE__), "..", "MAINTAINERS.md")
 
 begin
-  require 'tomlrb'
+  require "tomlrb"
   task default: :generate
 
   namespace :maintainers do
-    desc 'Generate MarkDown version of MAINTAINERS file'
+    desc "Generate MarkDown version of MAINTAINERS file"
     task :generate do
       @toml = Tomlrb.load_file SOURCE
       out = "<!-- This is a generated file. Please do not edit directly -->\n\n"
@@ -34,7 +34,7 @@ begin
       out << project_lieutenant
       out << all_maintainers
 
-      File.open(TARGET, 'w') do |fn|
+      File.open(TARGET, "w") do |fn|
         fn.write out
       end
     end
@@ -48,29 +48,29 @@ private
 
 def preamble
   <<-EOL
-# #{@toml['Preamble']['title']}
-#{@toml['Preamble']['text']}
+# #{@toml["Preamble"]["title"]}
+#{@toml["Preamble"]["text"]}
 EOL
 end
 
 def project_lieutenant
   <<-EOL
-# #{@toml['Org']['Components']['Core']['title']}
-#{github_link(@toml['Org']['Components']['Core']['lieutenant'])}
+# #{@toml["Org"]["Components"]["Core"]["title"]}
+#{github_link(@toml["Org"]["Components"]["Core"]["lieutenant"])}
 
 EOL
 end
 
 def all_maintainers
   text = "# Maintainers\n"
-  @toml['Org']['Components']['Core']['maintainers'].each do |m|
+  @toml["Org"]["Components"]["Core"]["maintainers"].each do |m|
     text << "#{github_link(m)}\n"
   end
   text
 end
 
 def github_link(person)
-  name = @toml['people'][person]['name']
-  github = @toml['people'][person]['github']
+  name = @toml["people"][person]["name"]
+  github = @toml["people"][person]["github"]
   "* [#{name}](https://github.com/#{github})"
 end
