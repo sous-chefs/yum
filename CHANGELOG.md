@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## v3.12.0 (2016-08-25)
+
+- Fixing baseurl to support multiple urls
+- Modify releasever attribute for Amazon to match Amazon's default policy for releasever
+
 ## v3.11.0 (2016-06-01)
 
 - Install yum at compile time in the dnf compatibility recipe
