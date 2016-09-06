@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## 4.0.0 (2016-09-06)
+
+- Remove support for Chef 11
+
 ## 3.13.0 (2016-09-06)
 
 - Add deprecation warning for add/remove actions, which were replaced with create/delete in Yum 3.0
