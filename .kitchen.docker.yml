@@ -35,6 +35,7 @@ suites:
     run_list:
       - recipe[yum::default]
       - recipe[yum_test::test_repo]
+    excludes: fedora-latest
   - name: dnf_compat
     run_list:
       - recipe[yum::dnf_yum_compat]
