@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## 3.13.0 (2016-09-06)
+
+- Add deprecation warning for add/remove actions, which were replaced with create/delete in Yum 3.0
+- Remove support for Chef 10
+
 ## v3.12.0 (2016-08-25)
 
 - Fixing baseurl to support multiple urls
@@ -23,7 +28,8 @@ This file is used to list changes made in each version of the yum cookbook.
 - Added dnf_yum_compat recipe to ensure yum is installed on Fedora systems for Chef package resource compatibility. This will no longer be necessary when native dnf package support ships in chef-client.
 
 ## v3.8.2 (2015-10-28)
-- #141 - Replace clean_headers with clean_metadata
+
+- # 141 - Replace clean_headers with clean_metadata
 
 ## v3.8.1 (2015-10-28)
 
@@ -37,7 +43,8 @@ This file is used to list changes made in each version of the yum cookbook.
 - Fixing localpkg_gpgcheck values
 
 ## v3.7.1 (2015-09-08)
-- #135 - reverting "yum clean headers" as it breaks dnf compat
+
+- # 135 - reverting "yum clean headers" as it breaks dnf compat
 
 ## v3.7.0 (2015-09-05)
 
@@ -118,11 +125,14 @@ This file is used to list changes made in each version of the yum cookbook.
 - Adding mode parameter to repository resource. Defaults to '0644'.
 
 ## v3.2.4 (2014-08-20)
-- #82 - Adding a makecache parameter
+
+- # 82 - Adding a makecache parameter
 
 ## v3.2.2 (2014-06-11)
-- #77 - Parameter default to be Trueclass instead of "1"
-- #78 - add releasever parameter
+
+- # 77 - Parameter default to be Trueclass instead of "1"
+
+- # 78 - add releasever parameter
 
 ## v3.2.0 (2014-04-09)
 
@@ -296,11 +306,14 @@ This version changes the behavior of the EPEL recipe (most commonly used in othe
 - [COOK-1346] - retry remote_file for EPEL in case we get an FTP mirror
 
 ## v0.5.2
+
 - [COOK-825] - epel and ius `remote_file` should notify the `rpm_package` to install
 
 ## v0.5.0
+
 - [COOK-675] - add recipe for handling EPEL repository
 - [COOK-722] - add recipe for handling IUS repository
 
 ## v.0.1.2
+
 - Remove yum update in default recipe, that doesn't update caches, it updates packages installed.
