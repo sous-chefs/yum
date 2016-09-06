@@ -29,6 +29,16 @@ def whyrun_supported?
   true
 end
 
+action :add do
+  Chef::Log.warn('The :add method in yum_repository has been deprecated in favor of :create. Please update your cookbook to use the :create action')
+  action_create
+end
+
+action :remove do
+  Chef::Log.warn('The :remove method in yum_repository has been deprecated in favor of :delete. Repository deletion in Chef 12.14+ with :remove will fail')
+  action_delete
+end
+
 action :create do
   if new_resource.clean_headers
     Chef::Log.warn <<-eos
@@ -103,6 +113,3 @@ action :makecache do
     action :run
   end
 end
-
-alias_method :action_add, :action_create
-alias_method :action_remove, :action_delete
