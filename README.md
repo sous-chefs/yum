@@ -1,21 +1,28 @@
 # yum Cookbook
+
 [![Build Status](https://travis-ci.org/chef-cookbooks/yum.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum) [![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.chef.io/cookbooks/yum)
 
-The Yum cookbook exposes the `yum_globalconfig` and `yum_repository` resources that allows a user to both control global behavior and make individual Yum repositories available for use. These resources aim to allow the user to configure all options listed in the `yum.conf` man page, found at [http://linux.die.net/man/5/yum.conf](http://linux.die.net/man/5/yum.conf)
+The Yum cookbook exposes the `yum_globalconfig` and `yum_repository` resources that allows a user to both control global behavior and make individual Yum repositories available for use. These resources aim to allow the user to configure all options listed in the `yum.conf` man page, found at <http://linux.die.net/man/5/yum.conf>
 
 ## Requirements
+
 ### Platforms
+
 - RHEL/CentOS and derivatives
 - Fedora
 
 ### Chef
-- Chef 11+
+
+- Chef 12+
 
 ### Cookbooks
+
 - none
 
 ## Resources/Providers
+
 ### yum_repository
+
 This resource manages a yum repository configuration file at /etc/yum.repos.d/`repositoryid`.repo. When the file needs to be repaired, it calls yum-makecache so packages in the repo become available to the next resource.
 
 #### Example
@@ -46,24 +53,26 @@ end
 ```
 
 #### Actions
+
 - `:create` - creates a repository file and builds the repository listing
 - `:delete` - deletes the repository file
 - `:makecache` - update yum cache
 
 #### Parameters
-- `baseurl` -  Must be a URL to the directory where the yum repository's 'repodata' directory lives. Can be an http://, ftp:// or file:// URL. You can specify multiple URLs in one baseurl statement.
+
+- `baseurl` - Must be a URL to the directory where the yum repository's 'repodata' directory lives. Can be an http://, ftp:// or file:// URL. You can specify multiple URLs in one baseurl statement.
 - `cost` - relative cost of accessing this repository. Useful for weighing one repo's packages as greater/less than any other. defaults to 1000
-- `clean_metadata` - Run "yum clean metadata <reponame>" during repository creation. defaults to true.
+- `clean_metadata` - Run "yum clean metadata REPONAME" during repository creation. defaults to true.
 - `description` - Maps to the 'name' parameter in a repository .conf. Descriptive name for the repository channel. This directive must be specified.
 - `enabled` - Either `true` or `false`. This tells yum whether or not use this repository.
-- `enablegroups` -  Either `true` or `false`. Determines whether yum will allow the use of package groups for this repository. Default is `true` (package groups are allowed).
+- `enablegroups` - Either `true` or `false`. Determines whether yum will allow the use of package groups for this repository. Default is `true` (package groups are allowed).
 - `exclude` - List of packages to exclude from updates or installs. This should be a space separated list in a single string. Shell globs using wildcards (eg. * and ?) are allowed.
 - `failovermethod` - Either 'roundrobin' or 'priority'.
 - `fastestmirror_enabled` - Either `true` or `false`
 - `gpgcheck` - Either `true` or `false`. This tells yum whether or not it should perform a GPG signature check on packages. When this is set in the [main] section it sets the default for all repositories. The default is `true`.
 - `gpgkey` - A URL pointing to the ASCII-armored GPG key file for the repository. This option is used if yum needs a public key to verify a package and the required key hasn't been imported into the RPM database. If this option is set, yum will automatically import the key from the specified URL.
 - `http_caching` - Either 'all', 'packages', or 'none'. Determines how upstream HTTP caches are instructed to handle any HTTP downloads that Yum does. Defaults to 'all'
-- `includepkgs` -  Inverse of exclude. This is a list of packages you want to use from a repository. If this option lists only one package then that is all yum will ever see from the repository. Defaults to an empty list.
+- `includepkgs` - Inverse of exclude. This is a list of packages you want to use from a repository. If this option lists only one package then that is all yum will ever see from the repository. Defaults to an empty list.
 - `keepalive` - Either `true` or `false`. This tells yum whether or not HTTP/1.1 keepalive should be used with this repository.
 - `make_cache` - Optional, Default is `true`, if `false` then `yum -q makecache` will not be ran
 - `max_retries` - Set the number of times any attempt to retrieve a file should retry before returning an error. Setting this to '0' makes yum try forever. Default is '10'.
@@ -72,9 +81,9 @@ end
 - `mirror_expire` - Time (in seconds) after which the mirrorlist locally cached will expire. If the current mirrorlist is less than this many seconds old then yum will not download another copy of the mirrorlist, it has the same extra format as metadata_expire. If you find that yum is not downloading the mirrorlists as often as you would like lower the value of this option.
 - `mirrorlist_expire` - alias for mirror_expire
 - `mode` - Permissions mode of .repo file on disk. Useful for scenarios where secrets are in the repo file. If set to '600', normal users will not be able to use yum search, yum info, etc. Defaults to '0644'
-- `priority` - When the yum-priorities plug-in is enabled, you set priorities on repository entries, where N is an integer from 1 to 99. The default priority for repositories is 99.
+- `priority` - When the yum-priorities plug-in is enabled, you set priorities on repository entries, where N is an integer from 1 to 99\. The default priority for repositories is 99.
 - `proxy` - URL to the proxy server that yum should use.
-- `proxy_username` -  username to use for proxy
+- `proxy_username` - username to use for proxy
 - `proxy_password` - password for this proxy
 - `report_instanceid` - Report instance ID when using Amazon Linux AMIs and repositories
 - `repositoryid` - Must be a unique name for each repository, one word. Defaults to name attribute.
@@ -87,6 +96,7 @@ end
 - `timeout` - Number of seconds to wait for a connection before timing out. Defaults to 30 seconds. This may be too short of a time for extremely overloaded sites.
 
 ### yum_globalconfig
+
 This renders a template with global yum configuration parameters. The default recipe uses it to render `/etc/yum.conf`. It is flexible enough to be used in other scenarios, such as building RPMs in isolation by modifying `installroot`.
 
 #### Example
@@ -102,21 +112,25 @@ end
 ```
 
 #### Parameters
-`yum_globalconfig` can take most of the same parameters as a `yum_repository`, plus more, too numerous to describe here. Below are a few of the more commonly used ones. For a complete list, please consult the `yum.conf` man page, found here: [http://linux.die.net/man/5/yum.conf](http://linux.die.net/man/5/yum.conf)
+
+`yum_globalconfig` can take most of the same parameters as a `yum_repository`, plus more, too numerous to describe here. Below are a few of the more commonly used ones. For a complete list, please consult the `yum.conf` man page, found here: <http://linux.die.net/man/5/yum.conf>
+
 - `cachedir` - Directory where yum should store its cache and db files. The default is '/var/cache/yum'.
 - `keepcache` - Either `true` or `false`. Determines whether or not yum keeps the cache of headers and packages after successful installation. Default is `false`
-- `debuglevel` - Debug message output level. Practical range is 0-10. Default is '2'.
+- `debuglevel` - Debug message output level. Practical range is 0-10\. Default is '2'.
 - `exclude` - List of packages to exclude from updates or installs. This should be a space separated list. Shell globs using wildcards (eg. * and ?) are allowed.
 - `installonlypkgs` = List of package provides that should only ever be installed, never updated. Kernels in particular fall into this category. Defaults to kernel, kernel-bigmem, kernel-enterprise, kernel-smp, kernel-debug, kernel-unsupported, kernel-source, kernel-devel, kernel-PAE, kernel-PAE-debug.
 - `logfile` - Full directory and file name for where yum should write its log file.
-- `exactarch` -  Either `true` or `false`. Set to `true` to make 'yum update' only update the architectures of packages that you have installed. ie: with this enabled yum will not install an i686 package to update an x86_64 package. Default is `true`
+- `exactarch` - Either `true` or `false`. Set to `true` to make 'yum update' only update the architectures of packages that you have installed. ie: with this enabled yum will not install an i686 package to update an x86_64 package. Default is `true`
 - `gpgcheck` - Either `true` or `false`. This tells yum whether or not it should perform a GPG signature check on the packages gotten from this repository.
 
 ## Recipes
+
 - `default` - Configures `yum_globalconfig[/etc/yum.conf]` with values found in node attributes at `node['yum']['main']`
 - `dnf_yum_compat` - Installs the yum package using dnf on Fedora systems to provide support for the package resource in recipes. This is necessary as Chef does not yet (as of Q4 2015) have native support for DNF. This recipe should be 1st on a Fedora runlist
 
 ## Attributes
+
 The following attributes are set by default
 
 ```ruby
@@ -132,14 +146,16 @@ default['yum']['main']['installonlypkgs'] = nil
 default['yum']['main']['installroot'] = nil
 ```
 
-For Amazon platform nodes, 
+For Amazon platform nodes,
 
 ```ruby
 default['yum']['main']['releasever'] = 'latest'
 ```
 
 ## Related Cookbooks
+
 Recipes from older versions of this cookbook have been moved individual cookbooks. Recipes for managing platform yum configurations and installing specific repositories can be found in one (or more!) of the following cookbook.
+
 - yum-centos
 - yum-fedora
 - yum-amazon
@@ -151,9 +167,11 @@ Recipes from older versions of this cookbook have been moved individual cookbook
 - yum-pgdg
 
 ## Usage
+
 Put `depends 'yum'` in your metadata.rb to gain access to the yum_repository resource.
 
 ## License & Authors
+
 - Author:: Eric G. Wolfe
 - Author:: Matt Ray ([matt@chef.io](mailto:matt@chef.io))
 - Author:: Joshua Timberman ([joshua@chef.io](mailto:joshua@chef.io))

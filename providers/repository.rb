@@ -18,11 +18,6 @@
 # limitations under the License.
 #
 
-# In Chef 11 and above, calling the use_inline_resources method will
-# make Chef create a new "run_context". When an action is called, any
-# nested resources are compiled and converged in isolation from the
-# recipe that calls it.
-
 use_inline_resources
 
 def whyrun_supported?

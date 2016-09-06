@@ -9,7 +9,7 @@ version '3.13.0'
   supports os
 end
 
-source_url 'https://github.com/chef-cookbooks/yum' if respond_to?(:source_url)
-issues_url 'https://github.com/chef-cookbooks/yum/issues' if respond_to?(:issues_url)
+source_url 'https://github.com/chef-cookbooks/yum'
+issues_url 'https://github.com/chef-cookbooks/yum/issues'
 
-chef_version '>= 11' if respond_to?(:chef_version)
+chef_version '>= 12'
