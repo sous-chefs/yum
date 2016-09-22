@@ -1,3 +1,6 @@
+include_recipe 'yum::dnf_yum_compat' if platform?('fedora')
+include_recipe 'yum::default'
+
 yum_globalconfig '/tmp/yum-full.conf' do
   alwaysprompt true
   assumeyes true
@@ -99,6 +102,7 @@ yum_repository 'rpmfusion2' do
   action :remove
 end
 
-yum_repository "base" do
+yum_repository 'base' do
   action :makecache
+  not_if { platform?('fedora') }
 end

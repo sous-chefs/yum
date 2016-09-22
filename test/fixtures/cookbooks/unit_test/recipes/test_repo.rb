@@ -18,7 +18,6 @@
 #   end
 # end
 
-
 yum_repository 'epel' do
   mirrorlist "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-#{node['platform_version'].to_i}&arch=$basearch"
   action :create

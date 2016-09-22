@@ -29,8 +29,6 @@ platforms:
 - name: fedora-latest
   driver:
     image: fedora:latest
-    run_list:
-      - recipe[yum::dnf_yum_compat]
 
 suites:
   - name: default
