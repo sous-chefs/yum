@@ -19,7 +19,6 @@
 #
 
 actions :create, :delete, :add, :remove, :makecache
-
 default_action :create
 
 # http://linux.die.net/man/5/yum.conf

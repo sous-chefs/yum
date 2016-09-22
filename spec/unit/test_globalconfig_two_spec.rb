@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'yum_test::test_globalconfig_two' do
+describe 'unit_test::test_globalconfig_two' do
   let(:test_globalconfig_two_run) do
     ChefSpec::SoloRunner.new(
       step_into: 'yum_globalconfig'

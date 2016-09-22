@@ -29,15 +29,10 @@ platforms:
 - name: fedora-latest
   driver:
     image: fedora:latest
+    run_list:
+      - recipe[yum::dnf_yum_compat]
 
 suites:
   - name: default
     run_list:
-      - recipe[yum::default]
-      - recipe[yum_test::test_repo]
-    excludes: fedora-latest
-  - name: dnf_compat
-    run_list:
-      - recipe[yum::dnf_yum_compat]
-      - recipe[yum_test::test_dnf_compat]
-    includes: fedora-latest
+      - recipe[integration_test::default]
