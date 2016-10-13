@@ -79,16 +79,15 @@ action :create do
 end
 
 action :delete do
-  file "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
-    action :delete
-    notifies :run, "execute[yum clean all #{new_resource.repositoryid}]", :immediately
-    notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
-  end
-
+  # clean the repo cache first.
   execute "yum clean all #{new_resource.repositoryid}" do
     command "yum clean all --disablerepo=* --enablerepo=#{new_resource.repositoryid}"
-    only_if "yum repolist | grep -P '^#{new_resource.repositoryid}([ \t]|$)'"
-    action :nothing
+    only_if "yum repolist all | grep -P '^#{new_resource.repositoryid}([ \t]|$)'"
+  end
+
+  file "/etc/yum.repos.d/#{new_resource.repositoryid}.repo" do
+    action :delete
+    notifies :create, "ruby_block[yum-cache-reload-#{new_resource.repositoryid}]", :immediately
   end
 
   ruby_block "yum-cache-reload-#{new_resource.repositoryid}" do
