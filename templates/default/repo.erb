@@ -29,7 +29,9 @@ exclude=<%= @config.exclude %>
 failovermethod=<%= @config.failovermethod %>
 <% end %>
 <% if @config.fastestmirror_enabled %>
-fastestmirror_enabled=<%= @config.fastestmirror_enabled %>
+fastestmirror_enabled=1
+<% else %>
+fastestmirror_enabled=0
 <% end %>
 <% if @config.gpgcheck %>
 gpgcheck=1
