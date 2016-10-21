@@ -12,4 +12,4 @@ end
 source_url 'https://github.com/chef-cookbooks/yum'
 issues_url 'https://github.com/chef-cookbooks/yum/issues'
 
-chef_version '>= 12'
+chef_version '>= 12.1'

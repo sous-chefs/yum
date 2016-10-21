@@ -3,6 +3,7 @@ driver:
 
 provisioner:
   name: chef_zero
+  #chef_omnibus_install_options: '-c current'
   require_chef_omnibus: 12.12.15 # a chef release without yum built in
 
 platforms:
@@ -10,18 +11,10 @@ platforms:
   - name: centos-6.8
   - name: centos-7.2
   - name: fedora-24
+    run_list:
+      - recipe[yum::dnf_yum_compat]
 
 suites:
   - name: default
     run_list:
-      - recipe[yum::default]
-      - recipe[yum_test::test_repo]
-  - name: dnf_compat
-    run_list:
-      - recipe[yum::dnf_yum_compat]
-      - recipe[yum_test::test_dnf_compat]
-    includes: fedora-23
-  - name: global_conflig
-    run_list:
-      - recipe[yum::default]
-      - recipe[yum_test::test_globalconfig_two]
+      - recipe[integration_test::default]

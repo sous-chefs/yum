@@ -1,4 +1,4 @@
-name 'yum_test'
+name 'unit_test'
 maintainer 'Chef'
 maintainer_email 'cookbooks@chef.io'
 license 'Apache 2.0'

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'yum_test::test_repository_three' do
+describe 'unit_test::test_repository_three' do
   let(:test_repository_three_run) do
     ChefSpec::SoloRunner.new(
       step_into: 'yum_repository'
