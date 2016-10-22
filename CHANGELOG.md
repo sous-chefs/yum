@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## 4.1.0 (2016-10-21)
+- Purge yum cache before removing a repo not after
+
 ## 4.0.0 (2016-09-06)
 
 - Remove support for Chef 11
