@@ -23,7 +23,7 @@ Have a nice day.
       expect(test_repository_eight_run).to create_yum_repository('test8')
         .with(
           source: 'custom_template.erb',
-          description: 'an test',
+          description: 'a test',
           baseurl: 'http://drop.the.baseurl.biz'
         )
     end

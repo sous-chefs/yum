@@ -3,6 +3,8 @@ require 'spec_helper'
 describe 'yum_test::test_repository_seven' do
   let(:test_repository_seven_run) do
     ChefSpec::SoloRunner.new(
+      platform: 'centos',
+      version: '6.8',
       step_into: 'yum_repository'
     ).converge(described_recipe)
   end
@@ -16,7 +18,7 @@ describe 'yum_test::test_repository_seven' do
 # Do NOT modify this file by hand.
 
 [test7]
-name=an test
+name=a test
 baseurl=http://drop.the.baseurl.biz
 enabled=1
 gpgcheck=1

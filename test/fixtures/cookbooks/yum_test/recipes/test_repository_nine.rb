@@ -2,7 +2,7 @@
 
 yum_repository 'test9' do
   source 'custom_template.erb'
-  description 'an test'
+  description 'a test'
   baseurl 'http://drop.the.baseurl.biz'
   enabled false
   action :create

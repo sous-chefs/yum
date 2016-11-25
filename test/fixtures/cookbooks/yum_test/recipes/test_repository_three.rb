@@ -1,6 +1,6 @@
 # create alias 'add'
 yum_repository 'test3' do
-  description 'an test'
+  description 'a test'
   baseurl 'http://drop.the.baseurl.biz'
   action :add
 end

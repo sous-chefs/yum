@@ -16,7 +16,7 @@ describe 'yum_test::test_repository_one' do
 # Do NOT modify this file by hand.
 
 [test1]
-name=an test
+name=a test
 baseurl=http://drop.the.baseurl.biz
 enabled=1
 gpgcheck=1
