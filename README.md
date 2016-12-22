@@ -13,7 +13,7 @@ The Yum cookbook exposes the `yum_globalconfig` and `yum_repository` resources t
 
 ### Chef
 
-- Chef 12+
+- Chef 12.1+
 
 ### Cookbooks
 
