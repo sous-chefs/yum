@@ -70,8 +70,8 @@ deltarpm=1
 <% elsif @config.deltarpm == false %>
 deltarpm=0
 <% end %>
-<% if @config.diskspacecheck %>
-diskspacecheck=<%= @config.diskspacecheck %>
+<% if @config.diskspacecheck != true %>
+diskspacecheck=0
 <% end %>
 <% if @config.distroverpkg %>
 distroverpkg=<%= @config.distroverpkg %>
