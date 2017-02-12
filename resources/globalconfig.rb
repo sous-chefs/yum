@@ -3,7 +3,7 @@
 # Resource:: repository
 #
 # Author:: Sean OMeara <someara@chef.io>
-# Copyright:: 2013-2016, Chef Software, Inc.
+# Copyright:: 2013-2017, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,91 +18,102 @@
 # limitations under the License.
 #
 
-actions :create, :delete
-
-default_action :create
-
 # http://linux.die.net/man/5/yum.conf
-attribute :alwaysprompt, kind_of: [TrueClass, FalseClass], default: nil
-attribute :assumeyes, kind_of: [TrueClass, FalseClass], default: nil
-attribute :bandwidth, kind_of: String, regex: /^\d+/, default: nil
-attribute :bugtracker_url, kind_of: String, regex: /.*/, default: nil
-attribute :clean_requirements_on_remove, kind_of: [TrueClass, FalseClass], default: nil
-attribute :cachedir, kind_of: String, regex: /.*/, default: '/var/cache/yum/$basearch/$releasever'
-attribute :color, kind_of: String, equal_to: %w(always never), default: nil
-attribute :color_list_available_downgrade, kind_of: String, regex: /.*/, default: nil
-attribute :color_list_available_install, kind_of: String, regex: /.*/, default: nil
-attribute :color_list_available_reinstall, kind_of: String, regex: /.*/, default: nil
-attribute :color_list_available_upgrade, kind_of: String, regex: /.*/, default: nil
-attribute :color_list_installed_extra, kind_of: String, regex: /.*/, default: nil
-attribute :color_list_installed_newer, kind_of: String, regex: /.*/, default: nil
-attribute :color_list_installed_older, kind_of: String, regex: /.*/, default: nil
-attribute :color_list_installed_reinstall, kind_of: String, regex: /.*/, default: nil
-attribute :color_search_match, kind_of: String, regex: /.*/, default: nil
-attribute :color_update_installed, kind_of: String, regex: /.*/, default: nil
-attribute :color_update_local, kind_of: String, regex: /.*/, default: nil
-attribute :color_update_remote, kind_of: String, regex: /.*/, default: nil
-attribute :commands, kind_of: String, regex: /.*/, default: nil
-attribute :debuglevel, kind_of: String, regex: /^\d+$/, default: '2'
-attribute :deltarpm, kind_of: [TrueClass, FalseClass], default: nil
-attribute :diskspacecheck, kind_of: [TrueClass, FalseClass], default: nil
-attribute :distroverpkg, kind_of: String, regex: /.*/, default: nil
-attribute :enable_group_conditionals, kind_of: [TrueClass, FalseClass], default: nil
-attribute :errorlevel, kind_of: String, regex: /^\d+$/, default: nil
-attribute :exactarch, kind_of: [TrueClass, FalseClass], default: true
-attribute :exclude, kind_of: String, regex: /.*/, default: nil
-attribute :gpgcheck, kind_of: [TrueClass, FalseClass], default: true
-attribute :group_package_types, kind_of: String, regex: /.*/, default: nil
-attribute :groupremove_leaf_only, kind_of: [TrueClass, FalseClass], default: nil
-attribute :history_list_view, kind_of: String, equal_to: %w(users commands single-user-commands), default: nil
-attribute :history_record, kind_of: [TrueClass, FalseClass], default: nil
-attribute :history_record_packages, kind_of: String, regex: /.*/, default: nil
-attribute :http_caching, kind_of: String, equal_to: %w(packages all none), default: nil
-attribute :installonly_limit, kind_of: String, regex: [/^\d+/, /keep/], default: '3'
-attribute :installonlypkgs, kind_of: String, regex: /.*/, default: nil
-attribute :installroot, kind_of: String, regex: /.*/, default: nil
-attribute :keepalive, kind_of: [TrueClass, FalseClass], default: nil
-attribute :keepcache, kind_of: [TrueClass, FalseClass], default: false
-attribute :kernelpkgnames, kind_of: String, regex: /.*/, default: nil
-attribute :localpkg_gpgcheck, kind_of: [TrueClass, FalseClass], default: nil
-attribute :logfile, kind_of: String, regex: /.*/, default: '/var/log/yum.log'
-attribute :max_retries, kind_of: String, regex: /^\d+$/, default: nil
-attribute :mdpolicy, kind_of: String, equal_to: %w(instant group:primary group:small group:main group:all), default: nil
-attribute :metadata_expire, kind_of: String, regex: [/^\d+$/, /^\d+[mhd]$/, /never/], default: nil
-attribute :mirrorlist_expire, kind_of: String, regex: /^\d+$/, default: nil
-attribute :multilib_policy, kind_of: String, equal_to: %w(all best), default: nil
-attribute :obsoletes, kind_of: [TrueClass, FalseClass], default: nil
-attribute :overwrite_groups, kind_of: [TrueClass, FalseClass], default: nil
-attribute :password, kind_of: String, regex: /.*/, default: nil
-attribute :path, kind_of: String, regex: /.*/, name_attribute: true
-attribute :persistdir, kind_of: String, regex: /.*/, default: nil
-attribute :pluginconfpath, kind_of: String, regex: /.*/, default: nil
-attribute :pluginpath, kind_of: String, regex: /.*/, default: nil
-attribute :plugins, kind_of: [TrueClass, FalseClass], default: true
-attribute :protected_multilib, kind_of: [TrueClass, FalseClass], default: nil
-attribute :protected_packages, kind_of: String, regex: /.*/, default: nil
-attribute :proxy, kind_of: String, regex: /.*/, default: nil
-attribute :proxy_password, kind_of: String, regex: /.*/, default: nil
-attribute :proxy_username, kind_of: String, regex: /.*/, default: nil
-attribute :recent, kind_of: String, regex: /^\d+$/, default: nil
-attribute :releasever, kind_of: String, regex: /.*/, default: nil
-attribute :repo_gpgcheck, kind_of: [TrueClass, FalseClass], default: nil
-attribute :reposdir, kind_of: String, regex: /.*/, default: nil
-attribute :reset_nice, kind_of: [TrueClass, FalseClass], default: nil
-attribute :rpmverbosity, kind_of: String, equal_to: %w(info critical emergency error warn debug), default: nil
-attribute :showdupesfromrepos, kind_of: [TrueClass, FalseClass], default: nil
-attribute :skip_broken, kind_of: [TrueClass, FalseClass], default: nil
-attribute :ssl_check_cert_permissions, kind_of: [TrueClass, FalseClass], default: nil
-attribute :sslcacert, kind_of: String, regex: /.*/, default: nil
-attribute :sslclientcert, kind_of: String, regex: /.*/, default: nil
-attribute :sslclientkey, kind_of: String, regex: /.*/, default: nil
-attribute :sslverify, kind_of: [TrueClass, FalseClass], default: nil
-attribute :syslog_device, kind_of: String, regex: /.*/, default: nil
-attribute :syslog_facility, kind_of: String, regex: /.*/, default: nil
-attribute :syslog_ident, kind_of: String, regex: /.*/, default: nil
-attribute :throttle, kind_of: String, regex: [/\d+k/, /\d+M/, /\d+G/], default: nil
-attribute :timeout, kind_of: String, regex: /^\d+$/, default: nil
-attribute :tolerant, kind_of: [TrueClass, FalseClass], default: nil
-attribute :tsflags, kind_of: String, regex: /.*/, default: nil
-attribute :username, kind_of: String, regex: /.*/, default: nil
-attribute :options, kind_of: Hash
+property :alwaysprompt, [TrueClass, FalseClass]
+property :assumeyes, [TrueClass, FalseClass]
+property :bandwidth, String, regex: /^\d+/
+property :bugtracker_url, String, regex: /.*/
+property :clean_requirements_on_remove, [TrueClass, FalseClass]
+property :cachedir, String, regex: /.*/, default: '/var/cache/yum/$basearch/$releasever'
+property :color, String, equal_to: %w(always never)
+property :color_list_available_downgrade, String, regex: /.*/
+property :color_list_available_install, String, regex: /.*/
+property :color_list_available_reinstall, String, regex: /.*/
+property :color_list_available_upgrade, String, regex: /.*/
+property :color_list_installed_extra, String, regex: /.*/
+property :color_list_installed_newer, String, regex: /.*/
+property :color_list_installed_older, String, regex: /.*/
+property :color_list_installed_reinstall, String, regex: /.*/
+property :color_search_match, String, regex: /.*/
+property :color_update_installed, String, regex: /.*/
+property :color_update_local, String, regex: /.*/
+property :color_update_remote, String, regex: /.*/
+property :commands, String, regex: /.*/
+property :debuglevel, String, regex: /^\d+$/, default: '2'
+property :deltarpm, [TrueClass, FalseClass]
+property :diskspacecheck, [TrueClass, FalseClass]
+property :distroverpkg, String, regex: /.*/
+property :enable_group_conditionals, [TrueClass, FalseClass]
+property :errorlevel, String, regex: /^\d+$/
+property :exactarch, [TrueClass, FalseClass], default: true
+property :exclude, String, regex: /.*/
+property :gpgcheck, [TrueClass, FalseClass], default: true
+property :group_package_types, String, regex: /.*/
+property :groupremove_leaf_only, [TrueClass, FalseClass]
+property :history_list_view, String, equal_to: %w(users commands single-user-commands)
+property :history_record, [TrueClass, FalseClass]
+property :history_record_packages, String, regex: /.*/
+property :http_caching, String, equal_to: %w(packages all none)
+property :installonly_limit, String, regex: [/^\d+/, /keep/], default: '3'
+property :installonlypkgs, String, regex: /.*/
+property :installroot, String, regex: /.*/
+property :keepalive, [TrueClass, FalseClass]
+property :keepcache, [TrueClass, FalseClass], default: false
+property :kernelpkgnames, String, regex: /.*/
+property :localpkg_gpgcheck, [TrueClass, FalseClass]
+property :logfile, String, regex: /.*/, default: '/var/log/yum.log'
+property :max_retries, String, regex: /^\d+$/
+property :mdpolicy, String, equal_to: %w(instant group:primary group:small group:main group:all)
+property :metadata_expire, String, regex: [/^\d+$/, /^\d+[mhd]$/, /never/]
+property :mirrorlist_expire, String, regex: /^\d+$/
+property :multilib_policy, String, equal_to: %w(all best)
+property :obsoletes, [TrueClass, FalseClass]
+property :overwrite_groups, [TrueClass, FalseClass]
+property :password, String, regex: /.*/
+property :path, String, regex: /.*/, name_property: true
+property :persistdir, String, regex: /.*/
+property :pluginconfpath, String, regex: /.*/
+property :pluginpath, String, regex: /.*/
+property :plugins, [TrueClass, FalseClass], default: true
+property :protected_multilib, [TrueClass, FalseClass]
+property :protected_packages, String, regex: /.*/
+property :proxy, String, regex: /.*/
+property :proxy_password, String, regex: /.*/
+property :proxy_username, String, regex: /.*/
+property :recent, String, regex: /^\d+$/
+property :releasever, String, regex: /.*/
+property :repo_gpgcheck, [TrueClass, FalseClass]
+property :reposdir, String, regex: /.*/
+property :reset_nice, [TrueClass, FalseClass]
+property :rpmverbosity, String, equal_to: %w(info critical emergency error warn debug)
+property :showdupesfromrepos, [TrueClass, FalseClass]
+property :skip_broken, [TrueClass, FalseClass]
+property :ssl_check_cert_permissions, [TrueClass, FalseClass]
+property :sslcacert, String, regex: /.*/
+property :sslclientcert, String, regex: /.*/
+property :sslclientkey, String, regex: /.*/
+property :sslverify, [TrueClass, FalseClass]
+property :syslog_device, String, regex: /.*/
+property :syslog_facility, String, regex: /.*/
+property :syslog_ident, String, regex: /.*/
+property :throttle, String, regex: [/\d+k/, /\d+M/, /\d+G/]
+property :timeout, String, regex: /^\d+$/
+property :tolerant, [TrueClass, FalseClass]
+property :tsflags, String, regex: /.*/
+property :username, String, regex: /.*/
+property :options, Hash
+
+action :create do
+  template new_resource.path do
+    source 'main.erb'
+    cookbook 'yum'
+    mode '0644'
+    variables(config: new_resource)
+  end
+end
+
+action :delete do
+  file new_resource.path do
+    action :delete
+  end
+end
