@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## 4.2.0 (2017-02-12)
+
+- Make cache in the DNF compat recipe
+- Fix `fastestmirror_enabled`.
+- Require Chef 12.1 not 12.0
+- Convert to Inspec
+
 ## 4.1.0 (2016-10-21)
 - Purge yum cache before removing a repo not after
 
