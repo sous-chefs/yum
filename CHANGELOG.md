@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## 5.0.1 (2017-04-06)
+
+- Switch from Rake testing to Local Delivery
+- Rename kitchen-docker to kitchen-dokken
+- Update apache2 license string
+- use true/false vs. TrueClass and FalseClass in the resource
+
 ## 5.0.0 (2017-02-12)
 
 ### Breaking changes
