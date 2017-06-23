@@ -76,10 +76,16 @@ default['yum']['main']['installonlypkgs'] = nil
 default['yum']['main']['installroot'] = nil
 ```
 
-For Amazon platform nodes,
+For Amazon platform nodes, the default is to receive a continuous flow of updates,
 
 ```ruby
 default['yum']['main']['releasever'] = 'latest'
+```
+
+To lock existing instances to the current version of the Amazon AMI,
+
+```ruby
+default['yum']['main']['releasever'] = ''
 ```
 
 ## Related Cookbooks

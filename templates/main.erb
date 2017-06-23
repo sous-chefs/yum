@@ -199,7 +199,7 @@ proxy_username=<%= @config.proxy_username %>
 <% if @config.recent %>
 recent=<%= @config.recent %>
 <% end %>
-<% if @config.releasever %>
+<% if @config.releasever && @config.releasever.length > 0 %>
 releasever=<%= @config.releasever %>
 <% end %>
 <% if @config.repo_gpgcheck %>
