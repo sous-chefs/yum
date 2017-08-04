@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## 5.1.0 (2017-08-04)
+
+- Avoid spec deprecation warnings
+- Use an empty string `releasever` to lock an Amazon Linux AMI to its current verison
+
 ## 5.0.1 (2017-04-06)
 
 - Switch from Rake testing to Local Delivery
