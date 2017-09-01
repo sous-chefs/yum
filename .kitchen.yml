@@ -9,9 +9,9 @@ verifier:
   name: inspec
 
 platforms:
-  - name: centos-6.9
-  - name: centos-7.3
-  - name: fedora-25
+  - name: centos-6
+  - name: centos-7
+  - name: fedora-26
 
 suites:
   - name: default
