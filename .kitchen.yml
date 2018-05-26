@@ -11,7 +11,7 @@ verifier:
 platforms:
   - name: centos-6
   - name: centos-7
-  - name: fedora-26
+  - name: fedora-28
 
 suites:
   - name: default
