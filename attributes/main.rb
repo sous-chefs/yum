@@ -17,10 +17,7 @@ default['yum']['main']['distroverpkg'] = case node['platform']
                                            "#{node['platform']}-release"
                                          end
 # default["yum"]["main"]["releasever"] = nil #  /.*/
-default['yum']['main']['releasever'] = case node['platform']
-                                       when 'amazon'
-                                         'latest'
-                                       end
+default['yum']['main']['releasever'] = 'latest' if platform?('amazon')
 default['yum']['main']['alwaysprompt'] = nil # [true, false]
 default['yum']['main']['assumeyes'] = nil # [true, false]
 default['yum']['main']['bandwidth'] = nil # /^\d+$/
