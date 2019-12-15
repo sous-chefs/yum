@@ -19,11 +19,11 @@
 #
 
 # http://linux.die.net/man/5/yum.conf
-property :alwaysprompt, [true, false]
-property :assumeyes, [true, false]
+property :alwaysprompt, [TrueClass, FalseClass]
+property :assumeyes, [TrueClass, FalseClass]
 property :bandwidth, String, regex: /^\d+/
 property :bugtracker_url, String, regex: /.*/
-property :clean_requirements_on_remove, [true, false]
+property :clean_requirements_on_remove, [TrueClass, FalseClass]
 property :cachedir, String, regex: /.*/, default: '/var/cache/yum/$basearch/$releasever'
 property :color, String, equal_to: %w(always never)
 property :color_list_available_downgrade, String, regex: /.*/
@@ -40,65 +40,65 @@ property :color_update_local, String, regex: /.*/
 property :color_update_remote, String, regex: /.*/
 property :commands, String, regex: /.*/
 property :debuglevel, String, regex: /^\d+$/, default: '2'
-property :deltarpm, [true, false]
-property :diskspacecheck, [true, false]
+property :deltarpm, [TrueClass, FalseClass]
+property :diskspacecheck, [TrueClass, FalseClass]
 property :distroverpkg, String, regex: /.*/
-property :enable_group_conditionals, [true, false]
+property :enable_group_conditionals, [TrueClass, FalseClass]
 property :errorlevel, String, regex: /^\d+$/
-property :exactarch, [true, false], default: true
+property :exactarch, [TrueClass, FalseClass], default: true
 property :exclude, String, regex: /.*/
-property :gpgcheck, [true, false], default: true
+property :gpgcheck, [TrueClass, FalseClass], default: true
 property :group_package_types, String, regex: /.*/
-property :groupremove_leaf_only, [true, false]
+property :groupremove_leaf_only, [TrueClass, FalseClass]
 property :history_list_view, String, equal_to: %w(users commands single-user-commands)
-property :history_record, [true, false]
+property :history_record, [TrueClass, FalseClass]
 property :history_record_packages, String, regex: /.*/
 property :http_caching, String, equal_to: %w(packages all none)
 property :installonly_limit, String, regex: [/^\d+/, /keep/], default: '3'
 property :installonlypkgs, String, regex: /.*/
 property :installroot, String, regex: /.*/
-property :keepalive, [true, false]
-property :keepcache, [true, false], default: false
+property :keepalive, [TrueClass, FalseClass]
+property :keepcache, [TrueClass, FalseClass], default: false
 property :kernelpkgnames, String, regex: /.*/
-property :localpkg_gpgcheck, [true, false]
+property :localpkg_gpgcheck, [TrueClass, FalseClass]
 property :logfile, String, regex: /.*/, default: '/var/log/yum.log'
 property :max_retries, String, regex: /^\d+$/
 property :mdpolicy, String, equal_to: %w(instant group:primary group:small group:main group:all)
 property :metadata_expire, String, regex: [/^\d+$/, /^\d+[mhd]$/, /never/]
 property :mirrorlist_expire, String, regex: /^\d+$/
 property :multilib_policy, String, equal_to: %w(all best)
-property :obsoletes, [true, false]
-property :overwrite_groups, [true, false]
+property :obsoletes, [TrueClass, FalseClass]
+property :overwrite_groups, [TrueClass, FalseClass]
 property :password, String, regex: /.*/
 property :path, String, regex: /.*/, name_property: true
 property :persistdir, String, regex: /.*/
 property :pluginconfpath, String, regex: /.*/
 property :pluginpath, String, regex: /.*/
-property :plugins, [true, false], default: true
-property :protected_multilib, [true, false]
+property :plugins, [TrueClass, FalseClass], default: true
+property :protected_multilib, [TrueClass, FalseClass]
 property :protected_packages, String, regex: /.*/
 property :proxy, String, regex: /.*/
 property :proxy_password, String, regex: /.*/
 property :proxy_username, String, regex: /.*/
 property :recent, String, regex: /^\d+$/
 property :releasever, String, regex: /.*/
-property :repo_gpgcheck, [true, false]
+property :repo_gpgcheck, [TrueClass, FalseClass]
 property :reposdir, String, regex: /.*/
-property :reset_nice, [true, false]
+property :reset_nice, [TrueClass, FalseClass]
 property :rpmverbosity, String, equal_to: %w(info critical emergency error warn debug)
-property :showdupesfromrepos, [true, false]
-property :skip_broken, [true, false]
-property :ssl_check_cert_permissions, [true, false]
+property :showdupesfromrepos, [TrueClass, FalseClass]
+property :skip_broken, [TrueClass, FalseClass]
+property :ssl_check_cert_permissions, [TrueClass, FalseClass]
 property :sslcacert, String, regex: /.*/
 property :sslclientcert, String, regex: /.*/
 property :sslclientkey, String, regex: /.*/
-property :sslverify, [true, false]
+property :sslverify, [TrueClass, FalseClass]
 property :syslog_device, String, regex: /.*/
 property :syslog_facility, String, regex: /.*/
 property :syslog_ident, String, regex: /.*/
 property :throttle, String, regex: [/\d+k/, /\d+M/, /\d+G/]
 property :timeout, String, regex: /^\d+$/
-property :tolerant, [true, false]
+property :tolerant, [TrueClass, FalseClass]
 property :tsflags, String, regex: /.*/
 property :username, String, regex: /.*/
 property :options, Hash
