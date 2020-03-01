@@ -1,10 +1,6 @@
-# http://linux.die.net/man/5/yum.conf
-default['yum']['main']['cachedir'] = case node['platform_version'].to_i
-                                     when 5
-                                       '/var/cache/yum'
-                                     else
-                                       '/var/cache/yum/$basearch/$releasever'
-                                     end
+# http://man7.org/linux/man-pages/man5/yum.conf.5.html
+
+default['yum']['main']['cachedir'] = '/var/cache/yum/$basearch/$releasever'
 
 default['yum']['main']['distroverpkg'] = case node['platform']
                                          when 'amazon'
