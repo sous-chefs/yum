@@ -54,7 +54,7 @@ end
 
 This resource is now provided by chef-client 12.14 and later and has been removed from this cookbook. If you require this resource we highly recommend upgrading your chef-client, but if that is not an option you can pin the 4.X yum cookbook.
 
-## Recipes
+## Recipes (deprecated)
 
 - `default` - Configures `yum_globalconfig[/etc/yum.conf]` with values found in node attributes at `node['yum']['main']`
 
