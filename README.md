@@ -57,7 +57,6 @@ This resource is now provided by chef-client 12.14 and later and has been remove
 ## Recipes
 
 - `default` - Configures `yum_globalconfig[/etc/yum.conf]` with values found in node attributes at `node['yum']['main']`
-- `dnf_yum_compat` - Installs the yum package using dnf on Fedora systems to provide support for the package resource in recipes. This is necessary on chef-client < 12.18\. This recipe should be 1st on a Fedora runlist
 
 ## Attributes
 
