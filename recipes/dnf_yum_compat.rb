@@ -16,14 +16,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-execute 'make yum cache' do
-  command 'yum makecache'
-  action :nothing
-end
-
-execute 'install yum' do
-  command 'dnf install yum -y'
-  not_if { ::File.exist?('/var/lib/yum') }
-  action :nothing
-  notifies :run, 'execute[make yum cache]', :immediately
-end.run_action(:run)
+log "The dnf_yum_compat recipe is no longer necessary as Chef Infra Client includes native DNF support"
