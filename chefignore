@@ -51,10 +51,12 @@ spec/fixtures/*
 test/*
 features/*
 examples/*
+Guardfile
 Procfile
 .kitchen*
 .rubocop.yml
 spec/*
+Rakefile
 .travis.yml
 .foodcritic
 appveyor.yml
