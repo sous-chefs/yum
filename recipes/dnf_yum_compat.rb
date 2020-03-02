@@ -16,4 +16,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-log "The dnf_yum_compat recipe is no longer necessary as Chef Infra Client includes native DNF support"
+log 'The dnf_yum_compat recipe is no longer necessary as Chef Infra Client includes native DNF support'
