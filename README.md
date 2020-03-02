@@ -1,6 +1,7 @@
 # yum Cookbook
 
-[![Build Status](https://travis-ci.org/chef-cookbooks/yum.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum) [![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.chef.io/cookbooks/yum)
+![ci](https://github.com/chef-cookbooks/yum/workflows/ci/badge.svg?branch=master)
+[![Cookbook Version](https://img.shields.io/cookbook/v/yum.svg)](https://supermarket.chef.io/cookbooks/yum)
 
 The Yum cookbook exposes the `yum_globalconfig` resource which allows a user to control global yum behavior. This resources aims to allow the user to configure all options listed in the `yum.conf` man page, found at <http://man7.org/linux/man-pages/man5/yum.conf.5.html>
 
