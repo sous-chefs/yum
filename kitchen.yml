@@ -1,3 +1,4 @@
+---
 driver:
   name: vagrant
 
@@ -17,7 +18,7 @@ platforms:
   - name: centos-6
   - name: centos-7
   - name: centos-8
-  - name: fedora-29
+  - name: fedora-latest
 
 suites:
   - name: default
