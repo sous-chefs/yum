@@ -9,6 +9,8 @@ default['yum']['main']['distroverpkg'] = case node['platform']
                                            'sl-release'
                                          when 'redhat'
                                            nil
+                                         when 'oracle'
+                                           'oraclelinux-release'
                                          else
                                            "#{node['platform']}-release"
                                          end
