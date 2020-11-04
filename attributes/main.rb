@@ -1,7 +1,6 @@
 # http://man7.org/linux/man-pages/man5/yum.conf.5.html
 
 default['yum']['main']['cachedir'] = '/var/cache/yum/$basearch/$releasever'
-
 default['yum']['main']['distroverpkg'] = case node['platform']
                                          when 'amazon'
                                            'system-release'
@@ -9,6 +8,8 @@ default['yum']['main']['distroverpkg'] = case node['platform']
                                            'sl-release'
                                          when 'redhat'
                                            nil
+                                         when 'oracle'
+                                           'oraclelinux-release'
                                          else
                                            "#{node['platform']}-release"
                                          end
