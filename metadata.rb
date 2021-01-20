@@ -1,14 +1,17 @@
-name 'yum'
-maintainer 'Chef Software, Inc.'
-maintainer_email 'cookbooks@chef.io'
-license 'Apache-2.0'
-description 'Configures various yum components on Red Hat-like systems'
-version '5.1.0'
+name              'yum'
+maintainer        'Sous Chefs'
+maintainer_email  'help@sous-chefs.org'
+license           'Apache-2.0'
+description       'Configures various yum components on Red Hat-like systems'
+version           '5.1.0'
+source_url        'https://github.com/sous-chefs/yum'
+issues_url        'https://github.com/sous-chefs/yum/issues'
+chef_version      '>= 13'
 
-%w(amazon centos fedora oracle redhat scientific zlinux).each do |os|
-  supports os
-end
-
-source_url 'https://github.com/chef-cookbooks/yum'
-issues_url 'https://github.com/chef-cookbooks/yum/issues'
-chef_version '>= 13'
+supports 'amazon'
+supports 'centos'
+supports 'fedora'
+supports 'oracle'
+supports 'redhat'
+supports 'scientific'
+supports 'zlinux'

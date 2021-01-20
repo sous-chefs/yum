@@ -2,6 +2,18 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## Unreleased
+
+- Sous Chefs Adoption
+- Cookstyle fixes
+- Various testing fixes
+- Standardise files with files in sous-chefs/repo-management
+- Adding proper distroverpkg assignment for Oracle Linux
+- Require 13+
+- Remove RHEL5 references
+- Mark `dnf_yum_compat` recipe deprecated
+- Add EL8 support
+
 ## 5.1.0 (2017-08-04)
 
 - Avoid spec deprecation warnings
