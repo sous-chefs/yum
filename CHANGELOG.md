@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
-## Unreleased
+## 6.0.0 - *2021-01-20*
 
 - Sous Chefs Adoption
 - Cookstyle fixes
