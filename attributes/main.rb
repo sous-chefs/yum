@@ -47,6 +47,7 @@ default['yum']['main']['history_list_view'] = nil
 default['yum']['main']['history_record'] = nil # [true, false]
 default['yum']['main']['history_record_packages'] = nil
 default['yum']['main']['http_caching'] = nil # %w{ packages all none }
+default['yum']['main']['ip_resolve'] = nil # %w{ 4 6 }
 default['yum']['main']['installonly_limit'] = nil # /\d+/, /keep/
 default['yum']['main']['installonlypkgs'] = nil
 default['yum']['main']['installroot'] = nil
