@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## Unreleased
+
 ## 6.1.0 - *2021-03-24*
 
 - complete ip_resolve additions started in 6.0.0
