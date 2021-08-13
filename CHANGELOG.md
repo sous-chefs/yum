@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## Unreleased
+
 ## 7.0.0 - *2021-08-13*
 
 - Enable `unified_mode` for Chef 17 compatibility
