@@ -6,7 +6,7 @@ description       'Configures various yum components on Red Hat-like systems'
 version           '6.1.1'
 source_url        'https://github.com/sous-chefs/yum'
 issues_url        'https://github.com/sous-chefs/yum/issues'
-chef_version      '>= 13'
+chef_version      '>= 15.3'
 
 supports 'amazon'
 supports 'centos'
