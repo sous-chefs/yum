@@ -116,6 +116,13 @@ http_caching=<%= @config.http_caching %>
 <% if @config.ip_resolve %>
 ip_resolve=<%= @config.ip_resolve %>
 <% end %>
+<% unless @config.install_weak_deps.nil? %>
+<% if @config.install_weak_deps %>
+install_weak_deps=1
+<% else %>
+install_weak_deps=0
+<% end %>
+<% end %>
 <% if @config.installonly_limit %>
 installonly_limit=<%= @config.installonly_limit %>
 <% end %>

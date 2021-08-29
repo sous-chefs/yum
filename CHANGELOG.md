@@ -4,7 +4,11 @@ This file is used to list changes made in each version of the yum cookbook.
 
 ## Unreleased
 
+- Add support for DNF (Yum v4) property `install_weak_deps` (#193)
+
 ## 7.0.1 - *2021-08-26*
+
+- Standardise files with files in sous-chefs/repo-management (#191)
 
 ## 7.0.0 - *2021-08-13*
 
