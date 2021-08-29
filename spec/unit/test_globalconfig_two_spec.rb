@@ -53,6 +53,7 @@ describe 'yum_test::test_globalconfig_two' do
         history_record_packages=rpm
         http_caching=all
         ip_resolve=4
+        install_weak_deps=0
         installonly_limit=3
         installonlypkgs=kernel, emacs-nox
         installroot=/over/there
