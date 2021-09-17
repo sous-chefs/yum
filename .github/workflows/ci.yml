@@ -48,6 +48,14 @@ jobs:
           - oraclelinux-8
         suite:
           - default
+          - dnf-module
+        exclude:
+          - os: amazonlinux-2
+            suite: dnf-module
+          - os: centos-7
+            suite: dnf-module
+          - os: oraclelinux-7
+            suite: dnf-module
       fail-fast: false
 
     steps:

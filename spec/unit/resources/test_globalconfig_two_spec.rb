@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'yum_test::test_globalconfig_two' do
+describe 'test::test_globalconfig_two' do
   platform 'centos'
   step_into :yum_globalconfig
 

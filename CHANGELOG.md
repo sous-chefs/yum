@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the yum cookbook.
 
 ## Unreleased
 
+- Add `dnf_module` resource for managing DNF modules on RHEL 8+ / Fedora
+
 ## 7.1.0 - *2021-08-29*
 
 - Add support for DNF (Yum v4) property `install_weak_deps` (#193)
