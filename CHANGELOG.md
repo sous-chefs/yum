@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## Unreleased
+
 ## 7.2.0 - *2021-09-29*
 
 - Add `dnf_module` resource for managing DNF modules on RHEL 8+ / Fedora
