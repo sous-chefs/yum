@@ -41,6 +41,9 @@ describe 'dnf_module' do
 
       # needed for test to run
       it { is_expected.to install_dnf_module('test:1.0') }
+
+      # test once here, works the same for all the other actions
+      it { is_expected.to flush_cache_package('flush package cache test:1.0') }
     end
 
     context 'when module is already installed' do
@@ -195,6 +198,22 @@ describe 'dnf_module' do
 
       it { is_expected.to reset_dnf_module('test:1.0') }
     end
+  end
+
+  context 'no cache flush' do
+    recipe do
+      dnf_module 'test:1.0' do
+        flush_cache false
+        action :install
+      end
+    end
+
+    stubs_for_provider('dnf_module[test:1.0]') do |provider|
+      allow(provider).to receive_shell_out('dnf -q module list', stdout: removed_disabled)
+      allow(provider).to receive_shell_out("dnf -qy module install  'test:1.0'")
+    end
+
+    it { is_expected.to_not flush_cache_package('flush package cache test:1.0') }
   end
 
   context 'noop on C7' do
