@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'dnf_module' do
-  platform 'centos'
+  platform 'centos', '8'
   step_into :dnf_module
 
   installed_enabled = <<~EOF
