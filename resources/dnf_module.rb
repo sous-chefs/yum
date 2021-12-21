@@ -14,7 +14,7 @@ property :options, [String, Array],
 
 action_class do
   def supported?
-    (platform_family?('rhel') && node['platform_version'] >= 8) || platform?('fedora')
+    (platform_family?('rhel') && node['platform_version'].to_i >= 8) || platform?('fedora')
   end
 
   def list_modules(type)
