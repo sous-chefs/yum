@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## Unreleased
+
 ## 7.2.1 - *2021-12-21*
 
 - Fix version comparison in `dnf_module` supported check
