@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
-## Unreleased
+## 7.3.0 - *2022-01-07*
 
 - Add `flush_cache` option to `dnf_module`
 
