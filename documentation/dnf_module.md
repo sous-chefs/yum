@@ -17,10 +17,13 @@ These map to `dnf module` subcommands, documented [here](https://dnf.readthedocs
 
 ## Properties
 
-| Name          | Type                | Default       | Description                           |
-| ------------- | ------------------- | ------------- | ------------------------------------- |
-| `module_name` | `String`            | Resource name | Name of the module to install.        |
-| `options`     | `String` or `Array` |               | Any additional options to pass to DNF |
+| Name          | Type                | Default       | Description                                                     |
+| ------------- | ------------------- | ------------- | --------------------------------------------------------------- |
+| `module_name` | `String`            | Resource name | Name of the module to install.                                  |
+| `options`     | `String` or `Array` |               | Any additional options to pass to DNF                           |
+| `flush_cache` | `true`, `false`     | `true`        | Whether to flush the Chef package cache after the module action |
+
+Flushing Chef's package cache is needed when switching to a module stream added *during* the Chef run, e.g. from a new repo.
 
 ## Examples
 

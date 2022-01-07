@@ -12,6 +12,10 @@ property :options, [String, Array],
           default: [],
           description: 'Any additional options to pass to DNF'
 
+property :flush_cache, [true, false],
+          default: true,
+          description: 'Whether to flush the Chef package cache after enabling the module'
+
 action_class do
   def supported?
     (platform_family?('rhel') && node['platform_version'].to_i >= 8) || platform?('fedora')
@@ -43,6 +47,18 @@ action_class do
   def opts
     new_resource.options.join(' ')
   end
+
+  def flush_dnf_cache
+    # After switching to a new module installed during the Chef run, Chef's
+    # internal package cache won't pick up on new module packages automatically,
+    # so we need to reload that manually, much like after adding a new repo.
+    # This isn't needed for modules available at the start of the Chef run.
+    if new_resource.flush_cache
+      package "flush package cache #{new_resource.module_name}" do
+        action :flush_cache
+      end
+    end
+  end
 end
 
 action :switch_to do
@@ -52,6 +68,7 @@ action :switch_to do
     converge_by "switch to #{new_resource.module_name}" do
       shell_out!("dnf -qy module switch-to #{opts} '#{new_resource.module_name}'")
     end
+    flush_dnf_cache
   end
 end
 
@@ -62,6 +79,7 @@ action :enable do
     converge_by "enable #{new_resource.module_name}" do
       shell_out!("dnf -qy module enable #{opts} '#{new_resource.module_name}'")
     end
+    flush_dnf_cache
   end
 end
 
@@ -72,6 +90,7 @@ action :disable do
     converge_by "disable #{new_resource.module_name}" do
       shell_out!("dnf -qy module disable #{opts} '#{new_resource.module_name}'")
     end
+    flush_dnf_cache
   end
 end
 
@@ -82,6 +101,7 @@ action :install do
     converge_by "install #{new_resource.module_name}" do
       shell_out!("dnf -qy module install #{opts} '#{new_resource.module_name}'")
     end
+    flush_dnf_cache
   end
 end
 
@@ -92,6 +112,7 @@ action :remove do
     converge_by "remove #{new_resource.module_name}" do
       shell_out!("dnf -qy module remove #{opts} '#{new_resource.module_name}'")
     end
+    flush_dnf_cache
   end
 end
 
@@ -101,4 +122,5 @@ action :reset do
   converge_by "reset #{new_resource.module_name}" do
     shell_out!("dnf -qy module reset #{opts} '#{new_resource.module_name}'")
   end
+  flush_dnf_cache
 end
