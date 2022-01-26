@@ -14,13 +14,14 @@ verifier:
   name: inspec
 
 platforms:
+  - name: almalinux-8
   - name: amazonlinux-2
   - name: centos-7
-  - name: centos-8
   - name: centos-stream-8
   - name: fedora-latest
   - name: oraclelinux-7
   - name: oraclelinux-8
+  - name: rockylinux-8
 
 suites:
   - name: default

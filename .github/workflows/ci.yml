@@ -40,12 +40,14 @@ jobs:
     strategy:
       matrix:
         os:
+          - almalinux-8
           - amazonlinux-2
           - centos-7
-          - centos-8
+          - centos-stream-8
           - fedora-latest
           - oraclelinux-7
           - oraclelinux-8
+          - rockylinux-8
         suite:
           - default
           - dnf-module
