@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
-## Unreleased
+## 7.3.1 - *2022-01-27*
 
 - Add testing for Alma Linux and Rocky Linux
 - Remove testing for CentOS 8 (prefer Stream instead)
