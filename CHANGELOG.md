@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## Unreleased
+
 ## 7.4.0 - *2022-05-09*
 
 - Add support for DNF property `best`
