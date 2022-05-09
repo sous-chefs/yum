@@ -22,6 +22,7 @@ describe 'test::test_globalconfig_two' do
         alwaysprompt=true
         assumeyes=true
         bandwidth=40
+        best=true
         bugtracker_url=http://somewhere.eltz.biz
         cachedir=/path/to/somewhere/good
         clean_requirements_on_remove=true
@@ -46,6 +47,7 @@ describe 'test::test_globalconfig_two' do
         errorlevel=5
         exactarch=1
         exclude=kernel emacs-nox
+        excludepkgs=*.src
         gpgcheck=1
         group_package_types=default mandatory
         history_list_view=commands
@@ -84,6 +86,7 @@ describe 'test::test_globalconfig_two' do
         reset_nice=true
         rpmverbosity=warn
         showdupesfromrepos=true
+        skip_if_unavailable=true
         ssl_check_cert_permissions=true
         sslcacert=/path/to/cacert
         sslclientcert=/path/to/clientcert
