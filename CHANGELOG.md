@@ -6,6 +6,8 @@ This file is used to list changes made in each version of the yum cookbook.
 
 Standardise files with files in sous-chefs/repo-management
 
+Standardise files with files in sous-chefs/repo-management
+
 ## 7.3.2 - *2022-02-02*
 
 ## 7.3.1 - *2022-01-27*
