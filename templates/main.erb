@@ -11,6 +11,9 @@ assumeyes=<%= @config.assumeyes %>
 <% if @config.bandwidth %>
 bandwidth=<%= @config.bandwidth %>
 <% end %>
+<% unless @config.best.nil? %>
+best=<%= @config.best %>
+<% end %>
 <% if @config.bugtracker_url %>
 bugtracker_url=<%= @config.bugtracker_url %>
 <% end %>
@@ -89,6 +92,9 @@ exactarch=0
 <% end %>
 <% if @config.exclude %>
 exclude=<%= @config.exclude %>
+<% end %>
+<% if @config.excludepkgs %>
+excludepkgs=<%= @config.excludepkgs %>
 <% end %>
 <% if @config.gpgcheck %>
 gpgcheck=1
@@ -229,6 +235,9 @@ showdupesfromrepos=<%= @config.showdupesfromrepos %>
 <% end %>
 <% if @config.skip_broken %>
 skip_broken=<%= @config.skip_broken %>
+<% end %>
+<% unless @config.skip_if_unavailable.nil? %>
+skip_if_unavailable=<%= @config.skip_if_unavailable %>
 <% end %>
 <% if @config.ssl_check_cert_permissions %>
 ssl_check_cert_permissions=<%= @config.ssl_check_cert_permissions %>

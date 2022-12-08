@@ -4,6 +4,7 @@ yum_globalconfig '/tmp/yum-full.conf' do
   alwaysprompt true
   assumeyes true
   bandwidth '40'
+  best true
   bugtracker_url 'http://somewhere.eltz.biz'
   clean_requirements_on_remove true
   cachedir '/path/to/somewhere/good'
@@ -28,6 +29,7 @@ yum_globalconfig '/tmp/yum-full.conf' do
   errorlevel '5'
   exactarch true
   exclude 'kernel emacs-nox'
+  excludepkgs '*.src'
   gpgcheck true
   group_package_types 'default mandatory'
   groupremove_leaf_only false
@@ -69,6 +71,7 @@ yum_globalconfig '/tmp/yum-full.conf' do
   rpmverbosity 'warn'
   showdupesfromrepos true
   skip_broken false
+  skip_if_unavailable true
   ssl_check_cert_permissions true
   sslcacert '/path/to/cacert'
   sslclientcert '/path/to/clientcert'

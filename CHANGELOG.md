@@ -6,7 +6,11 @@ This file is used to list changes made in each version of the yum cookbook.
 
 Standardise files with files in sous-chefs/repo-management
 
-Standardise files with files in sous-chefs/repo-management
+## 7.4.0 - *2022-05-09*
+
+- Add support for DNF property `best`
+- Add support for DNF property `skip_if_unavailable`
+- Add support for DNF property `excludepkgs`
 
 ## 7.3.2 - *2022-02-02*
 
