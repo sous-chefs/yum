@@ -12,7 +12,7 @@ jobs:
     uses: sous-chefs/.github/.github/workflows/lint-unit.yml@0.0.3
 
   integration:
-    needs: 'lint-unit'
+    needs: "lint-unit"
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -41,9 +41,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Install Chef
-        uses: actionshub/chef-install@main
+        uses: actionshub/chef-install@2.0.4
       - name: Dokken
-        uses: actionshub/test-kitchen@main
+        uses: actionshub/test-kitchen@2.1.0
         env:
           CHEF_LICENSE: accept-no-persist
           KITCHEN_LOCAL_YAML: kitchen.dokken.yml
