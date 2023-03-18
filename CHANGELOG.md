@@ -4,29 +4,36 @@ This file is used to list changes made in each version of the yum cookbook.
 
 ## Unreleased
 
+- Update gaurav-nelson/github-action-markdown-link-check action to v1.0.15
+- Fix yaml
+
 ## 7.4.7 - *2023-03-15*
 
-Standardise files with files in sous-chefs/repo-management
+- Standardise files with files in sous-chefs/repo-management
 
 ## 7.4.6 - *2023-02-27*
 
+- remove circleci
+
 ## 7.4.5 - *2023-02-23*
 
-Standardise files with files in sous-chefs/repo-management
+- Standardise files with files in sous-chefs/repo-management
 
 ## 7.4.4 - *2023-02-16*
 
-Standardise files with files in sous-chefs/repo-management
+- Standardise files with files in sous-chefs/repo-management
 
 ## 7.4.3 - *2023-02-15*
 
+- Update Actions
+
 ## 7.4.2 - *2023-02-15*
 
-Standardise files with files in sous-chefs/repo-management
+- Standardise files with files in sous-chefs/repo-management
 
 ## 7.4.1 - *2022-12-08*
 
-Standardise files with files in sous-chefs/repo-management
+- Standardise files with files in sous-chefs/repo-management
 
 ## 7.4.0 - *2022-05-09*
 
