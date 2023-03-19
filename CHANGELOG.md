@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the yum cookbook.
 
 ## Unreleased
 
+Standardise files with files in sous-chefs/repo-management
+
 ## 7.4.8 - *2023-03-18*
 
 - Update gaurav-nelson/github-action-markdown-link-check action to v1.0.15
