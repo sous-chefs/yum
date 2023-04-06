@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the yum cookbook.
 
 ## Unreleased
 
+Standardise files with files in sous-chefs/repo-management
+
 ## 7.4.11 - *2023-04-01*
 
 ## 7.4.10 - *2023-04-01*
