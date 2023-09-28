@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum cookbook.
 
+## Unreleased
+
 ## 7.4.14 - *2023-09-28*
 
 ## 7.4.13 - *2023-04-17*
