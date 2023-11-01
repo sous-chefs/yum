@@ -377,7 +377,6 @@ Reverting to Ruby 1.8 hash syntax.
 
 ### Improvement
 
-- [COOK-2741]: yum::elrepo
 - [COOK-2946]: update tests, test kitchen support in yum cookbook
 
 ### Bug
