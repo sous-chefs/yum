@@ -1,6 +1,6 @@
-[Back to resource list](../README.md#Resources)
-
 # `dnf_module`
+
+[Back to resource list](../README.md#Resources)
 
 Provides interactions with the `dnf module` commands.
 

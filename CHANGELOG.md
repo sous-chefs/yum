@@ -179,7 +179,7 @@ Standardise files with files in sous-chefs/repo-management
 
 ## v3.8.2 (2015-10-28)
 
-- # 141 - Replace clean_headers with clean_metadata
+- #141 - Replace clean_headers with clean_metadata
 
 ## v3.8.1 (2015-10-28)
 
@@ -194,7 +194,7 @@ Standardise files with files in sous-chefs/repo-management
 
 ## v3.7.1 (2015-09-08)
 
-- # 135 - reverting "yum clean headers" as it breaks dnf compat
+- #135 - reverting "yum clean headers" as it breaks dnf compat
 
 ## v3.7.0 (2015-09-05)
 
@@ -276,13 +276,13 @@ Standardise files with files in sous-chefs/repo-management
 
 ## v3.2.4 (2014-08-20)
 
-- # 82 - Adding a makecache parameter
+- #82 - Adding a makecache parameter
 
 ## v3.2.2 (2014-06-11)
 
-- # 77 - Parameter default to be Trueclass instead of "1"
+- #77 - Parameter default to be Trueclass instead of "1"
 
-- # 78 - add releasever parameter
+- #78 - add releasever parameter
 
 ## v3.2.0 (2014-04-09)
 
