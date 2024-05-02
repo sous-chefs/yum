@@ -1,6 +1,6 @@
-[Back to resource list](../README.md#Resources)
-
 # `yum_globalconfig`
+
+[Back to resource list](../README.md#Resources)
 
 This renders a template with global yum configuration parameters. The default recipe uses it to render `/etc/yum.conf`. It is flexible enough to be used in other scenarios, such as building RPMs in isolation by modifying `installroot`.
 
