@@ -5,6 +5,11 @@ This file is used to list changes made in each version of the yum cookbook.
 Standardise files with files in sous-chefs/repo-management
 Standardise files with files in sous-chefs/repo-management
 
+## Unreleased
+
+Standardise files with files in sous-chefs/repo-management
+
+
 ## [7.4.22](https://github.com/sous-chefs/yum/compare/7.4.21...v7.4.22) (2025-10-16)
 
 
