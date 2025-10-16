@@ -5,6 +5,13 @@ This file is used to list changes made in each version of the yum cookbook.
 Standardise files with files in sous-chefs/repo-management
 Standardise files with files in sous-chefs/repo-management
 
+## [7.4.22](https://github.com/sous-chefs/yum/compare/7.4.21...v7.4.22) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#239](https://github.com/sous-chefs/yum/issues/239)) ([838b9fa](https://github.com/sous-chefs/yum/commit/838b9faddc556c8be99cb6d649074febee482bd9))
+
 ## 7.4.19 - *2024-11-18*
 
 Standardise files with files in sous-chefs/repo-management
