@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook:: yum
 # Resource:: repository
@@ -20,7 +22,30 @@
 
 # http://man7.org/linux/man-pages/man5/yum.conf.5.html
 
+provides :yum_globalconfig
 unified_mode true
+
+action_class do
+  def default_distroverpkg
+    case node['platform']
+    when 'amazon'
+      'system-release'
+    when 'scientific'
+      'sl-release'
+    when 'redhat'
+      nil
+    when 'oracle'
+      'oraclelinux-release'
+    else
+      "#{node['platform']}-release"
+    end
+  end
+
+  def apply_platform_defaults
+    new_resource.distroverpkg(default_distroverpkg) if new_resource.distroverpkg.nil? && !default_distroverpkg.nil?
+    new_resource.releasever('latest') if new_resource.releasever.nil? && platform?('amazon')
+  end
+end
 
 property :alwaysprompt, [true, false], description: 'When true yum will not prompt for confirmation when the list of packages to be installed exactly matches those given on the command line. Unless assumeyes is enabled, it will prompt when additional packages need to be installed to fulfill dependencies regardless of this setting. Note that older versions of yum would also always prompt for package removal, and that is no longer true.'
 property :assumeno, [true, false], description: "If yum would prompt for confirmation of critical actions, assume the user chose no. This is basically the same as doing 'echo | yum ...'  but is a bit more usable. This option overrides assumeyes, but is still subject to alwaysprompt."
@@ -154,6 +179,8 @@ property :usr_w_check, [true, false], description: "Set this to false to disable
 alias_method :max_retries, :retries
 
 action :create do
+  apply_platform_defaults
+
   template new_resource.path do
     source 'main.erb'
     cookbook 'yum'
