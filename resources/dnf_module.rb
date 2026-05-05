@@ -1,4 +1,5 @@
-resource_name :dnf_module
+# frozen_string_literal: true
+
 provides :dnf_module
 
 unified_mode true

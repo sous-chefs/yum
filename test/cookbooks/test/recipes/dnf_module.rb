@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 package 'nodejs'
 
 dnf_module 'ruby:2.7' do

@@ -25,6 +25,9 @@ These map to `dnf module` subcommands, documented [here](https://dnf.readthedocs
 
 Flushing Chef's package cache is needed when switching to a module stream added *during* the Chef run, e.g. from a new repo.
 
+The resource is a no-op on platforms that do not support DNF modules, including
+RHEL-family platforms before major version 8.
+
 ## Examples
 
 Enable or update the Postgres module and related installed packages to PG 13:
