@@ -5,6 +5,22 @@ This file is used to list changes made in each version of the yum cookbook.
 Standardise files with files in sous-chefs/repo-management
 Standardise files with files in sous-chefs/repo-management
 
+## [8.0.0](https://github.com/sous-chefs/yum/compare/v7.4.22...v8.0.0) (2026-05-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate yum to custom resources ([#245](https://github.com/sous-chefs/yum/issues/245))
+
+### Features
+
+* migrate yum to custom resources ([#245](https://github.com/sous-chefs/yum/issues/245)) ([22bad58](https://github.com/sous-chefs/yum/commit/22bad58dfc6b078ee1d578db620dcbf6f2130075))
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#239](https://github.com/sous-chefs/yum/issues/239)) ([838b9fa](https://github.com/sous-chefs/yum/commit/838b9faddc556c8be99cb6d649074febee482bd9))
+
 ## [7.4.22](https://github.com/sous-chefs/yum/compare/7.4.21...v7.4.22) (2025-10-16)
 
 
