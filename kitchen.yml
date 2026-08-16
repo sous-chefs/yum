@@ -46,10 +46,12 @@ x-verifiers:
 
 suites:
   - name: default
+    named_run_list: default
     run_list: *default_run_list
     verifier: *default_verifier
 
   - name: dnf_module
+    named_run_list: dnf_module
     run_list: *dnf_module_run_list
     verifier: *dnf_module_verifier
     excludes:
